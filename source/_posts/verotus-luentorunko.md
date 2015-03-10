@@ -1,10 +1,11 @@
 title: "Verotus (luentorunko)"
 date: 2015-03-09 18:34:43
 tags:
+- Ekonomivalmennus
+- Mab7
+- Talousmatematiikka
 categories:
-- mab
-- talousmatematiikka
-- verotus
+- Verotus
 
 ---
 
