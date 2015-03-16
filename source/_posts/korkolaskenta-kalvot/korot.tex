@@ -1,0 +1,602 @@
+\documentclass{beamer}
+\input{../../_texPartials/preamble}
+\usecolortheme{whale}
+\setbeamercolor{block title}{use=frametitle, bg=frametitle.bg, fg=frametitle.fg}
+\setbeamercolor{block body}{use=frametitle, bg=frametitle.bg!40!white, fg=black}
+\usepackage{eurosym}
+\usepackage{hyperref}
+\usepackage{graphicx}
+\newcommand{\pblock}{\\ \vspace{0.5cm}\pause}
+\newcommand{\socrativeOhje}{
+\begin{itemize}
+\item Surffaa osoitteeseen \url{m.socrative.com} (tai \url{socrative.com})
+\item Siirry huoneeseen nimeltä \url{hruoho}
+\end{itemize}
+}
+
+\newcommand{\taukoKysymys}{
+\socrativeOhje
+	\begin{block}{Kysymys}
+	Mielestäni tähän väliin täydellinen tauko on
+	\begin{enumerate}[(A)]
+		\item 10 min
+		\item 20 min
+		\item 30 min
+		\item Vähemmän 
+		\item Enemmän
+	\end{enumerate}	
+	\end{block}
+}
+\title{Talousmatematiikkaa: korkolaskenta}
+\begin{document}
+\begin{frame}
+\maketitle
+\end{frame}
+\begin{frame}
+    \frametitle{Korkolaskenta}
+    Tarkastellaan seuraavassa pääasiassa talletusten kasvamia korkoja
+    \pblock
+    Korkolaskenta jaetaan \emph{yksinkertaiseen korkolaskentaan} ja \emph{koronkorkolaskuihin}
+    \pblock
+    Keskeisiä käsitteitä mm.
+    \begin{itemize}
+        \item korkoaika (aika, jonka talletus kasvaa korkoa),
+        \item korkokausi (koron maksuväli),
+        \item korkokanta (korkoprosentti),
+        \item lähdevero (30\%)
+    \end{itemize}
+\end{frame}
+
+\begin{frame}
+    \frametitle{Yksinkertainen korkolasku}
+    Kun korkoaika on lyhyempi kuin korkokausi, puhutaan yksinkertaisesta korkolaskusta.
+    \pause
+    \begin{block}{}
+        Korko \(r\) riippuu alkuperäisestä pääomasta \(k\), korkokannasta \(i\) ja korkoajasta \(t\):\pause
+        \[
+        r = kit
+        \]\pause
+        Kasvanut pääoma \(K\) saadaan lisäämällä korko alkuperäiseen pääomaan:\pause
+        \[
+        K = k + r = k + kit
+        \]
+    \end{block}
+    Huomaa, että korkoaika on ilmaistava samassa yksikössä, kuin korkokausi.
+\end{frame}
+
+\begin{frame}
+    \frametitle{Korkolaskenta}
+    \begin{esim}
+        Tilin korkokanta on 2,2 \% p.a. ja tilille talletetaan 2 500 euroa.
+        Kuinka paljon talletukselle maksetaan kahdeksan kuukauden ajalta korkoa? Huomioi korosta perittävä 30 \% lähdevero.
+    \end{esim}
+    \pause
+    Tässä esimerkissä
+    \begin{itemize}
+        \item korkoaika: 8 kk eli 8/12 vuotta
+        \item korkokausi: 1 vuosi
+        \item korkokanta: 2,2 \%
+        \item lähdevero: 30 \%
+    \end{itemize}
+\end{frame}
+
+\begin{frame}
+    \pause
+    \begin{ratkaisu}
+        Kun lähdevero otetaan huomioon, korko on
+         \[
+            r = kit = 2500\cdot 0,70\cdot 0,022 \cdot \frac{8}{12}\approx 25,67
+         \]
+         euroa.
+    \end{ratkaisu}
+\end{frame}
+
+\begin{frame}
+    \frametitle{Korkolaskenta}
+    \pause Usein käytettyjä korkokausia lyhenteineen:
+    \begin{itemize}
+        \item kerran vuodessa: p.a. (\emph{per anno}) \pause
+        \item kerran puolessa vuodessa: p.s. (\emph{per season}) \pause
+        \item kerran neljännesvuodessa: p.q. (\emph{per quarter}) \pause
+        \item kerran kuussa: per kk \pause
+    \end{itemize}
+    Huomaa, että kertynyt korko liitetään pääomaan aina korkokauden \emph{lopussa}
+\end{frame}
+
+
+\begin{frame}
+    \frametitle{Yksinkertainen korkolaskenta: nettokorko}
+    \pause
+    \begin{itemize}
+        \item \emph{Nettokorko} tarkoittaa korkoa, joka jää jäljelle lähdeveron maksamisen jälkeen
+        \item \emph{Nettokorkokanta} tarkoittaa korkokantaa, jonka avulla nettokorko voidaan laskea suoraan
+    \end{itemize}
+    \pause
+    \begin{esim}
+        Talletetaan 9000 euroa tilille, jonka korkokanta on 0,75 \% p.a.
+        \pause Laske koron ja nettokoron suuruus, kun talletusaika on kolme kuukautta.
+    \end{esim}
+    \pause
+\end{frame}
+
+\begin{frame}
+    \begin{ratkaisu}
+        Nyt korkokanta on \pause $i = 0{,}75 \ \%  = 0{,}0075$ ja nettokorkokanta \pause $0{,}70i = 0{,}70 \cdot 0{,}0075 = 0,00525$.
+        Talletusaika, ts. korkoaika, on 3/12 vuotta. Siten koron suuruus on
+        \[
+            r = kit = 9000\cdot 0,0075\cdot \frac{3}{12}\approx 16,88
+        \]
+        euroa ja nettokoron
+        \[
+            9000\cdot 0,00525\cdot\frac{3}{12}\approx 11,81
+        \]
+        euroa.
+    \end{ratkaisu}
+\end{frame}
+
+\begin{frame}
+    \begin{esim}
+        Mikä pääoma tuottaa neljässä kuukaudessa nettokorkoa 150 euroa, jos korkokanta on 3{,}6 \% p.a.? Muista, että lähdevero on 30 \%.
+    \end{esim}\pause
+    \begin{ratkaisu}
+        Olkoon \(k\) tuntematon pääoma. \pause Nettokorkokanta on \(0,70\cdot0,036 = 0,0252\).
+        \pause Korkokausi on yksi vuosi ja korkoaika 4/12 vuotta.
+        \pause Kaavan mukaan on oltava
+        \[
+            150 = k\cdot 0,0252\cdot \frac{4}{12} = k\cdot 0,0084,
+        \]
+        \pause
+        joten
+        \[
+            k = \frac{150}{0,0084}\approx 17857,14
+        \]
+        euroa.
+    \end{ratkaisu}
+\end{frame}
+
+\begin{frame}
+    \frametitle{Yksinkertainen korkolaskenta: lähdeveron pyöristyssääntö}
+    \pause
+    %\begin{esim}
+     %   Talletat huhtikuun alussa 100 000 euroa tilille, jonka korkokanta on 2{,}6~\%~p.a.
+      %  Kuinka paljon voit nostaa tililtäsi 100 päivän kuluttua? Huomioi 30 \% lähdevero ja sen pyöristyssääntö.
+    %\end{esim}
+    \pause
+    Lähdeveroon liittyy erikoinen \emph{pyöristyssääntö}:
+    lähdevero lasketaan jokaisesta maksetusta korkoerästä täysin kymmenin sentein siten,
+    että yli menevät sentit jätetään huomioimatta.
+    \pblock
+    Pyöristyssääntö jätetään usein huomioimatta tehtävien ratkaisuissa.
+\end{frame}
+
+\begin{frame}
+    \frametitle{Yksinkertainen korkolaskenta: korkopäivät}
+    \pause
+    Koron laskeminen voi vaatia \emph{korkopäivien lukumäärän} selvittämisen.
+    \pause
+    \begin{esim}
+        800 euron talletukselle maksetaan vuotuista korkoa 9 \%. Kuinka paljon korkoa kertyy ajalta 2.4.--16.6.2014?
+    \end{esim}
+    \pause
+    Korkoaikaa selvitettäessä talletuspäivää ei lasketa mukaan, nostopäivä lasketaan.
+\end{frame}
+
+\begin{frame}
+    \begin{ratkaisu}
+        Nettokorkokanta on \(0,70\cdot0,09 = 0,063\). Lasketaan korkopäivien lukumäärät:
+        \begin{itemize}
+            \item Huhtikuussa on 30 päivää, joten huhtikuulta korkopäiviä kertyy 30-2 = 28 kpl.
+            \item Toukokuulta päiviä kertyy 31
+            \item Kesäkuulta päiviä kertyy 16
+        \end{itemize}
+        Yhteensä korkopäiviä kertyy 75, joten koron suuruus on
+        \[
+            r = kit = 800\cdot 0,063\cdot \frac{75}{365} = 10,36
+        \]
+        euroa. Jos kyseessä on karkausvuosi, koron suuruus on
+        \[
+            r = kit = 800\cdot 0,063\cdot \frac{75}{366} = 10,33
+        \]
+        euroa. Tämä ei ole ainoa tapa laskea korkoajan osuutta vuodesta.
+    \end{ratkaisu}
+\end{frame}
+
+\begin{frame}
+    \frametitle{Yksinkertainen korkolasku}
+    \begin{block}{Korkoajan laskeminen (3 tapaa)}
+        \begin{itemize}
+            \item \emph{Todelliset/365}: todellinen päivien lkm, vuodessa 365 (366) päivää
+            \item \emph{Todelliset/360}: todellinen päivien lkm, vuodessa 360 päivää
+            \item \emph{30/360}: kuukaudessa 30 päivää, vuodessa 360 päivää
+        \end{itemize}
+    \end{block}
+    \begin{figure}
+        \includegraphics[scale=0.7]{months}
+    \end{figure}
+\end{frame}
+
+\begin{frame}
+    \frametitle{Yksinkertainen korkolasku}
+    \begin{esim}
+        Tilille, jonka korkokanta on 0,75 \% p.a., talletetaan tammikuun 13. päivä 700 euroa. \pause
+        Laske kertyneen koron suuruus samana vuonna
+        \begin{enumerate}[(a)]
+            \item 13.5.
+            \item 7.9.
+        \end{enumerate}
+        Käytä yleistä laskutapaa todelliset/360.
+    \end{esim}
+\end{frame}
+
+\begin{frame}
+    \begin{ratkaisu}
+        \begin{enumerate}[(a)]
+            \item
+                \begin{itemize}
+                    \item Tammikuussa päiviä kertyy 31-13 = 18 kpl.
+                    \item Helmikuussa päiviä on 28, maaliskuussa 31, huhtikuussa 30.
+                    \item Toukokuulta päiviä kertyy 13.
+                \end{itemize}
+            Yhteensä korkopäiviä kertyy siis 120 kpl. Koron suuruus on lähdevero huomioiden
+            \[
+                r = kit = 700\cdot 0,70\cdot0,0075\cdot\frac{120}{360} \approx 1,23
+            \]
+            euroa.
+        \end{enumerate}
+    \end{ratkaisu}
+\end{frame}
+
+\begin{frame}
+    \begin{ratkaisu}
+        \begin{itemize}
+            \item[(b)]
+                \begin{itemize}
+                    \item Tammikuussa päiviä kertyy 31-13 = 18 kpl.
+                    \item Helmikuussa päiviä on 28, maaliskuussa 31, huhtikuussa 30, toukokuussa 31, kesäkuussa 30
+                    \item Heinäkuussa ja elokuussa päiviä on 31
+                    \item Syyskuulta päiviä kertyy 7
+                \end{itemize}
+            Yhteensä korkopäiviä kertyy siis 237 kpl. Koron suuruus on lähdevero huomioiden
+            \[
+                r = kit = 700\cdot 0,70\cdot0,0075\cdot\frac{237}{360} \approx 2,42
+            \]
+            euroa.
+        \end{itemize}
+    \end{ratkaisu}
+\end{frame}
+
+\begin{frame}
+    \frametitle{Aritmeettinen jono ja summa}
+    \begin{block}{Aritmeettinen jono}
+        Lukujono \pause on \emph{aritmeettinen}, jos sen peräkkäisten jäsenten erotus (etäisyys) on vakio.
+    \end{block}
+    \pause
+    \begin{block}{Aritmeettinen summa}
+        \emph{Aritmeettinen summa} \pause on aritmeettisen lukujonon ($n$ ensimmäisen jäsenen) summa. \pause Se saadaan kaavasta
+        \[
+            S_n = n \cdot \frac{a_1 + a_n}{2}\,,
+        \]
+        \pause missä $n$ on yhteenlaskettavien lukumäärä, \pause $a_1$ summan ensimmäinen termi ja \pause $a_n$ summan viimeinen termi.
+    \end{block}
+    \pause
+    Aritmeettisen summan kaava on oivallinen työkalu, kun tarkastellaan toistuvia talletuksia yksinkertaisen korkolaskennan puitteissa.
+\end{frame}
+
+\begin{frame}
+    \frametitle{Yksinkertainen korko - toistuvat talletukset}
+    \begin{esim}
+        Tilille, jonka korkokanta on 1,5 \% p.a, talletetaan maaliskuusta alkaen 100 euroa kunkin kuukauden lopussa.
+        Viimeinen talletus tehdään joulukuun lopussa, jonka jälkeen tilille maksetaan korko. Laske koron ja nettokoron suuruus.
+    \end{esim}
+\end{frame}
+
+\begin{frame}
+    \frametitle{Yksinkertainen korko}
+	\begin{ratkaisu}
+		\begin{itemize}
+			\item Maaliskuun talletus kasvaa korkoa huhti--joulukuun eli 9 kk
+			\item Huhtikuun talletus kasvaa korkoa 8 kk
+			\item Toukokuun talletus kasvaa korkoa 7 kk jne.
+			\item Marraskuun talletus kasvaa korkoa yhden kuukauden
+			\item Joulukuun talletus ei kasva korkoa
+		\end{itemize}
+	\end{ratkaisu}
+\end{frame}
+
+\begin{frame}
+\frametitle{Yksinkertainen korko}
+	\begin{ratkaisu}		
+		Edellisen perusteella koron suuruus on 
+		\begin{align*}
+			&100\cdot0,015\cdot\frac{8}{12}+100\cdot0,015\cdot\frac{7}{12}+\ldots+100\cdot0,015\cdot\frac{1}{12} \\
+			&= 100\cdot0,015\cdot\left(\frac{9}{12} + \frac{8}{12} + \cdots +\frac{1}{12}\right)\\
+			&= 100\cdot0,015\cdot\frac{1}{12}\cdot(9+8+\cdots+1)\\
+			&= \frac{1,5}{12}\cdot(9+8+\cdots+1)\\
+			&= \frac{1,5}{12}\cdot\left( 9\cdot\frac{9+1}{2}\right) = 5,625
+		\end{align*}
+		euroa. Lähdeveron jälkeen nettokoroksi jää \(0,70\cdot5,625=3,94\) euroa.
+	\end{ratkaisu}
+\end{frame}
+
+\begin{frame}
+\frametitle{Koronkorko}
+	\begin{esim}
+		Säästötilille, jonka korkokanta on 1,5~\% p.a. talletetaan 1500 euroa.
+		Kuinka paljon tililtä on nostettavissa rahaa viiden vuoden kuluttua, jos lähdevero
+		\begin{enumerate}[(a)]
+			\item jätetään huomiotta
+			\item huomioidaan?
+		\end{enumerate}
+	\end{esim}
+\end{frame}
+
+\begin{frame}
+\frametitle{Koronkorko}
+	\begin{block}{Kasvanut pääoma koronkoron tapauksessa}
+		\[
+			K = kq^n
+		\]
+		Kasvanut pääoma \(K\) riippuu alkuperäisestä pääomasta \(k\), korkotekijästä \(q\) ja korkokausien lukumäärästä \(n\)
+	\end{block}
+	Yllä korkotekijä (tai korkokerroin) \(q\) on korkokannasta saatava prosenttikerroin.
+\end{frame}
+
+\begin{frame}
+ 	\begin{ratkaisu}
+ 		\begin{enumerate}[(a)]
+ 			\item Jos lähdevero jätetään huomiotta, korkotekijä on \(1+ 0,015 = 1,015\) ja kasvanut pääoma
+ 			\(K=1500\cdot1,015^5\approx 1615,93\) euroa.
+ 			\item Jos lähdevero huomioidaan, korkotekijä on \(1+0,7\cdot0,015=	1,0105\). Silloin kasvanut pääoma on
+ 			\(K=1500\cdot1,0105^5\approx	1580,42\) euroa.
+ 		\end{enumerate}
+ 	\end{ratkaisu}
+\end{frame}
+
+\begin{frame}
+    \frametitle{Geometrinen jono ja summa}
+    \pause
+    \begin{block}{Geometrinen jono}
+        Lukujono on \emph{geometrinen}, jos sen peräkkäisten jäsenten suhde (osamäärä) on vakio.
+    \end{block}
+    \pause
+    \begin{block}{Geometrinen summa}
+        \emph{Geometrinen summa} tarkoittaa geometrisen jonon ($n$ ensimmäisen jäsenen) summaa. Se saadaan kaavasta
+        \[
+            S_n = a_1\cdot \frac{1-q^n}{1-q}, \qquad q\neq 1,
+        \] \pause
+        missä \(n\) on summattavien lukumäärä,
+        \pause \(a_1\) ensimmäinen summattava
+        \pause ja \(q\) suhdeluku.
+    \end{block}
+\end{frame}
+
+\begin{frame}
+\frametitle{Koronkorko: toistuvat talletukset}
+	\begin{esim}
+		Säästötilille, jonka korkokanta on 2,7 \% p.a. talletetaan 900 euroa vuosittain aina vuoden alussa.
+		Kuinka paljon tililtä on nostettavissa rahaa viiden vuoden kuluttua ensimmäisestä talletuksesta?
+		Kuinka paljon korkoa on kertynyt yhteensä?
+	\end{esim}
+\end{frame}
+
+\begin{frame}
+	\begin{ratkaisu}
+		Korkokanta on 0,027, joten nettokorkokanta on \(0,7\cdot0,027 = 0,0189\).
+		Siis korkotekijä on \(1+0,7\cdot0,027 =	1,0189\).
+		\begin{itemize}
+		    \item Ensimmäinen talletus kasvaa korkoa 5 vuotta, eli tulee \(1,0189^5\)-kertaiseksi\pause
+		    \item Toinen talletus kasvaa korkoa 4 kertaa, eli tulee \(1,0189^4\)-kertaiseksi\pause
+		    \item Kolmas talletus kasvaa korkoa 3 kertaa, eli tulee \(1,0189^3\)-kertaiseksi\pause
+		    \item Neljäs talletus kasvaa korkoa 2 kertaa, eli tulee \(1,0189^2\)-kertaiseksi\pause
+		    \item Viides talletus kasvaa korkoa yhden kerran, eli tulee \(1,0189\)-kertaiseksi
+		\end{itemize}
+	\end{ratkaisu}
+\end{frame}
+
+
+\begin{frame}
+    \begin{ratkaisu}
+        Kaiken kaikkiaan viiden vuoden kuluttua tilillä on rahaa
+        \begin{multline*}
+            900\cdot1,0189^5 + 900\cdot1,0189^4 + 900\cdot1,0189^3\\
+             +900\cdot1,0189^2 + 900\cdot1,0189
+        \end{multline*}
+        euroa, eli\pause
+        \begin{align*}
+            &900(1,0189^5 + 1,0189^4 + 1,0189^3 + 1,0189^2 + 1,0189)\\
+            =&900(1,0189 + 1,0189^2 + 1,0189^3 + 1,0189^4 + 1,0189^5)\\
+            =&900\cdot1,0189\cdot\frac{1-1,0189^5}{1-1,0189}\\
+            \approx & 4761,67
+        \end{align*}
+        euroa. \pause Korkoa on saatu \(4761,68-5\cdot900 = 261,68\) euroa.
+    \end{ratkaisu}
+\end{frame}
+
+\begin{frame}
+    \frametitle{Koronkorkolaskenta: toistuvat talletukset}
+    \pause
+    \begin{esim}
+        Avaat vuoden alussa tilin, jolle talletat joka kuukauden alussa 100 euroa.
+        Tilin korkokanta on 2 \%. Kuinka paljon rahaa tilillä on kolmen vuoden kuluttua korkojen lisäämisen jälkeen?
+        Kuinka paljon korkoa on kertynyt yhteensä? Huomioi 30 \% lähdevero.
+    \end{esim}
+\end{frame}
+
+\begin{frame}
+    \frametitle{Koronkorkolaskenta: toistuvat talletukset}
+    \pause
+    \begin{ratkaisu}
+        Tarkastellaan ensin yhden vuoden tilannetta. Tammikuussa talletetun summan korkoaika on 12/12 vuotta, helmikuussa
+        talletetun summan 11/12 vuotta jne. Nettokorkokanta on \(0,70\cdot 0,02 = 0,014\).
+        Vuoden lopussa tilille maksettava korko on siis \pause
+        \begin{align*}
+             &100\cdot0,014\cdot\frac{12}{12} + 100\cdot0,014\cdot\frac{11}{12} + \ldots + 100\cdot0,014\cdot\frac{1}{12}\\
+            =&100\cdot0,014\cdot\frac{1}{12}\cdot(12+11+\ldots+1) = 100\cdot0,014\cdot\frac{1}{12}\cdot78\\
+            =&9,10
+        \end{align*}
+        euroa. Tilille vuosittain talletettava summa 1200 euroa kasvaa siis korkoa 9,10 euroa samana vuonna.
+    \end{ratkaisu}
+\end{frame}
+
+\begin{frame}
+    \begin{ratkaisu}
+        Kukin näin laskettu vuosittainen summa kasvaa seuraavan kerran korkoa vasta seuraavana vuonna.
+        \pause
+        Näin ollen tilillä on loppujen lopuksi, eli kolmen vuoden kuluttua ensimmäisestä talletuksesta, rahaa \pause
+        \[
+            1209,10\cdot 1,014^2+1209,10\cdot1,014+1209,10\approx 3678,32
+        \]
+        euroa. Kaiken kaikkiaan tilille on talletettu \(3\cdot12\cdot100 = 3600\) euroa. Korkoa on siis kertynyt yhteensä 78,32 euroa.
+    \end{ratkaisu}
+\end{frame}
+
+\begin{frame}
+    \frametitle{Diskonttaus}
+    \pause
+    \begin{esim}
+        Kuinka paljon pitäisi tallettaa pankkitilille, jotta neljän vuoden kuluttua siltä olisi nostettavissa 1 000 euroa? 
+        Tilin vuotuinen korko on 4 \%. Ratkaise tehtävä
+        \begin{enumerate}
+            \item[(a)] olettaen, että lähdeveroa ei peritä.
+            \item[(b)] lähdevero huomioiden.
+        \end{enumerate}
+    \end{esim}
+    \pause
+    Korkokausien aikana kertyneen koron poistamista pääoman arvosta eli alkuperäisen pääoman selvittämistä kutsutaan 
+    \emph{diskonttaukseksi}.
+    %Tähän liittyi myös yksinkertaisen korkolaskennan esimerkki aiemmin.
+    \pause
+    Diskonttauksella saatua alkuperäistä pääomaa nimitetään \emph{nykyarvoksi}.
+\end{frame}
+
+\begin{frame}
+    \begin{ratkaisu}
+        Olkoon alkuperäinen pääoma \(k\).
+        \begin{enumerate}[(a)]
+            \item Korkokerroin on \(1,04\), joten neljän vuoden kuluttua tililtä on nostettavissa \(1,04^4k\) euroa.
+                Nyt
+                \[
+                    1,04^4k = 1000\quad\Leftrightarrow\quad k = \frac{1000}{1,04^4}\approx 854,80
+                \]
+                euroa.
+            \item Nettokorkokanta on \(0,70\cdot0,04=0,028\), joten korkokerroin on \(1,028\) kun lähdevero otetaan huomioon.
+                Jotta tilillä olisi neljän vuoden kuluttua 1000 euroa, täytyy olla
+                \[
+                    1,028^4\cdot k = 1000\quad\Leftrightarrow\quad k = \frac{1000}{1,028^k}\approx 895,42
+                \]
+                euroa.
+        \end{enumerate}
+    \end{ratkaisu}
+\end{frame}
+
+\begin{frame}
+    \frametitle{Diskonttaus: nykyarvo koronkoron tapauksessa}
+    \pause
+    \begin{block}{}
+        \emph{Nykyarvo} eli alkuperäinen pääoma $k$ koronkoron tapauksessa on
+        \[
+            k = Kq^{-n} = \frac{K}{q^n},
+        \]
+        missä $K$ on kasvanut pääoma, $q$ on korkotekijä ja $n \geq 1$ on korkokausien lukumäärä.
+        \pblock
+        Kerroin $q^{-n} = \dfrac{1}{q^n}$ on nimeltään \emph{diskonttaustekijä}.
+    \end{block}
+\end{frame}
+
+\begin{frame}
+    \frametitle{Investointilaskelmia nykyarvomenetelmällä}
+    \begin{itemize}
+        \item {Investointi} tarkoittaa välineiden tai maan hankkimista tuotantoa tai toimintaa varten. \pause
+        \item Investoinnin kannattavuuden arvioimiseen voidaan käyttää \emph{nykyarvomenetelmää}, jossa kaikki menot ja tulot diskontataan investoinnin alkuhetkeen.  \pause
+        \item Investointi on kannattava, jos tulot ovat suuremmat kuin menot. \pause
+        \item Diskonttauksessa käytetty korkokanta voi määräytyä esimerkiksi yrityksen omista tuottovaatimuksista tai pankin korkokannasta.
+    \end{itemize}
+\end{frame}
+
+\begin{frame}
+    \frametitle{Investointilaskelmia nykyarvomenetelmällä}
+    Investointilaskelmiin liittyviä peruskäsitteitä ovat \pause
+    \begin{itemize}
+        \item \emph{Perushankintakustannus}: investoinnin alkuun liittyvä kertakustannus. \pause
+        \item \emph{Investointiaika}: aika, jolloin investoinnista oletetaan saatavan hyötyä. \pause
+        \item \emph{Jäännösarvo}: investoinnin arvo investointiajan lopussa.
+    \end{itemize}
+\end{frame}
+
+\begin{frame}
+\frametitle{Investointilaskelmia nykyarvomenetelmällä}
+%KEVENNÄ TARVITTAESSA VÄHENTÄMÄLLÄ VUOSIEN MÄÄRÄÄ
+    \begin{esim}
+    Yritys harkitsee uusien monitoimikopiokoneiden hankkimista.
+    Kopiokoneiden yhteishinta on 6 000 euroa. Niiden käyttöiäksi on arvioitu 5 vuotta ja jälleenmyyntiarvoksi 5 \% hankintahinnasta.
+    Kopiokoneiden arvellaan vähentävän kustannuksia kolmena ensimmäisenä vuonna 1 500 euroa vuodessa ja kahtena viimeisenä vuonna 1 000 euroa vuodessa.
+    \pblock
+    Onko kopiokoneiden hankkiminen yritykselle kannattavaa, jos hankinta rahoitetaan lainalla, jonka vuosikorko on 3 \%?
+    \end{esim}
+\end{frame}
+
+\begin{frame}
+    \begin{ratkaisu}
+        Säästöt olisivat nykyhetkessä
+        \[
+            \frac{1500}{1,03} + \frac{1500}{1,03^2} + \frac{1500}{1,03^3} + \frac{1000}{1,03^4} + \frac{1000}{1,03^5}\approx 5994,01
+       \]
+       euroa ja jälleenmyyntiarvo
+       \[
+            0,05\cdot\frac{6000}{1,03^5}\approx 258,78
+       \]
+       euroa. Tuotot olisivat nykyhetkessä yhteensä 6252,80 euroa. Koska lainaa tarvitsee ottaa vain 6000 euroa,
+       investointi on tämän menetelmän valossa kannattava.
+    \end{ratkaisu}
+\end{frame}
+
+\begin{frame}
+    \frametitle{Nelilaskintekniikkaa: eksponentin ratkaiseminen}
+    \pause
+    \begin{esim}
+        Missä ajassa tilille talletettu 500 euroa on kasvanut 600 euroksi, jos tilin korkokanta on 4 \% p.a.?
+        Ratkaise tehtävä
+        \begin{enumerate}[(a)]
+            \item olettaen, että lähdeveroa ei peritä.
+            \item 30 \% lähdevero huomioiden.
+        \end{enumerate}
+    \end{esim}
+    \pause
+    Kysytyn eksponentin  eli korkokausien määrän $n$ voi selvittää kokeilemalla!
+\end{frame}
+
+\begin{frame}
+    \frametitle{Nelilaskintekniikkaa: kantaluvun selvittäminen}
+    \begin{esim}
+        Talletit säästötilille 5 000 euroa. Kolmen vuoden kuluttua nostit tilisi tyhjäksi ja sait 5 950 euroa.
+        Oletetaan, että tilillä ei ollut koronmaksun lisäksi muita tilitapahtumia. Mikä oli tilin
+        \begin{enumerate}[(a)]
+            \item nettokorkokanta
+            \item bruttokorkokanta?
+        \end{enumerate}
+    \end{esim}
+    \pause
+    Myös kantaluvun eli korkotekijän $q$ voi selvittää kokeilemalla!
+\end{frame}
+
+\end{document}
+
+TODO: Diskonttaus kumminkin päin
+
+\begin{frame}
+    \frametitle{Yksinkertainen korkolaskenta: lähdeveron pyöristyssääntö}
+    \begin{ratkaisu}
+        Talletat huhtikuun alussa 100 000 euroa tilille, jonka korkokanta on 2{,}6~\%~p.a.
+        Kuinka paljon voit nostaa tililtäsi 100 päivän kuluttua? Huomioi 30 \% lähdevero ja sen pyöristyssääntö.
+    \end{ratkaisu}
+\end{frame}
+
+\begin{frame}
+    \frametitle{Koronkorkolaskenta: lähdeveron huomioiminen}
+    \pause
+    \bigskip
+    Lähdevero 30 \% peritään korosta vuosittain, joten kertyneestä korosta vain 70 \% liitetään pääomaan vuosittain.
+    Kasvanut pääoma saadaan laskettua käyttämällä \emph{nettokorkokantaa}, jossa lähdeveron vaikutus on huomioitu.
+    \pause
+    Edellisessä esimerkissä nettokorkokanta on $0{,}7i = 0{,}7 \cdot 0{,}035 = 0{,}0245$ ja korkotekijä $q = 1 + 0{,}7i = 1{,}0245$.
+\end{frame}

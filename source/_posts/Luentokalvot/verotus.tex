@@ -1,7 +1,8 @@
 \documentclass{beamer}
-\input{../../preamble}
+\input{../../_texPartials/preamble}
 \usecolortheme{crane}
 \usepackage{eurosym}
+\usepackage{caption}
 \usepackage{hyperref}
 \hypersetup{colorlinks=true}
 \newcommand{\pblock}{\\ \vspace{0.5cm}\pause}
@@ -267,7 +268,9 @@ Arvonlisävero tilitetään valtiolle myyjän toimesta
 
 Tuotteen jokaisessa jälleenmyyntivaiheessa tilitetään myytäessä saadun ja  ostettaessa maksetun arvonlisäveron erotus\pause
 \begin{esim}
-Jälleenmyyjä ostaa tuotteita ja maksaa ostaessaan arvonlisäveroa 1000 euroa. \pause Myöhemmin hän myy tuotteet ja saa myydessään arvonlisäveroa 1500 euroa. \pause Myyjä tilittää valtiolle arvonlisäverojen erotuksen \(1500-1000=500\) euroa. 
+Jälleenmyyjä ostaa tuotteita ja maksaa ostaessaan arvonlisäveroa 1000 euroa.
+\pause Myöhemmin hän myy tuotteet ja saa myydessään arvonlisäveroa 1500 euroa.
+\pause Myyjä tilittää valtiolle arvonlisäverojen erotuksen \(1500-1000=500\) euroa.
 \end{esim}\pause
 Arvonlisäveroa maksetaan tuotteen lisääntyneestä arvosta: arvonlisästä
 \end{frame}
@@ -365,7 +368,7 @@ Pääomatuloista tehdään
 \frametitle{Pääomatulovero}
 \pause
 Pääomatulovero on lievästi progressiivinen; käytössä on kaksi porrasta
-\input{../../_texPartials/potveroasteikko.tex}
+\input{../../_texPartials/potveroasteikko2015.tex}
 \end{frame}
 
 %LISÄKSI JOKIN OSAKE-ESIMERKKI?
@@ -542,7 +545,7 @@ Henkilöverotuksen piiriin kuuluvat \emph{lahja- ja perintövero} on kuitenkin k
 	\pblock
 	\end{itemize}
 	
-	Verotettava summa pyöristetään alaspäin täysiin satoihin euroihin.
+	Huom! Laskuissa verotettava summa (\(\neq\) vero) pyöristetään alaspäin täysiin satoihin euroihin.
 \end{frame}
 
 \begin{frame}
@@ -577,7 +580,7 @@ Lahjan arvo      & Vero alarajalla & Vero-\% ylittävästä osasta \\ \hline
 1000 000 -        & 161770          & 20                     \\
 \hline         
 \end{tabular}
-\caption{Veroluokka 1}
+\caption{Lahjaveroasteikko, luokka 1}
 \end{table}
 
 \begin{table}[h]
@@ -590,7 +593,7 @@ Lahjan arvo        & Vero alarajalla & Vero-\% ylittävästä osasta \\ \hline
 1000 000 -         & 325 240         & 36   \\
 \hline                           
 \end{tabular}
-\caption{Veroluokka 2}
+\caption{Lahjaveroasteikko, luokka 2}
 \end{table}
 \end{frame}
 
@@ -604,7 +607,7 @@ Lahjan arvo        & Vero alarajalla & Vero-\% ylittävästä osasta \\ \hline
 	\end{esim}
 	\pause
 	\begin{ratkaisu}
-		\pause Äidin veljen lapset kuuluvat veroluokkaan 2. \pause Lahjoitus sijoittuu 3. veroportaaseen, joten veroa maksetaan \pause
+		\pause Siskon lapset kuuluvat veroluokkaan 2. \pause Lahjoitus sijoittuu 3. veroportaaseen, joten veroa maksetaan \pause
 		\[
 			11740 + 0,33\cdot(58500-50000) = 11740 + 0,33\cdot8500 = 14545
 		\]
@@ -625,7 +628,7 @@ Perinnön arvo      & Vero alarajalla & Vero-\% ylittävästä osasta \\ \hline
 1 000 000 -         & 159 500               & 20  \\
 \hline         
 \end{tabular}
-\caption{Veroluokan 1 portaikko}
+\caption{Perintöveroasteikko, luokka 1}
 \end{table}
 
 \begin{table}[h]
@@ -638,7 +641,7 @@ Perinnön arvo        & Vero alarajalla & Vero-\% ylittävästä osasta \\ \hlin
 1 000 000 -        & 319 900         & 36     \\
 \hline                           
 \end{tabular}
-\caption{Veroluokan 2 portaikko}
+\caption{Perintöveroasteikko, luokka 2}
 \end{table}
 
 \end{frame}
@@ -657,3 +660,6 @@ Perinnön arvo        & Vero alarajalla & Vero-\% ylittävästä osasta \\ \hlin
 	\end{ratkaisu}
 \end{frame}
 \end{document}
+
+%TODO: kokoavia Socrative-kysymyksiä loppuun
+TODO: Linkki kunnallisveron suhteellisuuteen/progressiivisuuteen
