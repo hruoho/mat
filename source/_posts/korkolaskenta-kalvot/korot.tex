@@ -1,4 +1,4 @@
-\documentclass{beamer}
+\documentclass[]{beamer}
 \input{../../_texPartials/preamble}
 \usecolortheme{whale}
 \setbeamercolor{block title}{use=frametitle, bg=frametitle.bg, fg=frametitle.fg}
@@ -183,21 +183,21 @@
 
 \begin{frame}
     \begin{ratkaisu}
-        Nettokorkokanta on \(0,70\cdot0,09 = 0,063\). Lasketaan korkopäivien lukumäärät:
+        Nettokorkokanta on \(0,70\cdot0,09 = 0,063\). Lasketaan korkopäivien lukumäärät:\pause
         \begin{itemize}
-            \item Huhtikuussa on 30 päivää, joten huhtikuulta korkopäiviä kertyy 30-2 = 28 kpl.
-            \item Toukokuulta päiviä kertyy 31
+            \item Huhtikuussa on 30 päivää, joten huhtikuulta korkopäiviä kertyy 30-2 = 28 kpl.\pause
+            \item Toukokuulta päiviä kertyy 31\pause
             \item Kesäkuulta päiviä kertyy 16
         \end{itemize}
-        Yhteensä korkopäiviä kertyy 75, joten koron suuruus on
+        Yhteensä korkopäiviä kertyy 75, joten koron suuruus on\pause
         \[
             r = kit = 800\cdot 0,063\cdot \frac{75}{365} = 10,36
         \]
-        euroa. Jos kyseessä on karkausvuosi, koron suuruus on
+        euroa. \pause Jos kyseessä on karkausvuosi, koron suuruus on
         \[
             r = kit = 800\cdot 0,063\cdot \frac{75}{366} = 10,33
         \]
-        euroa. Tämä ei ole ainoa tapa laskea korkoajan osuutta vuodesta.
+        euroa. \pause Tämä ei ole ainoa tapa laskea korkoajan osuutta vuodesta.
     \end{ratkaisu}
 \end{frame}
 
@@ -230,14 +230,15 @@
 
 \begin{frame}
     \begin{ratkaisu}
+      Lasketaan aluksi korkopäivien lukumäärät:
         \begin{enumerate}[(a)]
-            \item
+            \item\pause
                 \begin{itemize}
                     \item Tammikuussa päiviä kertyy 31-13 = 18 kpl.
                     \item Helmikuussa päiviä on 28, maaliskuussa 31, huhtikuussa 30.
                     \item Toukokuulta päiviä kertyy 13.
-                \end{itemize}
-            Yhteensä korkopäiviä kertyy siis 120 kpl. Koron suuruus on lähdevero huomioiden
+                \end{itemize}\pause
+            Yhteensä korkopäiviä kertyy 120 kpl. Koron suuruus on lähdevero huomioiden\pause
             \[
                 r = kit = 700\cdot 0,70\cdot0,0075\cdot\frac{120}{360} \approx 1,23
             \]
@@ -249,14 +250,14 @@
 \begin{frame}
     \begin{ratkaisu}
         \begin{itemize}
-            \item[(b)]
+            \item[(b)]\pause
                 \begin{itemize}
                     \item Tammikuussa päiviä kertyy 31-13 = 18 kpl.
                     \item Helmikuussa päiviä on 28, maaliskuussa 31, huhtikuussa 30, toukokuussa 31, kesäkuussa 30
                     \item Heinäkuussa ja elokuussa päiviä on 31
                     \item Syyskuulta päiviä kertyy 7
                 \end{itemize}
-            Yhteensä korkopäiviä kertyy siis 237 kpl. Koron suuruus on lähdevero huomioiden
+            \pause Yhteensä korkopäiviä kertyy siis 237 kpl. \pause Koron suuruus on lähdevero huomioiden
             \[
                 r = kit = 700\cdot 0,70\cdot0,0075\cdot\frac{237}{360} \approx 2,42
             \]
@@ -381,8 +382,9 @@
 
 \begin{frame}
 	\begin{ratkaisu}
-		Korkokanta on 0,027, joten nettokorkokanta on \(0,7\cdot0,027 = 0,0189\).
-		Siis korkotekijä on \(1+0,7\cdot0,027 =	1,0189\).
+		\pause 
+    Korkokanta on 0,027, joten nettokorkokanta on \(0,7\cdot0,027 = 0,0189\). \pause
+		Siis korkotekijä on \(1+0,0189 =	1,0189\). \pause
 		\begin{itemize}
 		    \item Ensimmäinen talletus kasvaa korkoa 5 vuotta, eli tulee \(1,0189^5\)-kertaiseksi\pause
 		    \item Toinen talletus kasvaa korkoa 4 kertaa, eli tulee \(1,0189^4\)-kertaiseksi\pause
@@ -396,7 +398,7 @@
 
 \begin{frame}
     \begin{ratkaisu}
-        Kaiken kaikkiaan viiden vuoden kuluttua tilillä on rahaa
+        Kaiken kaikkiaan tilillä on viiden vuoden kuluttua rahaa
         \begin{multline*}
             900\cdot1,0189^5 + 900\cdot1,0189^4 + 900\cdot1,0189^3\\
              +900\cdot1,0189^2 + 900\cdot1,0189
@@ -426,15 +428,21 @@
     \frametitle{Koronkorkolaskenta: toistuvat talletukset}
     \pause
     \begin{ratkaisu}
-        Tarkastellaan ensin yhden vuoden tilannetta. Tammikuussa talletetun summan korkoaika on 12/12 vuotta, helmikuussa
-        talletetun summan 11/12 vuotta jne. Nettokorkokanta on \(0,70\cdot 0,02 = 0,014\).
-        Vuoden lopussa tilille maksettava korko on siis \pause
+      \pause
+        Tarkastellaan ensin yhden vuoden tilannetta. 
+        \pause
+        Tammikuussa talletetun summan korkoaika on 12/12 vuotta, helmikuussa
+        talletetun summan 11/12 vuotta jne. 
+        \pause Nettokorkokanta on \(0,70\cdot 0,02 = 0,014\),
+        joten vuoden lopussa tilille maksettava korko on 
+        \pause
         \begin{align*}
              &100\cdot0,014\cdot\frac{12}{12} + 100\cdot0,014\cdot\frac{11}{12} + \ldots + 100\cdot0,014\cdot\frac{1}{12}\\
             =&100\cdot0,014\cdot\frac{1}{12}\cdot(12+11+\ldots+1) = 100\cdot0,014\cdot\frac{1}{12}\cdot78\\
             =&9,10
         \end{align*}
-        euroa. Tilille vuosittain talletettava summa 1200 euroa kasvaa siis korkoa 9,10 euroa samana vuonna.
+        euroa. 
+        \pause Tilille vuosittain talletettava summa (1200 euroa) kasvaa siis korkoa 9,10 euroa samana vuonna.
     \end{ratkaisu}
 \end{frame}
 
@@ -446,7 +454,11 @@
         \[
             1209,10\cdot 1,014^2+1209,10\cdot1,014+1209,10\approx 3678,32
         \]
-        euroa. Kaiken kaikkiaan tilille on talletettu \(3\cdot12\cdot100 = 3600\) euroa. Korkoa on siis kertynyt yhteensä 78,32 euroa.
+        euroa.
+        \pause
+        Kaiken kaikkiaan tilille on talletettu \(3\cdot12\cdot100 = 3600\) euroa.
+        \pause
+        Korkoa on siis kertynyt yhteensä 78,32 euroa.
     \end{ratkaisu}
 \end{frame}
 
@@ -454,7 +466,7 @@
     \frametitle{Diskonttaus}
     \pause
     \begin{esim}
-        Kuinka paljon pitäisi tallettaa pankkitilille, jotta neljän vuoden kuluttua siltä olisi nostettavissa 1 000 euroa? 
+        Kuinka suuri summa pitäisi tallettaa pankkitilille, jotta neljän vuoden kuluttua siltä olisi nostettavissa 1 000 euroa? 
         Tilin vuotuinen korko on 4 \%. Ratkaise tehtävä
         \begin{enumerate}
             \item[(a)] olettaen, että lähdeveroa ei peritä.
@@ -473,16 +485,17 @@
     \begin{ratkaisu}
         Olkoon alkuperäinen pääoma \(k\).
         \begin{enumerate}[(a)]
-            \item Korkokerroin on \(1,04\), joten neljän vuoden kuluttua tililtä on nostettavissa \(1,04^4k\) euroa.
+            \item Korkokerroin on \(1,04\), joten neljän vuoden kuluttua tililtä on nostettavissa \(1,04^4k\) euroa. 
+            \pause
                 Nyt
                 \[
                     1,04^4k = 1000\quad\Leftrightarrow\quad k = \frac{1000}{1,04^4}\approx 854,80
                 \]
                 euroa.
-            \item Nettokorkokanta on \(0,70\cdot0,04=0,028\), joten korkokerroin on \(1,028\) kun lähdevero otetaan huomioon.
+            \item Nettokorkokanta on \(0,70\cdot0,04=0,028\), joten korkokerroin on \(1,028\), kun lähdevero otetaan huomioon. \pause
                 Jotta tilillä olisi neljän vuoden kuluttua 1000 euroa, täytyy olla
                 \[
-                    1,028^4\cdot k = 1000\quad\Leftrightarrow\quad k = \frac{1000}{1,028^k}\approx 895,42
+                    1,028^4\cdot k = 1000\quad\Leftrightarrow\quad k = \frac{1000}{1,028^4}\approx 895,42
                 \]
                 euroa.
         \end{enumerate}
@@ -569,6 +582,20 @@
     \frametitle{Nelilaskintekniikkaa: kantaluvun selvittäminen}
     \begin{esim}
         Talletit säästötilille 5 000 euroa. Kolmen vuoden kuluttua nostit tilisi tyhjäksi ja sait 5 950 euroa.
+        Oletetaan, että tilillä ei ollut koronmaksun lisäksi muita tilitapahtumia. Mikä oli tilin
+        \begin{enumerate}[(a)]
+            \item nettokorkokanta
+            \item bruttokorkokanta?
+        \end{enumerate}
+    \end{esim}
+    \pause
+    Myös kantaluvun eli korkotekijän $q$ voi selvittää kokeilemalla!
+\end{frame}
+
+\begin{frame}
+    \frametitle{Nelilaskintekniikkaa: kantaluvun selvittäminen}
+    \begin{esim}
+        Talletit säästötilille 5 000 euroa. Kahdeksan vuoden kuluttua nostit tilisi tyhjäksi ja sait 6 250 euroa.
         Oletetaan, että tilillä ei ollut koronmaksun lisäksi muita tilitapahtumia. Mikä oli tilin
         \begin{enumerate}[(a)]
             \item nettokorkokanta
