@@ -1,0 +1,159 @@
+\documentclass{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[finnish]{babel}
+\usepackage{amsthm}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{mathtools}
+\usepackage[math]{kurier}
+\usepackage{eurosym}
+
+\newtheorem{teht}{Tehtävä}
+\theoremstyle{remark}
+\newtheorem*{ratk}{Ratkaisuehdotus}
+\usepackage{environ}
+\NewEnviron{killcontents}{}
+\let\ratk\killcontents
+\let\endratk\endkillcontents
+\begin{document}
+
+\section*{Luentotehtäviä}
+
+\subsection*{Pankkitalletukset}
+
+Muista korkotuotoista perittävä lähdevero 30 \%.
+
+\begin{teht} 
+  Sijoitat kahden vuoden määräaikaistilille 3 000 \euro. Tilin vuotuinen korko on 1{,}2 \% ja sijoitusajan lopussa maksettava lisäkorko 5 \%. Mikä oli sijoituksen nettokorkotuotto prosentteina?
+\end{teht}
+\begin{ratk}
+<< echo = FALSE >>=
+knit_hooks$set(inline = function(x) {
+  prettyNum(x, big.mark="~", decimal=",")
+})
+p <- function(num){ 
+  return(
+    format(round(num, 2), scientific = FALSE, decimal=",")
+)}
+q <- 1+ 0.7*0.012
+brutto <- (1 + 0.7*.05)*q**2*3000
+tuotto = brutto - 3000
+vastaus = tuotto/3000
+@
+Sijoitusajan lopussa tilillä on rahaa 
+\[
+(1+0,7\cdot 0,05)\cdot(1+0,7\cdot 0,12)^2\cdot3000 = \Sexpr{p(brutto)}
+\]
+euroa. Näin ollen sijoituksen nettotuotto on \Sexpr{p(tuotto)} euroa eli prosentteina \(\Sexpr{p(tuotto)}/3000\approx \Sexpr{p(100*vastaus)}\)~\%.
+\end{ratk}
+
+\begin{teht} Korkeakorkoiselle tilille talletettiin rahasumma neljäksi vuodeksi. Tilin vuotuinen korkokanta oli 3{,}5 \% ja talletusajan lopussa alkuperäiselle pääomalle maksettiin 7{,}5 \% lisäkorko. Kuinka suuri oli alkuperäinen talletus, jos talletusajan päätyttyä tililtä nostettiin 10~387{,}45 euroa?
+\end{teht}
+\begin{ratk}
+<<echo = FALSE >>=
+i <- 0.7*0.035
+j <- 0.7*0.075
+q <- j + (1+i)**4
+K <- 10387.45
+k <- K/q
+@
+  Olkoon \(k\) alkuperäinen talletus. Huomaa, että lisäkorko maksetaan alkuperäiselle pääomalle. Näin ollen tilillä on lopuksi rahaa
+  \[
+    (0,7\cdot0,075)\cdot k + (1+0,7\cdot0,035)^4\cdot k = (0,7\cdot0,075 + (1+0,7\cdot0,035)^4)\cdot k
+  \]
+euroa. Saadaan yhtälö
+ \[
+    \Sexpr{q}\cdot k = \Sexpr{p(K)}
+  \]
+jonka perusteella
+\[
+  k = \frac{\Sexpr{p(K)}}{\Sexpr{q}} = \Sexpr{p(k)}
+\]
+euroa.
+\end{ratk}
+
+\subsection*{Vakuutukset}
+
+\begin{teht} 
+Selvitä kurssimateriaalista, miten sijoitusvakuutusta verotetaan. 
+
+\end{teht}\begin{ratk}\end{ratk}
+
+\begin{teht} Sijoitat sijoitusvakuutukseen vuoden alussa 1 500 \euro \ ja kahden seuraavan vuoden alussa 1 000 \euro \ vuosittain. Vakuutuksesta pitää maksaa sijoitettavan summan lisäksi hoitokuluja 15 euroa vuodessa. Sijoitusvakuutuksen vuosituotoksi arvioidaan 6 \%. Mikä on sijoituksesi nettotuotto kolmen vuoden kuluttua? 
+
+\end{teht}\begin{ratk}\end{ratk}
+
+\begin{teht} Isotätisi tallettaa sijoitusvakuutukseen ensimmäisenä vuonna 3 000 euroa ja toisena vuonna 2 000 euroa. Hän maksoi vakuutuksesta sijoitettavan summan lisäksi hoitokuluja 20 euroa vuodessa. Sijoitusvakuutuksen vuosituotto oli ensimmäisenä vuonna 7 \% ja toisena vuonna 4 \%. Edunsaajaksi isotätisi määräsi sinut. Kuinka paljon rahaa sait vakuutuksesta verojen maksamisen jälkeen?
+\end{teht}
+
+\subsection*{Obligaatiot}
+
+\begin{teht} Kaverisi osti nimellisarvoltaan 2 000 eurolla obligaatioita 95 \% emissiokurssilla 73 päivää lainan liikkeellelaskun jälkeen. Obligaatioiden korkokanta oli 4{,}8 \% p.a. ja laina-aika kymmenen vuotta. Korkopäivien laskemiseen käytettiin tapaa todelliset/365.
+\begin{enumerate}
+  \item Kuinka paljon kaverisi maksoi obligaatioistaan yhteensä?
+  \item Kuinka paljon kaverisi sai sijoituksestaan nettotuottoa, jos hän myi obligaatiot viiden vuoden kuluttua liikkeellelaskupäivästä hintaan 2 200 euroa?
+\end{enumerate}
+
+\end{teht}\begin{ratk}\end{ratk}
+
+\begin{teht} Valtion liikkeellelaskeman obligaatiolainan vuosikorko oli 5 \%. Sijoittaja osti kolme obligaatiota 108 päivää liikkeellelaskun jälkeen, kun emissiokurssi oli 102 \%. Mikä oli yhden obligaation nimellisarvo, jos sijoittaja maksoi obligaatioista yhteensä 4 657{,}50 euroa? Käytä korkopäivien laskemiseen tapaa todelliset/360.
+\end{teht}
+
+\subsection*{Osakkeet}
+
+\begin{enumerate}
+  \item Selvitä kurssimateriaalista, mitä tarkoittavat käsitteet osake ja osinko.
+  \item Selviä kurssimateriaalista, miten pörssiin listattujen yhtiöiden osakkeiden tuottoa verotetaan.
+\end{enumerate}
+ 
+\begin{teht} Kaverisi osti 600 kappaletta erään pörssiin listatun yrityksen osakkeita 9{,}45 euron kappalehintaan. Keväällä yritys jakoi jokaiselta osakkeelta osinkoa 1{,}15 \euro. Vuoden lopulla kaverisi myi osakkeet 10{,}90 euron kappalehintaan. Sekä oston että myynnin yhteydessä perittiin välityspalkkiota 1{,}0 \% kauppahinnasta. Mikä oli kaverisi sijoituksen nettotuotto?
+\end{teht}\begin{ratk}\end{ratk}
+
+\begin{teht} Sijoittaja osti 90 kappaletta erään yhtiön osakkeita kurssilla 35{,}86 \euro. Yhdeksän kuukauden kuluttua hän myi osakkeet kurssilla 37{,}23 \euro. Välityspalkkio oli sekä ostettaessa että myytäessä $0{,}25\ \%  + 7{,}50 \euro$. Mikä oli sijoituksen nettotuottoa vastaava vuosittainen korkokanta?
+\end{teht}
+
+\subsection*{Sijoitusrahastot}
+
+\begin{teht} Selviä kurssimateriaalista, miten sijoitusrahastojen tuottoa verotetaan.
+
+\end{teht}
+
+\begin{teht} Kaverisi osti korkorahaston osuuksia 1 200 eurolla. Hän myi osuudet vuoden kuluttua, jolloin osuuksien arvo oli 1 350 euroa. Kauppojen yhteydessä perityt välityspalkkiot olivat sekä oston että myynnin tapauksessa 0{,}95 \% kauppahinnasta. Mikä oli sijoituksen nettotuottoa vastaava vuosittainen korkokanta?
+
+\end{teht}\begin{ratk}\end{ratk}
+
+\begin{teht} Sijoitit rahastoon 95 \euro \  ja sait 8{,}5 rahasto-osuutta. Kahden kuukauden kuluttua rahasto-osuuden arvo oli noussut 3{,}2 \%. Kuinka monta rahasto-osuutta sait, jos sijoitit saman summan kuin edellisellä kerralla?
+
+\end{teht}
+
+\subsection*{Sekalaisia tehtäviä}
+
+\begin{teht} Sijoitat loppuvuoden aikana erääseen rahastoon joka kuukausi saman summan syyskuusta alkaen. Rahasto-osuuden arvo euroina on alla olevassa taulukossa. Oletko voitolla vai tappiolla sijoituksissasi joulukuun sijoituksen jälkeen? Kuinka monta prosenttia voitto tai tappio on kokonaissijoituksestasi?
+\end{teht}\begin{ratk}\end{ratk}
+
+\begin{teht} Kaverisi tallettaa 16.4.2014 määräaikaistilille 2 400 euroa. Tilin eräpäiväksi asetetaan 20.3.2015. Tilin kiinteä korko on 2{,}95 \% p.a. ja se lasketaan korkotavan todelliset/360 mukaan. Korko liitetään pääomaan vuoden vaihteessa ja talletuksen eräpäivänä. Kuinka paljon kaverisi voi nostaa tililtään eräpäivänä?
+
+\end{teht}\begin{ratk}\end{ratk}
+
+\begin{teht} Ostat 50 kappaletta erään yrityksen osakkeita hintaan 21{,}75 \euro/kpl. Välityspalkkio on 0{,}5~\% kauppahinnasta, kuitenkin vähintään 8 \euro. Kuinka paljon maksat yhdestä osakkeesta, jos välityspalkkio otetaan huomioon?
+
+\end{teht}
+
+\begin{ratk}\end{ratk}\begin{teht} Joukkovelkakirjalainan korkokanta on 5{,}5 \% p.a. ja laina-aika kolme vuotta. Ostat tämän lainan obligaatioita 144 päivää liikkeellelaskun jälkeen, kun emissiokurssi on 98{,}5 \%. Ostamiesi obligaatioiden nimellisarvo on yhteensä 2 500 euroa. Jos olisit tallettanut obligaatioista maksamasi summan pankkitilille, mikä olisi sen vuotuisen korkokannan pitänyt olla, jotta sijoitusten nettotuotot olisivat yhtä suuria? Korkotapana 30/360.
+
+\end{teht}\begin{ratk}\end{ratk}
+
+\begin{teht} Talletat sijoitusvakuutukseen kolmena peräkkäisenä vuonna jokaisen vuoden alussa 2 000 euroa. Sijoitusvakuutuksen vuotuinen tuotto on ensimmäisenä vuonna 3 \%, toisena vuonna 2 \% ja kolmantena vuonna 2{,}5 \%. Maksat sijoittamiesi rahasummien lisäksi vakuutuksesta hoitomaksua 15 \euro \ vuodessa. 
+\begin{enumerate}
+  \item Mikä on sijoituksesi nettotuotto sijoitusajan päättyessä kolmannen vuoden lopussa? 
+  \item Jos olisit tallettanut sijoittamasi summat samalla tavalla vuosittain pankkitilille, jonka korkokanta on 2{,}5 \% p.a., olisiko nettotuotto ollut suurempi vai pienempi kuin sijoitusvakuutuksessa?
+\end{enumerate}
+\end{teht}
+
+\begin{ratk}\end{ratk}
+
+
+
+\end{document}

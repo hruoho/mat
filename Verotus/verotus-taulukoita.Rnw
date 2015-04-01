@@ -1,0 +1,77 @@
+\documentclass[a4paper,10pt]{article}
+
+\input{../_texPartials/simple-preamble}
+\begin{document}
+
+\pagestyle{empty}
+
+\section*{Vuoden 2015 taulukoita}
+\bigskip
+
+<<echo = FALSE>>=
+printTable <- function(taul, caption){
+  names <- c("Alaraja", "Yläraja", "Vero alarajalla", "Prosenttikerroin")
+  colnames(taul)<-names
+  library(xtable)
+  taul <- xtable(taul)
+  caption(taul) <- caption
+  print(taul, include.rownames = FALSE, format.args=list(big.mark=" ", decimal.mark=","))
+}
+@
+
+<< paaomatulovero, results='asis', echo=FALSE >>=
+ar <- c(0,30000)
+yr <- c(ar[-1], NA)
+min <- c(0,9000)
+pr <- c(0.30,0.33)
+paaomatulovero2015 <- data.frame(ar,yr,min,pr)
+printTable(paaomatulovero2015, "Pääomatuloveroasteikko 2015")
+@
+
+<< tulovero2015, results='asis', echo=FALSE >>=
+ar <- c(16500,24700,40300,71400,90000)
+yr <- c(ar[-1], NA)
+min <- c(8,541,3271,9957.50,15491)
+pr <- c(0.065,0.175,0.215,0.2975,0.3175)
+tulovero2015 <- data.frame(ar,yr,min,pr)
+printTable(tulovero2015, "Tuloveroasteikko 2015")
+@
+
+<<lahjavero, results='asis', echo=FALSE>>=
+ar <- c(4000,17000,50000,200000,1000000)
+yr <- c(ar[-1], NA)
+min <- c(100,1140,4770,25770,161770)
+pr <- c(0.08,0.11,0.14,0.17,0.20)
+taul <- data.frame(ar,yr,min,pr)
+printTable(taul, "Lahjavero 2015, veroluokka 1")
+@
+
+<<lahjavero2, results='asis', echo=FALSE>>=
+ar <- c(4000,17000,50000,1000000)
+yr <- c(ar[-1], NA)
+min <- c(100,2830,11740,325240)
+pr <- c(0.21,0.27,0.33,0.36)
+taul <- data.frame(ar,yr,min,pr)
+printTable(taul, "Lahjavero 2015, veroluokka 2") 
+@
+
+<< perintovero1, results='asis', echo=FALSE >>=
+ar <- c(20000,40000,60000,200000,1000000)
+yr <- c(ar[-1], NA)
+min <- c(100,1700,3900,23500,159500)
+pr <- c(0.08,0.11,0.14,0.17,0.20)
+pertaul1 <- data.frame(ar,yr,min,pr)
+printTable(taul, "Perintövero 2015, veroluokka 1")
+@
+
+<< perintovero2, results='asis', echo=FALSE >>=
+ar <- c(20000,40000,60000,1000000)
+yr <- c(ar[-1], NA)
+min <- c(100,4300,9700,319900)
+pr <- c(0.21,0.27,0.33,0.36)
+pertaul2 <- data.frame(ar,yr,min,pr)
+printTable(taul, "Perintövero 2015, veroluokka 2")
+@
+
+
+\end{document}
