@@ -1,17 +1,69 @@
-\documentclass[]{beamer}
-\input{../../_texPartials/preamble}
+\documentclass[]{beamer}\usepackage[]{graphicx}\usepackage[]{color}
+%% maxwidth is the original width if it is less than linewidth
+%% otherwise use linewidth (to make sure the graphics do not exceed the margin)
+\makeatletter
+\def\maxwidth{ %
+  \ifdim\Gin@nat@width>\linewidth
+    \linewidth
+  \else
+    \Gin@nat@width
+  \fi
+}
+\makeatother
+
+\definecolor{fgcolor}{rgb}{0.345, 0.345, 0.345}
+\newcommand{\hlnum}[1]{\textcolor[rgb]{0.686,0.059,0.569}{#1}}%
+\newcommand{\hlstr}[1]{\textcolor[rgb]{0.192,0.494,0.8}{#1}}%
+\newcommand{\hlcom}[1]{\textcolor[rgb]{0.678,0.584,0.686}{\textit{#1}}}%
+\newcommand{\hlopt}[1]{\textcolor[rgb]{0,0,0}{#1}}%
+\newcommand{\hlstd}[1]{\textcolor[rgb]{0.345,0.345,0.345}{#1}}%
+\newcommand{\hlkwa}[1]{\textcolor[rgb]{0.161,0.373,0.58}{\textbf{#1}}}%
+\newcommand{\hlkwb}[1]{\textcolor[rgb]{0.69,0.353,0.396}{#1}}%
+\newcommand{\hlkwc}[1]{\textcolor[rgb]{0.333,0.667,0.333}{#1}}%
+\newcommand{\hlkwd}[1]{\textcolor[rgb]{0.737,0.353,0.396}{\textbf{#1}}}%
+
+\usepackage{framed}
+\makeatletter
+\newenvironment{kframe}{%
+ \def\at@end@of@kframe{}%
+ \ifinner\ifhmode%
+  \def\at@end@of@kframe{\end{minipage}}%
+  \begin{minipage}{\columnwidth}%
+ \fi\fi%
+ \def\FrameCommand##1{\hskip\@totalleftmargin \hskip-\fboxsep
+ \colorbox{shadecolor}{##1}\hskip-\fboxsep
+     % There is no \\@totalrightmargin, so:
+     \hskip-\linewidth \hskip-\@totalleftmargin \hskip\columnwidth}%
+ \MakeFramed {\advance\hsize-\width
+   \@totalleftmargin\z@ \linewidth\hsize
+   \@setminipage}}%
+ {\par\unskip\endMakeFramed%
+ \at@end@of@kframe}
+\makeatother
+
+\definecolor{shadecolor}{rgb}{.97, .97, .97}
+\definecolor{messagecolor}{rgb}{0, 0, 0}
+\definecolor{warningcolor}{rgb}{1, 0, 1}
+\definecolor{errorcolor}{rgb}{1, 0, 0}
+\newenvironment{knitrout}{}{} % an empty environment to be redefined in TeX
+
+\usepackage{alltt}
+\input{../_texPartials/simple-preamble}
 \usecolortheme{whale}
 \setbeamercolor{block title}{use=frametitle, bg=frametitle.bg, fg=frametitle.fg}
 \setbeamercolor{block body}{use=frametitle, bg=frametitle.bg!40!white, fg=black}
 \usepackage{eurosym}
 \usepackage{hyperref}
 \usepackage{graphicx}
+\newtheorem{esim}{Esimerkki}
+\newtheorem{ratkaisu}{Ratkaisuehdotus}
 \newcommand{\pblock}{\\ \vspace{0.5cm}\pause}
+
 \newcommand{\socrativeOhje}{
-\begin{itemize}
-\item Surffaa osoitteeseen \url{m.socrative.com} (tai \url{socrative.com})
-\item Siirry huoneeseen nimeltä \url{hruoho}
-\end{itemize}
+  \begin{itemize}
+    \item Surffaa osoitteeseen \url{m.socrative.com} (tai \url{socrative.com})
+    \item Siirry huoneeseen nimeltä \url{hruoho}
+  \end{itemize}
 }
 
 \newcommand{\taukoKysymys}{
@@ -28,7 +80,13 @@
 	\end{block}
 }
 \title{Talousmatematiikkaa: korkolaskenta}
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
 \begin{document}
+
+
+
+
+
 \begin{frame}
 \maketitle
 \end{frame}
@@ -83,9 +141,9 @@
 \begin{frame}
     \pause
     \begin{ratkaisu}
-        Kun lähdevero otetaan huomioon, korko on
-         \[
-            r = kit = 2500\cdot 0,70\cdot 0,022 \cdot \frac{8}{12}\approx 25,67
+        Kun lähdevero otetaan huomioon, korkokanta on \(0,70\cdot 0,022 = 0{,}0154\). \pause Veron suuruus on silloin
+        \[
+            r = kit = 2500\cdot 0{,}0154 \cdot \frac{8}{12}\approx 25,67
          \]
          euroa.
     \end{ratkaisu}
@@ -210,6 +268,7 @@
             \item \emph{30/360}: kuukaudessa 30 päivää, vuodessa 360 päivää
         \end{itemize}
     \end{block}
+    \pause
     \begin{figure}
         \includegraphics[scale=0.7]{months}
     \end{figure}
@@ -219,50 +278,28 @@
     \frametitle{Yksinkertainen korkolasku}
     \begin{esim}
         Tilille, jonka korkokanta on 0,75 \% p.a., talletetaan tammikuun 13. päivä 700 euroa. \pause
-        Laske kertyneen koron suuruus samana vuonna
-        \begin{enumerate}[(a)]
-            \item 13.5.
-            \item 7.9.
-        \end{enumerate}
-        Käytä yleistä laskutapaa todelliset/360.
+        Laske kertyneen koron suuruus samana vuonna 7.9. 
     \end{esim}
 \end{frame}
 
 \begin{frame}
     \begin{ratkaisu}
-      Lasketaan aluksi korkopäivien lukumäärät:
-        \begin{enumerate}[(a)]
-            \item\pause
-                \begin{itemize}
-                    \item Tammikuussa päiviä kertyy 31-13 = 18 kpl.
-                    \item Helmikuussa päiviä on 28, maaliskuussa 31, huhtikuussa 30.
-                    \item Toukokuulta päiviä kertyy 13.
-                \end{itemize}\pause
-            Yhteensä korkopäiviä kertyy 120 kpl. Koron suuruus on lähdevero huomioiden\pause
-            \[
-                r = kit = 700\cdot 0,70\cdot0,0075\cdot\frac{120}{360} \approx 1,23
-            \]
-            euroa.
-        \end{enumerate}
-    \end{ratkaisu}
-\end{frame}
-
-\begin{frame}
-    \begin{ratkaisu}
-        \begin{itemize}
-            \item[(b)]\pause
-                \begin{itemize}
-                    \item Tammikuussa päiviä kertyy 31-13 = 18 kpl.
-                    \item Helmikuussa päiviä on 28, maaliskuussa 31, huhtikuussa 30, toukokuussa 31, kesäkuussa 30
-                    \item Heinäkuussa ja elokuussa päiviä on 31
-                    \item Syyskuulta päiviä kertyy 7
-                \end{itemize}
-            \pause Yhteensä korkopäiviä kertyy siis 237 kpl. \pause Koron suuruus on lähdevero huomioiden
-            \[
-                r = kit = 700\cdot 0,70\cdot0,0075\cdot\frac{237}{360} \approx 2,42
-            \]
-            euroa.
-        \end{itemize}
+      Lasketaan todellinen korkopäivien lukumäärä (välittämättä karkausvuosista).
+      \begin{itemize}
+          \item Tammikuussa päiviä kertyy 31-13 = 18 kpl.
+          \item Helmikuussa päiviä on 28, maaliskuussa 31, huhtikuussa 30, toukokuussa 31, kesäkuussa 30
+          \item Heinäkuussa ja elokuussa päiviä on 31
+          \item Syyskuulta päiviä kertyy 7
+      \end{itemize}
+      \pause Yhteensä korkopäiviä kertyy siis 237 kpl. \pause Koron suuruus on lähdevero huomioiden
+      \[
+          r = kit = 700\cdot 0,70\cdot0,0075\cdot\frac{237}{360} \approx 0{,}66
+      \]
+      tai
+      \[
+          r = kit = 700\cdot 0,70\cdot0,0075\cdot\frac{237}{365} \approx 0{,}65
+      \]
+      euroa.
     \end{ratkaisu}
 \end{frame}
 
@@ -307,7 +344,7 @@
 \begin{frame}
 \frametitle{Yksinkertainen korko}
 	\begin{ratkaisu}		
-		Edellisen perusteella koron suuruus on 
+		Edellisen perusteella koron suuruus on\pause 
 		\begin{align*}
 			&100\cdot0,015\cdot\frac{8}{12}+100\cdot0,015\cdot\frac{7}{12}+\ldots+100\cdot0,015\cdot\frac{1}{12} \\
 			&= 100\cdot0,015\cdot\left(\frac{9}{12} + \frac{8}{12} + \cdots +\frac{1}{12}\right)\\
@@ -315,7 +352,7 @@
 			&= \frac{1,5}{12}\cdot(9+8+\cdots+1)\\
 			&= \frac{1,5}{12}\cdot\left( 9\cdot\frac{9+1}{2}\right) = 5,625
 		\end{align*}
-		euroa. Lähdeveron jälkeen nettokoroksi jää \(0,70\cdot5,625=3,94\) euroa.
+		euroa. \pause Lähdeveron jälkeen nettokoroksi jää \(0,70\cdot5,625=3,94\) euroa.
 	\end{ratkaisu}
 \end{frame}
 
@@ -372,9 +409,18 @@
 \end{frame}
 
 \begin{frame}
-  \begin{esim}
-    Pääsykoetehtävä: tuotantolaitoksen päästöt
-  \end{esim}
+  \begin{block}{Pääsykoetehtävä}
+    Eräs tuotantolaitos tuottaa haitallisia päästöjä tänä vuonna 27 tonnia vuodessa.
+Päästöjä on päätetty pienentää 5~\% vuodessa. Jos oletetaan, että tuotantolaitos jatkaa
+toimintaansa ikuisesti, niin päästöjä syntyy yhteensä tämä vuosi mukaan lukien
+    \begin{enumerate}
+      \item 420 tonnia
+      \item 540 tonnia
+      \item 600 tonnia
+      \item enemmän kuin 600 tonnia
+    \end{enumerate}
+    (Pääsykoetehtävä 48/2014)
+  \end{block}
 \end{frame}
 
 \begin{frame}

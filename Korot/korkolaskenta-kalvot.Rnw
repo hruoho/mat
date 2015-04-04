@@ -1,17 +1,20 @@
 \documentclass[]{beamer}
-\input{../../_texPartials/preamble}
+\input{../_texPartials/simple-preamble}
 \usecolortheme{whale}
 \setbeamercolor{block title}{use=frametitle, bg=frametitle.bg, fg=frametitle.fg}
 \setbeamercolor{block body}{use=frametitle, bg=frametitle.bg!40!white, fg=black}
 \usepackage{eurosym}
 \usepackage{hyperref}
 \usepackage{graphicx}
+\newtheorem{esim}{Esimerkki}
+\newtheorem{ratkaisu}{Ratkaisuehdotus}
 \newcommand{\pblock}{\\ \vspace{0.5cm}\pause}
+
 \newcommand{\socrativeOhje}{
-\begin{itemize}
-\item Surffaa osoitteeseen \url{m.socrative.com} (tai \url{socrative.com})
-\item Siirry huoneeseen nimeltä \url{hruoho}
-\end{itemize}
+  \begin{itemize}
+    \item Surffaa osoitteeseen \url{m.socrative.com} (tai \url{socrative.com})
+    \item Siirry huoneeseen nimeltä \url{hruoho}
+  \end{itemize}
 }
 
 \newcommand{\taukoKysymys}{
@@ -29,6 +32,12 @@
 }
 \title{Talousmatematiikkaa: korkolaskenta}
 \begin{document}
+
+<<child='../conf.Rnw'>>=
+#Import settings for R
+@
+
+
 \begin{frame}
 \maketitle
 \end{frame}
@@ -83,9 +92,9 @@
 \begin{frame}
     \pause
     \begin{ratkaisu}
-        Kun lähdevero otetaan huomioon, korko on
-         \[
-            r = kit = 2500\cdot 0,70\cdot 0,022 \cdot \frac{8}{12}\approx 25,67
+        Kun lähdevero otetaan huomioon, korkokanta on \(0,70\cdot 0,022 = \Sexpr{i <- 0.7*0.022; i}\). \pause Veron suuruus on silloin
+        \[
+            r = kit = 2500\cdot \Sexpr{i} \cdot \frac{8}{12}\approx 25,67
          \]
          euroa.
     \end{ratkaisu}
@@ -210,6 +219,7 @@
             \item \emph{30/360}: kuukaudessa 30 päivää, vuodessa 360 päivää
         \end{itemize}
     \end{block}
+    \pause
     \begin{figure}
         \includegraphics[scale=0.7]{months}
     \end{figure}
@@ -219,50 +229,28 @@
     \frametitle{Yksinkertainen korkolasku}
     \begin{esim}
         Tilille, jonka korkokanta on 0,75 \% p.a., talletetaan tammikuun 13. päivä 700 euroa. \pause
-        Laske kertyneen koron suuruus samana vuonna
-        \begin{enumerate}[(a)]
-            \item 13.5.
-            \item 7.9.
-        \end{enumerate}
-        Käytä yleistä laskutapaa todelliset/360.
+        Laske kertyneen koron suuruus samana vuonna 7.9. 
     \end{esim}
 \end{frame}
 
 \begin{frame}
     \begin{ratkaisu}
-      Lasketaan aluksi korkopäivien lukumäärät:
-        \begin{enumerate}[(a)]
-            \item\pause
-                \begin{itemize}
-                    \item Tammikuussa päiviä kertyy 31-13 = 18 kpl.
-                    \item Helmikuussa päiviä on 28, maaliskuussa 31, huhtikuussa 30.
-                    \item Toukokuulta päiviä kertyy 13.
-                \end{itemize}\pause
-            Yhteensä korkopäiviä kertyy 120 kpl. Koron suuruus on lähdevero huomioiden\pause
-            \[
-                r = kit = 700\cdot 0,70\cdot0,0075\cdot\frac{120}{360} \approx 1,23
-            \]
-            euroa.
-        \end{enumerate}
-    \end{ratkaisu}
-\end{frame}
-
-\begin{frame}
-    \begin{ratkaisu}
-        \begin{itemize}
-            \item[(b)]\pause
-                \begin{itemize}
-                    \item Tammikuussa päiviä kertyy 31-13 = 18 kpl.
-                    \item Helmikuussa päiviä on 28, maaliskuussa 31, huhtikuussa 30, toukokuussa 31, kesäkuussa 30
-                    \item Heinäkuussa ja elokuussa päiviä on 31
-                    \item Syyskuulta päiviä kertyy 7
-                \end{itemize}
-            \pause Yhteensä korkopäiviä kertyy siis 237 kpl. \pause Koron suuruus on lähdevero huomioiden
-            \[
-                r = kit = 700\cdot 0,70\cdot0,0075\cdot\frac{237}{360} \approx 2,42
-            \]
-            euroa.
-        \end{itemize}
+      Lasketaan todellinen korkopäivien lukumäärä (välittämättä karkausvuosista).
+      \begin{itemize}
+          \item Tammikuussa päiviä kertyy 31-13 = 18 kpl.
+          \item Helmikuussa päiviä on 28, maaliskuussa 31, huhtikuussa 30, toukokuussa 31, kesäkuussa 30
+          \item Heinäkuussa ja elokuussa päiviä on 31
+          \item Syyskuulta päiviä kertyy 7
+      \end{itemize}
+      \pause Yhteensä korkopäiviä kertyy siis 237 kpl. \pause Koron suuruus on lähdevero huomioiden
+      \[
+          r = kit = 700\cdot 0,70\cdot0,0075\cdot\frac{237}{360} \approx \Sexpr{p(237/360)}
+      \]
+      tai
+      \[
+          r = kit = 700\cdot 0,70\cdot0,0075\cdot\frac{237}{365} \approx \Sexpr{p(237/365)}
+      \]
+      euroa.
     \end{ratkaisu}
 \end{frame}
 
@@ -307,7 +295,7 @@
 \begin{frame}
 \frametitle{Yksinkertainen korko}
 	\begin{ratkaisu}		
-		Edellisen perusteella koron suuruus on 
+		Edellisen perusteella koron suuruus on\pause 
 		\begin{align*}
 			&100\cdot0,015\cdot\frac{8}{12}+100\cdot0,015\cdot\frac{7}{12}+\ldots+100\cdot0,015\cdot\frac{1}{12} \\
 			&= 100\cdot0,015\cdot\left(\frac{9}{12} + \frac{8}{12} + \cdots +\frac{1}{12}\right)\\
@@ -315,7 +303,7 @@
 			&= \frac{1,5}{12}\cdot(9+8+\cdots+1)\\
 			&= \frac{1,5}{12}\cdot\left( 9\cdot\frac{9+1}{2}\right) = 5,625
 		\end{align*}
-		euroa. Lähdeveron jälkeen nettokoroksi jää \(0,70\cdot5,625=3,94\) euroa.
+		euroa. \pause Lähdeveron jälkeen nettokoroksi jää \(0,70\cdot5,625=3,94\) euroa.
 	\end{ratkaisu}
 \end{frame}
 
@@ -372,9 +360,18 @@
 \end{frame}
 
 \begin{frame}
-  \begin{esim}
-    Pääsykoetehtävä: tuotantolaitoksen päästöt
-  \end{esim}
+  \begin{block}{Pääsykoetehtävä}
+    Eräs tuotantolaitos tuottaa haitallisia päästöjä tänä vuonna 27 tonnia vuodessa.
+Päästöjä on päätetty pienentää 5~\% vuodessa. Jos oletetaan, että tuotantolaitos jatkaa
+toimintaansa ikuisesti, niin päästöjä syntyy yhteensä tämä vuosi mukaan lukien
+    \begin{enumerate}
+      \item 420 tonnia
+      \item 540 tonnia
+      \item 600 tonnia
+      \item enemmän kuin 600 tonnia
+    \end{enumerate}
+    (Pääsykoetehtävä 48/2014)
+  \end{block}
 \end{frame}
 
 \begin{frame}
