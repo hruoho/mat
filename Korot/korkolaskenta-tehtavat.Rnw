@@ -88,8 +88,7 @@ Kuinka suuren summan hän oli alunperin tallettanut tililleen?
 
 \begin{question} Kaverisi säästää rahaa pitkää lomareissua varten tallettamalla joka kuukauden alussa yhtä suuren summan rahaa tililleen.
 Kaverisi aloittaa säästämisen tammikuun alussa ja haluaa nostaa rahat vuoden kuluttua.
-Kuinka paljon rahaa hänen tulisi tallettaa tililleen kuukausittain, jotta vuoden kuluttua nostettavissa olisi 1 200 euroa?
-Tilin vuosikorko on 2{,}5~\%. Muista lähdevero 30 \%.
+Kuinka paljon rahaa hänen tulisi tallettaa tililleen kuukausittain, jotta vuoden kuluttua nostettavissa olisi 1 200 euroa? Tilin vuosikorko on 2{,}5~\%. Muista lähdevero 30~\%.
 \end{question}\begin{solution}
     Olkoon \(k\) kuukausittain talletettava pääoma. Tammikuun talletus kasvaa korkoa 12 kk, helmikuun talletus 11 kk jne.
     \begin{align*}
@@ -98,7 +97,7 @@ Tilin vuosikorko on 2{,}5~\%. Muista lähdevero 30 \%.
          =& k\cdot0,7\cdot0,025\cdot\frac{78}{12}\\
          =& 0,11375\cdot k
     \end{align*}
-    Nyt \(1200 = 12k + r = 12k + 0,11375k = 12,11375k\) eli \(k = 1200/12,11375\approx 99,061\).
+    Nyt \(1200 = 12k + r = 12k + 0,11375k = 12{,}11375k\) eli \(k = 1200/12{,}11375\approx 99,061\).
     Tilille on siis talletettava vähintään 99,07 euroa.
 \end{solution}
 
@@ -197,8 +196,7 @@ Tililtä on siis nostettavissa 7414,01 euroa.
 \begin{question} Kauppias tarjoaa auton maksamiseen seuraavaa rahoitusmallia: käsiraha 8~000~\euro \ on maksettava heti ja tämän
 jälkeen kahtena seuraavana vuonna maksetaan 5 000~\euro. Kolmen vuoden kuluttua maksetaan vielä 2 000~\euro.
 Jos asiakas kuitenkin haluaa maksaa auton käteisellä heti ostohetkellä, mikä auton hinnan pitäisi olla, että asiakas
-maksaisi siitä yhtä paljon kuin kauppiaan ehdottamassa rahoitusmallissa? Oletetaan, että kauppiaan käyttämä
-korkokanta on 7{,}5 \%.
+maksaisi siitä yhtä paljon kuin kauppiaan ehdottamassa rahoitusmallissa? Oletetaan, että kauppiaan käyttämä korkokanta on 7{,}5~\%.
 \end{question}\begin{solution}
     Diskontataan maksuerät nykyhetkeen. Kerroin on \(q= 1+0,075 = 1,075\), joten nykyarvoksi saadaan
     \[
