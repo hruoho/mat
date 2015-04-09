@@ -297,7 +297,7 @@
 	\begin{ratkaisu}		
 		Edellisen perusteella koron suuruus on\pause 
 		\begin{align*}
-			&100\cdot0,015\cdot\frac{8}{12}+100\cdot0,015\cdot\frac{7}{12}+\ldots+100\cdot0,015\cdot\frac{1}{12} \\
+			&100\cdot0,015\cdot\frac{9}{12}+100\cdot0,015\cdot\frac{7}{12}+\ldots+100\cdot0,015\cdot\frac{1}{12} \\
 			&= 100\cdot0,015\cdot\left(\frac{9}{12} + \frac{8}{12} + \cdots +\frac{1}{12}\right)\\
 			&= 100\cdot0,015\cdot\frac{1}{12}\cdot(9+8+\cdots+1)\\
 			&= \frac{1,5}{12}\cdot(9+8+\cdots+1)\\

@@ -62,6 +62,9 @@
 %\SetupExSheets{solution/print=true}
 \IfFileExists{upquote.sty}{\usepackage{upquote}}{}
 \begin{document}
+
+
+
 \pagestyle{empty}
 
 \section*{Luentotehtäviä}
@@ -179,7 +182,7 @@ neljän vuoden kuluttua? Muista lähdevero.
 
 \begin{question} Kaukainen sukulainen pyytää sinua avaamaan tilin, jotta hän voi jokaisen vuoden lopussa lahjoittaa sinulle tietyn
 summan rahaa tallettamalla sen tälle tilille. Tilillä ei ole näiden vuosittaisten talletusten ja koronmaksun lisäksi muita tilitapahtumia.
-Ensimmäisen talletuksen sukulaisesi tekee vuoden 2014 lopussa. Viiden vuoden kuluttua vuoden 2020 alussa tilillä on rahaa 4 342{,}15 euroa.
+Ensimmäisen talletuksen sukulaisesi tekee vuoden 2014 lopussa. Viiden vuoden kuluttua vuoden 2020 alussa tilillä on rahaa 4~342{,}15 euroa.
 Kuinka suuri on vuotuinen talletus, jos tilin korko on 1{,}9 \% p.a? Huomioi lähdevero.
 \end{question}\begin{solution}
 Olkoon \(x\) vuosittain talletettava (lahjoitettava) summa. Vuonna 2014 saatu summa kasvaa korkoa 5 kertaa,
@@ -229,16 +232,16 @@ Tililtä on siis nostettavissa 7414,01 euroa.
 
 \subsubsection*{Diskonttaus}
 
-\begin{question} Josefiina tallettaa tililleen vuoden alussa summan, jonka toivoo kasvavan ainakin 5000 euroksi kymmenessä vuodessa. Tilin korkokanta on 1,5~\%.
+\begin{question} Josefiina tallettaa tililleen vuoden alussa summan, jonka toivoo kasvavan ainakin 5000 euroksi kymmenessä vuodessa. Tilin nettokorkokanta on 1,5~\%.
 \begin{enumerate}[(a)]
     \item Selvitä diskonttaustekijä.
     \item Kuinka suuri summa Josefiinan tulee tililleen tallettaa?
 \end{enumerate}
 \end{question}\begin{solution}
     \begin{enumerate}[(a)]
-        \item Koska \(q = 1 + 0,0157 = 1,0157\), diskonttaustekijä on \(q^{-10} = \frac{1}{q^{10}}\approx 0,85574\).
-        \item \(k = K\cdot q^{-10} = K\cdot 0,855747 = 5000\cdot 0,85574 \approx 4278,735\) euroa.
-        Josefiinan tulee tallettaa tililleen vähintään 4278,74 euroa.
+        \item Koska \(q = 1 + 0,015 = 1,015\), diskonttaustekijä on \(q^{-10} = \frac{1}{q^{10}}\approx 0{,}8616672\).
+        \item \(k = K\cdot q^{-10} = K\cdot 0{,}8616672 = 5000\cdot 0{,}8616672\approx 4~308{,}336\) euroa.
+        Josefiinan tulee tallettaa tililleen vähintään 4~308{,}34 euroa.
     \end{enumerate}
 \end{solution}
 
