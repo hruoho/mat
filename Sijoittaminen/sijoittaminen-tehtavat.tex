@@ -1,0 +1,258 @@
+\documentclass{article}\usepackage[]{graphicx}\usepackage[]{color}
+%% maxwidth is the original width if it is less than linewidth
+%% otherwise use linewidth (to make sure the graphics do not exceed the margin)
+\makeatletter
+\def\maxwidth{ %
+  \ifdim\Gin@nat@width>\linewidth
+    \linewidth
+  \else
+    \Gin@nat@width
+  \fi
+}
+\makeatother
+
+\definecolor{fgcolor}{rgb}{0.345, 0.345, 0.345}
+\newcommand{\hlnum}[1]{\textcolor[rgb]{0.686,0.059,0.569}{#1}}%
+\newcommand{\hlstr}[1]{\textcolor[rgb]{0.192,0.494,0.8}{#1}}%
+\newcommand{\hlcom}[1]{\textcolor[rgb]{0.678,0.584,0.686}{\textit{#1}}}%
+\newcommand{\hlopt}[1]{\textcolor[rgb]{0,0,0}{#1}}%
+\newcommand{\hlstd}[1]{\textcolor[rgb]{0.345,0.345,0.345}{#1}}%
+\newcommand{\hlkwa}[1]{\textcolor[rgb]{0.161,0.373,0.58}{\textbf{#1}}}%
+\newcommand{\hlkwb}[1]{\textcolor[rgb]{0.69,0.353,0.396}{#1}}%
+\newcommand{\hlkwc}[1]{\textcolor[rgb]{0.333,0.667,0.333}{#1}}%
+\newcommand{\hlkwd}[1]{\textcolor[rgb]{0.737,0.353,0.396}{\textbf{#1}}}%
+
+\usepackage{framed}
+\makeatletter
+\newenvironment{kframe}{%
+ \def\at@end@of@kframe{}%
+ \ifinner\ifhmode%
+  \def\at@end@of@kframe{\end{minipage}}%
+  \begin{minipage}{\columnwidth}%
+ \fi\fi%
+ \def\FrameCommand##1{\hskip\@totalleftmargin \hskip-\fboxsep
+ \colorbox{shadecolor}{##1}\hskip-\fboxsep
+     % There is no \\@totalrightmargin, so:
+     \hskip-\linewidth \hskip-\@totalleftmargin \hskip\columnwidth}%
+ \MakeFramed {\advance\hsize-\width
+   \@totalleftmargin\z@ \linewidth\hsize
+   \@setminipage}}%
+ {\par\unskip\endMakeFramed%
+ \at@end@of@kframe}
+\makeatother
+
+\definecolor{shadecolor}{rgb}{.97, .97, .97}
+\definecolor{messagecolor}{rgb}{0, 0, 0}
+\definecolor{warningcolor}{rgb}{1, 0, 1}
+\definecolor{errorcolor}{rgb}{1, 0, 0}
+\newenvironment{knitrout}{}{} % an empty environment to be redefined in TeX
+
+\usepackage{alltt}
+
+\input{../_texPartials/simple-preamble}
+
+%\SetupExSheets{question/print=false}
+\SetupExSheets{solution/print=true}
+\DeclareTranslation{finnish}{exsheets-solution-name}{Ratkaisuehdotus}
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\begin{document}
+
+
+\section*{Sijoittaminen - luentotehtäviä}
+
+\subsection*{Pankkitalletukset}
+
+Muista korkotuotoista perittävä lähdevero 30 \%.
+
+\begin{question} 
+  Sijoitat kahden vuoden määräaikaistilille 3 000 \euro. Tilin vuotuinen korko on 1{,}2 \% ja sijoitusajan lopussa maksettava lisäkorko 5 \%. Mikä oli sijoituksen nettokorkotuotto prosentteina?
+\end{question}
+\begin{solution}
+
+Sijoitusajan lopussa tilillä on rahaa 
+\[
+(1+0,7\cdot 0,05)\cdot(1+0,7\cdot 0,012)^2\cdot3000 = 3~157{,}38
+\]
+euroa. Näin ollen sijoituksen nettotuotto on 157{,}38 euroa eli prosentteina \(157{,}38/3000\approx 5{,}25\)~\%.
+\end{solution}
+
+\begin{question} Korkeakorkoiselle tilille talletettiin rahasumma neljäksi vuodeksi. Tilin vuotuinen korkokanta oli 3{,}5 \% ja talletusajan lopussa alkuperäiselle pääomalle maksettiin 7{,}5 \% lisäkorko. Kuinka suuri oli alkuperäinen talletus, jos talletusajan päätyttyä tililtä nostettiin 10~387{,}45 euroa?
+\end{question}
+\begin{solution}
+
+  Olkoon \(k\) alkuperäinen talletus. Talletusajan lopuksi maksettava lisäkorko on \((0,7\cdot0,075)\cdot k \) euroa, joten tilillä on lopuksi rahaa
+  \[
+    (0,7\cdot0,075)\cdot k + (1+0,7\cdot0,035)^4\cdot k = 0{,}0525k + 1{,}101661 k = 1{,}154161 k
+  \]
+euroa. Saadaan yhtälö
+ \[
+    1{,}154161\cdot k = 10~387{,}45,
+  \]
+jonka perusteella
+\[
+  k = \frac{10~387{,}45}{1{,}154161} = 9~000
+\]
+euroa.
+\end{solution}
+
+\subsection*{Vakuutukset}
+
+\begin{question} 
+Selvitä kurssimateriaalista, miten sijoitusvakuutusta verotetaan. 
+\end{question}
+\begin{solution}
+Sijoitusvakuutuksesta saaduista tuotoista maksetaan pääomatulovero sijoitusajan päätyttyä. Jos edunsaaja on joku muu kuin sijoittaja itse, maksetaan lisäksi lahjavero sijoitetusta summasta.
+\end{solution}
+
+\begin{question} Sijoitat sijoitusvakuutukseen vuoden alussa 1~500~\euro\ ja kahden seuraavan vuoden alussa 1~000~\euro\ vuosittain. Vakuutuksesta pitää maksaa sijoitettavan summan lisäksi hoitokuluja 15 euroa vuodessa. Sijoitusvakuutuksen vuosituotoksi arvioidaan 6~\%. Mikä on sijoituksesi nettotuotto kolmen vuoden kuluttua? 
+\end{question}
+\begin{solution}
+
+
+Sijoituksen arvo kolmen vuoden kuluttua on 
+\[
+  1{,}06^3\cdot1~500 + 1{,}06^2\cdot1~000 + 1{,}06\cdot1~000 = 3~970{,}124
+\]
+euroa.
+Tuotto on siis kulut huomioiden ollut 
+\[
+  3~970{,}124 - 3~500 45 = 425{,}124
+  \]
+  euroa. Nettotuotto saadaan kun tuotosta vähennetään pääomatulovero:
+\[
+  0,7\cdot425{,}124 = 297{,}5868.
+\]
+Nettotuotto on siis 297{,}59 euroa.
+\end{solution}
+
+\begin{question} Isotätisi tallettaa sijoitusvakuutukseen ensimmäisenä vuonna 3~000 euroa ja toisena vuonna 2~000 euroa. Hän maksoi vakuutuksesta sijoitettavan summan lisäksi hoitokuluja 20 euroa vuodessa. Sijoitusvakuutuksen vuosituotto oli ensimmäisenä vuonna 7~\% ja toisena vuonna 4~\%. Edunsaajaksi isotätisi määräsi sinut. Kuinka paljon rahaa sait vakuutuksesta verojen maksamisen jälkeen?
+\end{question}
+\begin{solution}
+
+Sijoituksen arvo on kahden vuoden kuluttua
+\[
+  3~000\cdot1{,}07\cdot1{,}04 + 2~000\cdot1{,}04 = 5~418{,}4
+\]
+euroa. Tuotto on 
+\[
+  5~418{,}4 - 5~000 - 40 = 378{,}4
+\]
+ja siten lähdeveron jälkeinen nettotuotto
+\[
+  0,7\cdot 378{,}4 = 264{,}88
+\]
+euroa. Itse sijoituksesta joudutaan maksamaan lahjaveroa \(100 + 0,07\cdot(5~000 - 4000) = 800\) euroa, joten kaiken kaikkiaan käteen jää
+\[
+5~000 - 800 + 264{,}88 = 4~464{,}88
+\]
+euroa. 
+\end{solution}
+
+\subsection*{Obligaatiot}
+
+\begin{question}
+  Selvitä kurssimateriaalista, mitä seuraavat käsitteet tarkoittavat:
+  \begin{itemize}
+    \item joukkovelkakirjalaina
+    \item obligaatio
+    \item liikkeellelaskupäivä
+    \item nimellisarvo
+    \item emissiokurssi
+    \item jälkimarkkinahyvitys
+  \end{itemize}
+  Selvitä myös, miten obligaatioista saatua tuottoa verotetaan.
+\end{question}
+
+\begin{question} Kaverisi osti nimellisarvoltaan 2~000 eurolla obligaatioita 95~\% emissiokurssilla 73 päivää lainan liikkeellelaskun jälkeen. Obligaatioiden korkokanta oli 4{,}8~\% p.a. ja laina-aika kymmenen vuotta. Korkopäivien laskemiseen käytettiin tapaa todelliset/365.
+  \begin{enumerate}
+    \item Kuinka paljon kaverisi maksoi obligaatioistaan yhteensä?
+    \item Kuinka paljon kaverisi sai sijoituksestaan nettotuottoa, jos hän myi obligaatiot viiden vuoden kuluttua liikkeellelaskupäivästä hintaan 2 200 euroa?
+  \end{enumerate} 
+\end{question}
+\begin{solution}
+  \begin{enumerate}[(a)]
+    \item Emissiokurssin mukainen hinta oli \(0,95\cdot2000 = 1~900\) euroa. Jälkimarkkinahyvitys 73:lta päivältä oli \(2000\cdot0,048\cdot\frac{73}{365} = 19{,}2\) euroa. Yhteensä maksettavaa kertyi siis \(1~900 + 19{,}2 = 1~919{,}2\) euroa.
+    \item 
+      Vuosittainen korkotuotto oli \(0,048\cdot2000 = 96\) euroa. Viideltä vuodelta korkotuloja kertyi siis 480 euroa, joista lähdeveron jälkeen jäi käteen \(336\) euroa. Myyntivoittoa (pääomatuloa) hän sai \(2200 - 1~900 - 19{,}2 = 280{,}8\), joista pääomatuloveron jälkeen jäi \(196{,}56\) euroa. Kaiken kaikkiaan nettotuloja kertyi \(532{,}56\) euroa. 
+  \end{enumerate}
+\end{solution}
+
+\begin{question} Valtion liikkeellelaskeman obligaatiolainan vuosikorko oli 5 \%. Sijoittaja osti kolme obligaatiota 108 päivää liikkeellelaskun jälkeen, kun emissiokurssi oli 102 \%. Mikä oli yhden obligaation nimellisarvo, jos sijoittaja maksoi obligaatioista yhteensä 4 657{,}50 euroa? Käytä korkopäivien laskemiseen tapaa todelliset/360.
+\end{question}
+\begin{solution}
+
+  Olkoon \(x\) obligaatioiden yhteinen nimellisarvo. Sijoittaja maksoi emissiokurssin mukaisen hinnan lisäksi 108 päivältä kertyneen koron. Emissiokurssin mukainen hinta oli \(1,02x\) euroa ja koron suuruus
+  \[
+  x\cdot0,05\cdot\frac{108}{360} = 0{,}015x
+  \]
+euroa. Nyt tiedetään, että
+\[
+  1,02x + 0{,}015x = 4~657{,}5
+\]
+eli
+\[
+  1{,}035x = 4~657{,}5.
+\]
+Tästä saadaan
+\[
+  x = \frac{4~657{,}5}{1{,}035} = 4~500,
+\]
+eli kolmen obligaation yhteinen nimellisarvo oli \(4~500\) euroa. Näin ollen yhden obligaation nimellisarvo oli \(1~500\) euroa.
+\end{solution}
+
+\subsection*{Osakkeet}
+
+\begin{enumerate}
+  \item Selvitä kurssimateriaalista, mitä tarkoittavat käsitteet osake ja osinko.
+  \item Selviä kurssimateriaalista, miten pörssiin listattujen yhtiöiden osakkeiden tuottoa verotetaan.
+\end{enumerate}
+ 
+\begin{question} Kaverisi osti 600 kappaletta erään pörssiin listatun yrityksen osakkeita 9{,}45 euron kappalehintaan. Keväällä yritys jakoi jokaiselta osakkeelta osinkoa 1{,}15 \euro. Vuoden lopulla kaverisi myi osakkeet 10{,}90 euron kappalehintaan. Sekä oston että myynnin yhteydessä perittiin välityspalkkiota 1{,}0 \% kauppahinnasta. Mikä oli kaverisi sijoituksen nettotuotto?
+\end{question}\begin{solution}\end{solution}
+
+\begin{question} Sijoittaja osti 90 kappaletta erään yhtiön osakkeita kurssilla 35{,}86 \euro. Yhdeksän kuukauden kuluttua hän myi osakkeet kurssilla 37{,}23 \euro. Välityspalkkio oli sekä ostettaessa että myytäessä $0{,}25\ \%  + 7{,}50 \euro$. Mikä oli sijoituksen nettotuottoa vastaava vuosittainen korkokanta?
+\end{question}
+
+\subsection*{Sijoitusrahastot}
+
+\begin{question} Selviä kurssimateriaalista, miten sijoitusrahastojen tuottoa verotetaan.
+
+\end{question}
+
+\begin{question} Kaverisi osti korkorahaston osuuksia 1 200 eurolla. Hän myi osuudet vuoden kuluttua, jolloin osuuksien arvo oli 1 350 euroa. Kauppojen yhteydessä perityt välityspalkkiot olivat sekä oston että myynnin tapauksessa 0{,}95 \% kauppahinnasta. Mikä oli sijoituksen nettotuottoa vastaava vuosittainen korkokanta?
+
+\end{question}\begin{solution}\end{solution}
+
+\begin{question} Sijoitit rahastoon 95 \euro \  ja sait 8{,}5 rahasto-osuutta. Kahden kuukauden kuluttua rahasto-osuuden arvo oli noussut 3{,}2 \%. Kuinka monta rahasto-osuutta sait, jos sijoitit saman summan kuin edellisellä kerralla?
+
+\end{question}
+
+\subsection*{Sekalaisia tehtäviä}
+
+\begin{question} Sijoitat loppuvuoden aikana erääseen rahastoon joka kuukausi saman summan syyskuusta alkaen. Rahasto-osuuden arvo euroina on alla olevassa taulukossa. Oletko voitolla vai tappiolla sijoituksissasi joulukuun sijoituksen jälkeen? Kuinka monta prosenttia voitto tai tappio on kokonaissijoituksestasi?
+\end{question}\begin{solution}\end{solution}
+
+\begin{question} Kaverisi tallettaa 16.4.2014 määräaikaistilille 2 400 euroa. Tilin eräpäiväksi asetetaan 20.3.2015. Tilin kiinteä korko on 2{,}95 \% p.a. ja se lasketaan korkotavan todelliset/360 mukaan. Korko liitetään pääomaan vuoden vaihteessa ja talletuksen eräpäivänä. Kuinka paljon kaverisi voi nostaa tililtään eräpäivänä?
+
+\end{question}\begin{solution}\end{solution}
+
+\begin{question} Ostat 50 kappaletta erään yrityksen osakkeita hintaan 21{,}75 \euro/kpl. Välityspalkkio on 0{,}5~\% kauppahinnasta, kuitenkin vähintään 8 \euro. Kuinka paljon maksat yhdestä osakkeesta, jos välityspalkkio otetaan huomioon?
+
+\end{question}
+
+\begin{solution}\end{solution}\begin{question} Joukkovelkakirjalainan korkokanta on 5{,}5 \% p.a. ja laina-aika kolme vuotta. Ostat tämän lainan obligaatioita 144 päivää liikkeellelaskun jälkeen, kun emissiokurssi on 98{,}5 \%. Ostamiesi obligaatioiden nimellisarvo on yhteensä 2 500 euroa. Jos olisit tallettanut obligaatioista maksamasi summan pankkitilille, mikä olisi sen vuotuisen korkokannan pitänyt olla, jotta sijoitusten nettotuotot olisivat yhtä suuria? Korkotapana 30/360.
+
+\end{question}\begin{solution}\end{solution}
+
+\begin{question} Talletat sijoitusvakuutukseen kolmena peräkkäisenä vuonna jokaisen vuoden alussa 2 000 euroa. Sijoitusvakuutuksen vuotuinen tuotto on ensimmäisenä vuonna 3 \%, toisena vuonna 2 \% ja kolmantena vuonna 2{,}5 \%. Maksat sijoittamiesi rahasummien lisäksi vakuutuksesta hoitomaksua 15 \euro \ vuodessa. 
+\begin{enumerate}
+  \item Mikä on sijoituksesi nettotuotto sijoitusajan päättyessä kolmannen vuoden lopussa? 
+  \item Jos olisit tallettanut sijoittamasi summat samalla tavalla vuosittain pankkitilille, jonka korkokanta on 2{,}5 \% p.a., olisiko nettotuotto ollut suurempi vai pienempi kuin sijoitusvakuutuksessa?
+\end{enumerate}
+\end{question}
+
+\begin{solution}\end{solution}
+
+
+
+\end{document}
