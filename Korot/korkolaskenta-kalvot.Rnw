@@ -1,11 +1,9 @@
 \documentclass[]{beamer}
-\input{../_texPartials/simple-preamble}
+\input{../_texPartials/simple-beamer-preamble}
 \usecolortheme{whale}
 \setbeamercolor{block title}{use=frametitle, bg=frametitle.bg, fg=frametitle.fg}
 \setbeamercolor{block body}{use=frametitle, bg=frametitle.bg!40!white, fg=black}
-\usepackage{eurosym}
-\usepackage{hyperref}
-\usepackage{graphicx}
+\theoremstyle{remark}
 \newtheorem{esim}{Esimerkki}
 \newtheorem{ratkaisu}{Ratkaisuehdotus}
 \newcommand{\pblock}{\\ \vspace{0.5cm}\pause}
