@@ -1,0 +1,8 @@
+##---- hooks ----
+knit_hooks$set(inline = function(x) {
+  prettyNum(x, big.mark="~", decimal="{,}")
+})
+p <- function(num){ 
+  return(
+    format(round(num, 2), scientific = FALSE, decimal="{,}")
+)}
