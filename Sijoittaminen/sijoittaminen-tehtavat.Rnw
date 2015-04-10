@@ -121,19 +121,56 @@ euroa.
 
 \subsection*{Obligaatiot}
 
-\begin{question} Kaverisi osti nimellisarvoltaan 2 000 eurolla obligaatioita 95 \% emissiokurssilla 73 päivää lainan liikkeellelaskun jälkeen. Obligaatioiden korkokanta oli 4{,}8 \% p.a. ja laina-aika kymmenen vuotta. Korkopäivien laskemiseen käytettiin tapaa todelliset/365.
-\begin{enumerate}
-  \item Kuinka paljon kaverisi maksoi obligaatioistaan yhteensä?
-  \item Kuinka paljon kaverisi sai sijoituksestaan nettotuottoa, jos hän myi obligaatiot viiden vuoden kuluttua liikkeellelaskupäivästä hintaan 2 200 euroa?
-\end{enumerate} 
+\begin{question}
+  Selvitä kurssimateriaalista, mitä seuraavat käsitteet tarkoittavat:
+  \begin{itemize}
+    \item joukkovelkakirjalaina
+    \item obligaatio
+    \item liikkeellelaskupäivä
+    \item nimellisarvo
+    \item emissiokurssi
+    \item jälkimarkkinahyvitys
+  \end{itemize}
+  Selvitä myös, miten obligaatioista saatua tuottoa verotetaan.
+\end{question}
+
+\begin{question} Kaverisi osti nimellisarvoltaan 2~000 eurolla obligaatioita 95~\% emissiokurssilla 73 päivää lainan liikkeellelaskun jälkeen. Obligaatioiden korkokanta oli 4{,}8~\% p.a. ja laina-aika kymmenen vuotta. Korkopäivien laskemiseen käytettiin tapaa todelliset/365.
+  \begin{enumerate}
+    \item Kuinka paljon kaverisi maksoi obligaatioistaan yhteensä?
+    \item Kuinka paljon kaverisi sai sijoituksestaan nettotuottoa, jos hän myi obligaatiot viiden vuoden kuluttua liikkeellelaskupäivästä hintaan 2 200 euroa?
+  \end{enumerate} 
 \end{question}
 \begin{solution}
+  \begin{enumerate}[(a)]
+    \item Emissiokurssin mukainen hinta oli \(0,95\cdot2000 = \Sexpr{emis <- 0.95*2000; emis}\) euroa. Jälkimarkkinahyvitys 73:lta päivältä oli \(2000\cdot0,048\cdot\frac{73}{365} = \Sexpr{jmh <- 2000*0.048*73/365; jmh}\) euroa. Yhteensä maksettavaa kertyi siis \(\Sexpr{emis} + \Sexpr{jmh} = \Sexpr{emis+jmh}\) euroa.
+    \item 
+      Vuosittainen korkotuotto oli \(0,048\cdot2000 = \Sexpr{vt <- 0.048*2000; vt}\) euroa. Viideltä vuodelta korkotuloja kertyi siis \Sexpr{korko <- 5*vt; korko} euroa, joista lähdeveron jälkeen jäi käteen \(\Sexpr{nkorko <- 0.7*korko; nkorko}\) euroa. Myyntivoittoa (pääomatuloa) hän sai \(2200 - \Sexpr{emis} - \Sexpr{jmh} = \Sexpr{mtulot <- 2200-emis-jmh; mtulot}\), joista pääomatuloveron jälkeen jäi \(\Sexpr{nmtulot <- 0.7*mtulot; nmtulot}\) euroa. Kaiken kaikkiaan nettotuloja kertyi \(\Sexpr{nkorko + nmtulot}\) euroa. 
+  \end{enumerate}
 \end{solution}
 
 \begin{question} Valtion liikkeellelaskeman obligaatiolainan vuosikorko oli 5 \%. Sijoittaja osti kolme obligaatiota 108 päivää liikkeellelaskun jälkeen, kun emissiokurssi oli 102 \%. Mikä oli yhden obligaation nimellisarvo, jos sijoittaja maksoi obligaatioista yhteensä 4 657{,}50 euroa? Käytä korkopäivien laskemiseen tapaa todelliset/360.
 \end{question}
 \begin{solution}
-
+<<echo=F>>=
+summa <- 4657.50
+@
+  Olkoon \(x\) obligaatioiden yhteinen nimellisarvo. Sijoittaja maksoi emissiokurssin mukaisen hinnan lisäksi 108 päivältä kertyneen koron. Emissiokurssin mukainen hinta oli \(1,02x\) euroa ja koron suuruus
+  \[
+  x\cdot0,05\cdot\frac{108}{360} = \Sexpr{a <- 0.05*108/360; a}x
+  \]
+euroa. Nyt tiedetään, että
+\[
+  1,02x + \Sexpr{a}x = \Sexpr{summa}
+\]
+eli
+\[
+  \Sexpr{b <- 1.02+a;b}x = \Sexpr{summa}.
+\]
+Tästä saadaan
+\[
+  x = \frac{\Sexpr{summa}}{\Sexpr{b}} = \Sexpr{c <- summa/b; c},
+\]
+eli kolmen obligaation yhteinen nimellisarvo oli \(\Sexpr{c}\) euroa. Näin ollen yhden obligaation nimellisarvo oli \(\Sexpr{p(c/3)}\) euroa.
 \end{solution}
 
 \subsection*{Osakkeet}
