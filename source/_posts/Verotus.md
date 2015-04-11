@@ -5,7 +5,7 @@ categories:
 tags:
 - Ekonomivalmennus
 ---
-
+Kalvot: {% asset_link 'verotus-kalvot.pdf' %}
 Tuntitehtävät ja ratkaisut voit ladata tästä (7 sivua): {% asset_link 'verotus-tehtavat.pdf' %}
 
 Tehtävissä tarvittavia vuoden 2015 taulukoita: {% asset_link 'verotus-taulukoita.pdf' %}
