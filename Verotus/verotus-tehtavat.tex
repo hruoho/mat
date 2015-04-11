@@ -1,0 +1,371 @@
+\documentclass[a4paper,10pt]{article}\usepackage[]{graphicx}\usepackage[]{color}
+%% maxwidth is the original width if it is less than linewidth
+%% otherwise use linewidth (to make sure the graphics do not exceed the margin)
+\makeatletter
+\def\maxwidth{ %
+  \ifdim\Gin@nat@width>\linewidth
+    \linewidth
+  \else
+    \Gin@nat@width
+  \fi
+}
+\makeatother
+
+\definecolor{fgcolor}{rgb}{0.345, 0.345, 0.345}
+\newcommand{\hlnum}[1]{\textcolor[rgb]{0.686,0.059,0.569}{#1}}%
+\newcommand{\hlstr}[1]{\textcolor[rgb]{0.192,0.494,0.8}{#1}}%
+\newcommand{\hlcom}[1]{\textcolor[rgb]{0.678,0.584,0.686}{\textit{#1}}}%
+\newcommand{\hlopt}[1]{\textcolor[rgb]{0,0,0}{#1}}%
+\newcommand{\hlstd}[1]{\textcolor[rgb]{0.345,0.345,0.345}{#1}}%
+\newcommand{\hlkwa}[1]{\textcolor[rgb]{0.161,0.373,0.58}{\textbf{#1}}}%
+\newcommand{\hlkwb}[1]{\textcolor[rgb]{0.69,0.353,0.396}{#1}}%
+\newcommand{\hlkwc}[1]{\textcolor[rgb]{0.333,0.667,0.333}{#1}}%
+\newcommand{\hlkwd}[1]{\textcolor[rgb]{0.737,0.353,0.396}{\textbf{#1}}}%
+
+\usepackage{framed}
+\makeatletter
+\newenvironment{kframe}{%
+ \def\at@end@of@kframe{}%
+ \ifinner\ifhmode%
+  \def\at@end@of@kframe{\end{minipage}}%
+  \begin{minipage}{\columnwidth}%
+ \fi\fi%
+ \def\FrameCommand##1{\hskip\@totalleftmargin \hskip-\fboxsep
+ \colorbox{shadecolor}{##1}\hskip-\fboxsep
+     % There is no \\@totalrightmargin, so:
+     \hskip-\linewidth \hskip-\@totalleftmargin \hskip\columnwidth}%
+ \MakeFramed {\advance\hsize-\width
+   \@totalleftmargin\z@ \linewidth\hsize
+   \@setminipage}}%
+ {\par\unskip\endMakeFramed%
+ \at@end@of@kframe}
+\makeatother
+
+\definecolor{shadecolor}{rgb}{.97, .97, .97}
+\definecolor{messagecolor}{rgb}{0, 0, 0}
+\definecolor{warningcolor}{rgb}{1, 0, 1}
+\definecolor{errorcolor}{rgb}{1, 0, 0}
+\newenvironment{knitrout}{}{} % an empty environment to be redefined in TeX
+
+\usepackage{alltt}
+
+\input{../_texPartials/simple-preamble}
+
+% package for captions without numbers
+\usepackage{caption}
+
+% package for exercises
+\usepackage{exsheets}
+\DeclareTranslation{finnish}{exsheets-exercise-name}{Tehtävä}
+\DeclareTranslation{finnish}{exsheets-question-name}{Kysymys}
+\DeclareTranslation{finnish}{exsheets-solution-name}{Ratkaisuehdotus}
+
+%\SetupExSheets{solution/print=true}
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\begin{document}
+
+%no page numbers
+\pagestyle{empty}
+
+\part*{Talousmatematiikkaa: verotus}
+\section*{Tehtäviä}
+
+Tehtävissä mahdollisesti tarvittavia vuoden 2015 taulukoita löydät toisesta tiedostosta (verotus-taulukot.pdf). Vuoden 2013 taulukoita löytyy mm. kurssimateriaalista.
+
+\subsection*{Arvonlisävero}
+
+
+
+\begin{question}
+  Tuotteen alv:ton hinta on 10,50 euroa. Laske myyntihinta, kun kyseessä on
+  \begin{enumerate}[(a)]
+    \item kirja (alv 10\%) 
+    \item elintarvike (alv 14\%).
+  \end{enumerate}
+\end{question}
+\begin{solution}
+  \begin{enumerate}[(a)] 
+    \item \(1,10\cdot10,50 = 11{,}55\) euroa
+    \item \(1,14\cdot10,50 = 11{,}97\) euroa
+  \end{enumerate}
+\end{solution}
+
+\begin{question}
+  Ostosten loppusummaksi tuli 25,50 euroa. Kuitin mukaan hinta sisältää 3,13 euroa arvonlisäveroa. Selvitä, minkä alv-kannan piiriin tuote kuuluu.
+\end{question}
+\begin{solution}
+  Arvonlisäveroton hinta on 22{,}37 euroa. Arvonlisäveroprosentti on siis 
+  \[
+    \frac{3,13}{22{,}37}=0{,}1399195 \approx 14\text{~\%} 
+  \]
+\end{solution}
+
+\begin{question}
+  Ostokset maksoivat 76,50 euroa. Laske alv:ton hinta, kun ostokset kuuluvat (a) 14\% (b) 24\% arvonlisäveron piiriin.
+\end{question}
+\begin{solution}
+  \begin{enumerate}[(a)]
+    \item 
+      \[
+        P = \frac{1}{1,14}\cdot76,50\approx 67{,}11
+      \]euroa
+    \item 
+      \[
+        P = \frac{1}{1,24}\cdot76,50\approx 61{,}69
+      \] euroa
+  \end{enumerate}
+\end{solution}
+
+\begin{question}
+  Kengät (alv 24~\%) maksoivat 115,00~\euro\ ja elokuvalippu (alv 10~\%) 10,50~\euro. Kuinka paljon arvolisäveroa maksettiin yhteensä?
+\end{question}
+\begin{solution}
+
+  Arvonlisäveroa maksettiin 
+  \[
+    \frac{0,24}{1,24}\cdot115 + \frac{0,10}{1,10}\cdot10{,}5 
+    \approx 23{,}21
+  \] euroa.
+\end{solution}
+
+\begin{question}
+  Makeissekoituksen veroton hinta on 15,45 euroa/kg. Makeisveron (hinnanlisä) suuruus on 95 senttiä kilogrammalta. Laske 500g karkkipussin myyntihinta (sis. alv 14\%).
+\end{question}
+\begin{solution}
+  Makeisverollinen hinta on \(15{,}5+0{,}95 = 16{,}40\) euroa/kg, joten 500g pussin makeisverollinen hinta on 8,20 euroa. Myyntihinta saadaan tästä: \(M = 1,14\cdot8,2\approx9{,}35\) euroa.
+\end{solution}
+
+
+
+  \begin{question}
+  Kioskilta ostettiin karkkipussi (alv 14\%) ja aikakauslehti (alv 24\%). Loppusumma 12{,}3~\euro\ sisälsi kuitin mukaan arvonlisäveroa 1{,}9 euroa. Laske karkkipussin ja aikakauslehden alv:ttomat hinnat.
+\end{question}
+\begin{solution}
+  Olkoon \(x\) karkkipussin ja \(y\) aikakauslehden alv:ton myyntihinta. Tällöin \(x+y = 10{,}4\) ja \(0,14x + 0,24y = 1{,}9\). Ensimmäisen yhtälön perusteella \(x = 10{,}4 - y\), joten sijoitetaan tämä toiseen yhtälöön:
+  \[
+    0,14(10{,}4-y)+0,24y = 1{,}9 \quad\text{eli}\quad1{,}456 + 0{,}1y = 1{,}9
+    \]
+  Nyt
+  \[
+    y = \frac{1{,}9-1{,}456}{0{,}1} = 4{,}44
+  \]
+  Tästä saadaan \(x = 12{,}3 -4{,}44 = 5{,}96\). Niinpä karkkipussin veroton hinta oli  5{,}96 euroa, lehden 4{,}44 euroa.
+\end{solution}
+
+
+\begin{question}
+  Keramiikkapaja valmistaa lasitettuja esineitä, joita varten se tilaa 2~200 eurolla savea ja 1~500 eurolla lasitukseen tarvittavia aineita. Molemmat hinnat sisältävät 24~\% arvonlisäveron. Valmistetut esineet se myy jälleenmyyjälle yhteishintaan 12~900 euroa. Kuinka paljon arvonlisäveroa keramiikkapaja tilittää valtiolle?
+\end{question}
+\begin{solution}
+Paja tilittään myydessään saamansa ja ostaessaan maksamansa arvonlisäveron erotuksen. Savesta maksetun veron suuruus on 
+  \[
+  \frac{0,24}{1,24}\cdot2~200\approx 425{,}81
+  \]
+euroa, lasitusaineista 
+  \[
+  \frac{0,24}{1,24}\cdot1~500\approx290{,}32
+  \]
+euroa. Yhteensä siis 716{,}13 euroa. Myytäessä arvonlisäveroa saatiin
+\[
+  \frac{0,24}{1,24}\cdot12~900\approx2~496{,}77
+\]
+euroa. Arvonlisäveroa jää tilitettäväksi \(2~496{,}77 - 716{,}13 = 1~780{,}65\) euroa.
+\end{solution}
+
+
+
+\begin{question}
+  Akseli myy visakoivusta veistämiään puukonkahvoja Ilmariselle hintaan 15~\euro/kpl. Ilmarinen jatkaa työn loppuun ja myy valmiit puukot Elinalle 40 euron kappalehintaan. Elina tarjoaa puukkoja myymälänsä asiakkaille hintaan 52 \euro/kpl. Kuinka paljon Elinan asiakas maksaa arvonlisäveroa puukosta? Laske myös, kuinka paljon kukin myyntiketjun jäsen (Akseli, Ilmari, Elina) tilittää arvonlisäveroa valtiolle. Käytä yleistä 24\% verokantaa.
+\end{question}
+\begin{solution}
+  \newcommand{\alv}{\frac{0,24}{1,24}}
+  Elinan asiakas maksaa arvonlisäveroa 
+  \[
+    \alv\cdot52 = 10{,}06
+  \]
+  euroa. Ilmarin asiakas (Elina) maksaa arvonlisäveroa 
+  \[
+    \alv\cdot40\approx7{,}74
+  \]
+  euroa. Vastaavasti Akselin asiakas (Ilmari) maksaa arvonlisäveroa
+  \[
+    \alv\cdot15\approx2{,}9
+  \] euroa.
+  Näin ollen Elina tilittää arvonlisäveroa 2{,}32 euroa, Ilmari 4{,}84 euroa ja Akseli 2{,}9 euroa jokaista myytyä puukkoa kohti.
+\end{solution}
+
+\subsection*{Pääomatulovero}
+
+\begin{question} Asuntosijoittaja Arffman vuokrasi omistamansa kaksion 820 euron kuukausivuokralla vuodeksi. Asunnossa tehtiin vuokra-aikana pintaremontti, jonka hinnaksi tuli 510~\euro. Taloyhtiön perimä yhtiövastike oli 142~\euro/kk ja asuntoon kohdistuvan lainan korkoja maksettiin yhteensä 250~\euro. Laske pääomatulovero ja asunnon vuokraamisesta saatu nettotulo.
+\end{question}
+\begin{solution}
+  Pääomatuloja Arffmanille kertyi \(12\cdot820 = 9~840\) euroa. Tulonhankkimiskustannuksina Arffman voi vähentää tuloistaan pintaremontin, yhtiövastikkeet ja lainan korot, yhteensä siis 
+\[
+	510 + 12\cdot142 + 250 = 2~464 
+\]
+euroa. Verottavaksi pääomatuloksi jää \(9~840 - 2~464 = 7~376\) euroa. Tästä maksetaan veroa 30~\% eli 2~212{,}8 euroa. Nettotuloksi jää 5~163{,}2 euroa.
+\end{solution}
+
+\begin{question} Osakesijoittaja myy 500 kpl erään yhtiön osakkeita hintaan 35~000~\euro. Hän maksaa osakkeiden myynnistä välityspalkkiota 1,10~\euro/kpl. Aikoinaan sijoittaja maksoi osakkeista 22~000 euroa ja maksoi välityspalkkiota 85~snt/kpl. Laske luovutusvoitto ja pääomatuloveron suuruus.
+\end{question}
+\begin{solution}
+	Luovutusvoitto saadaan vähentämällä myyntihinnasta kaikki tulonhankintamenot: luovutusvoitto on 
+\[
+	35000-500\cdot1,10-22000-500\cdot0,85 = 12~025
+\]
+euroa. Pääomatulovero lasketaan luovutusvoitosta: pääomatulovero on 
+\[
+	0,30\cdot12~025 = 3~607{,}5
+\]
+euroa.
+\end{solution}
+
+\subsection*{Ennakonpidätys ja lopullinen verotus}
+\begin{question}
+Henkilön verokorttiin on sekä päätuloa, että sivutuloa varten merkitty perusprosentiksi 14,5 ja lisäprosentiksi 32,5 tulorajan 620~\euro/kk ylittävältä osalta. Laske nettopalkka, kun kuukausitulot ovat (a) 600,00 euroa (b) 724,80 euroa. Palkasta pidätetään veroennakon lisäksi 6,35~\% työeläke- ja työttömyysvakuutusmaksuja.
+\end{question}
+\begin{solution}
+
+\begin{enumerate}[(a)]
+		\item Palkka ei ylitä tulorajaa, joten tilanne on yksinkertainen: veroa ja muita maksuja maksetaan \(0,145\cdot600 + 0,0635\cdot600 = 125{,}1\) euroa. Näin ollen nettopalkaksi jää 
+\[
+	600-125{,}1 = 474{,}9	
+\]
+euroa. 
+		\item Palkka ylittää tulorajan, joten veroa maksetaan
+		\[
+			0{,}145\cdot620 + 0{,}325\cdot (724,80-620) = 123{,}96
+		\] euroa. Lisäki muita maksuja maksetaan
+ \(0.0635\cdot724{,}8 = 46{,}0248\) euroa. Näin ollen nettopalkaksi jää \(724,80 - 123{,}96-46{,}0248 = 554{,}82\) euroa.
+	\end{enumerate}
+\end{solution}
+
+
+\begin{question}
+Työntekijän tilille maksettava nettopalkka oli 1300~\euro/kk. Verokortin perusprosentti oli 14,5 ja lisäprosentti 32,0. Tulorajaksi oli merkitty 1500~\euro/kk. Veroennakon lisäksi palkasta perittiin 6,35~\% työeläke- ja työttömyysvakuutusmaksuja. Laske työntekijän bruttopalkka.
+\end{question}
+\begin{solution}
+
+Olkoon \(b\) kysytty bruttopalkka ja oletetaan, että \(b > 1500\). Tällöin veroa maksettiin
+\[
+	0{,}145\cdot1~500 + 0{,}32\cdot(b - 1~500)  + 0{,}0635\cdot b = -262{,}5 + 0{,}3835\cdot b.
+\]
+Näin ollen nettopalkaksi jäi
+\[
+	b - (-262{,}5) - 0{,}3835\cdot b = 0{,}6165b+262{,}5,
+\]
+joten 
+\[
+	0{,}6165b + 262{,}5 = 1300.
+\]
+Tästä saadaan 
+\[
+	b = \frac{1300-262{,}5}{0{,}6165} \approx 1~682{,}89
+\]
+euroa. 
+	
+\end{solution}
+
+\begin{question} Henkilön palkasta jäi ennakonpidätyksen jälkeen käteen 73~\%. Vuodenvaihteessa henkilö sai 45 euron palkankorotuksen. Samanaikaisesti ennakonpidätys laski 0,8 prosenttiyksikköä. Henkilölle jäi ennakonpidätyksen jälkeen nyt 49,60 euroa enemmän kuin ennen muutoksia.
+Mikä oli henkilön uusi ennakonpidätysprosentti, ja mikä oli hänen uusi palkkansa?[YO K05]
+\end{question}
+\begin{solution}
+
+Olkoon \(x\) henkilön vanha palkka. Käteen jäävä osuus ennen muutoksia oli \(0{,}73\cdot x\) ja muutosten jälkeen \(0{,}738\cdot (x + 45)\). Tehtävän tietojen perusteella
+\[
+	0{,}738\cdot(x+45) = 0{,}73\cdot x + 49{,}6
+\]
+Tästä saadaan
+\[
+	(0{,}738 - 0{,}73)x = 49{,}6-0{,}738\cdot45
+\]
+eli
+\[
+	0{,}008x = 16{,}39
+\]
+Näin ollen 
+\[
+	x = \frac{16{,}39}{0{,}008} \approx 2~048{,}75
+\]
+Henkilön uusi veroprosentti oli \(73{,}8\) ja uusi palkka \(2~093{,}75\) euroa.
+\end{solution}
+
+\begin{question} Työntekijän verotettava ansiotulo valtion tuloverotuksessa vuonna 2013 oli 32 531 euroa. Laske veron suuruus.
+\end{question}
+\begin{solution}
+
+Verotettava tulo kuuluu toiseen veroportaaseen, joten veron suuruus on 
+\[
+	515 + 0,175\cdot(32531-23900) = 2~025{,}42
+\]
+euroa.
+\end{solution}
+
+\begin{question} Ronja maksoi vuonna 2013 valtion tuloveroa 3050 euroa. Laske hänen verotettava ansiotulonsa valtion tuloverotuksessa.
+\end{question}
+\begin{solution}
+	Ronjan verotettavan tulon on kuuluttava toiseen veroportaaseen, sillä vero ei ylitä kolmannen portaan alarajalla maksettavaa veroa. Jos \(x\) on Ronjan verotettava tulo, niin
+\[
+	515 + 0.175(x - 23900) = 3050
+\]
+joten 
+\[
+	x = \frac{3050 - 515}{0.175} + 23900 = 38~385{,}71
+\]
+euroa.
+\end{solution}
+
+\begin{question} Helsinkiläisen, kirkkoon kuulumattoman Emilian vuosituloiksi vuonna 2015 arvioitiin \(37 000\) euroa ennakonpidätyprosenttia laskettaessa. Vähennyksiksi valtionverotuksessa arvioitiin 800 euroa ja kunnallisverotuksessa 1250 euroa. Mikä tulee ennakonpidätysprosentiksi? Helsingin kunnallisveroprosentti on 18,5. Yle-veron ja sairausvakuutusmaksun voi jättää huomiotta.
+\end{question}
+\begin{solution}
+	Verotettava tulo valtion tuloverotuksessa on siis 36~200 euroa ja kunnallisverotuksessa 35~750 euroa. Valtiolle veroa maksetaan vuoden 2015 taulukon mukaan 2~553{,}5 ja kunnallisveroa 6~613{,}75 euroa. Yhteensä veroa maksetaan 9~167{,}25 euroa, joten veroprosentiksi tulee
+\[
+	\frac{9~167{,}25}{37000} = 0{,}2477635\approx 24{,}8~\%.
+\]
+\end{solution}
+
+
+
+
+\subsubsection*{Perintö- ja lahjavero}
+
+\begin{question} Isä haluaa lahjoittaa pojalleen 18 000 \euro. Kuinka suuri on lahjavero, kun (a) lahja annetaan yhdellä kertaa (b) kahdessa 9000 euron erässä, ja lahjoitusten väli on yli kolme vuotta.
+\end{question}
+\begin{solution}
+\emph{Ratkaisussa on käytetty vuoden 2013 verotauluja}
+\begin{knitrout}
+\definecolor{shadecolor}{rgb}{0.969, 0.969, 0.969}\color{fgcolor}\begin{kframe}
+
+
+{\ttfamily\noindent\bfseries\color{errorcolor}{\#\# Error in library(xtable): there is no package called 'xtable'}}
+
+{\ttfamily\noindent\bfseries\color{errorcolor}{\#\# Error in eval(expr, envir, enclos): could not find function "{}xtable"{}}}\end{kframe}
+\end{knitrout}
+	\begin{enumerate}[(a)]
+		\item Jos lahja annetaan kerralla, lahjaveron suuruus on 1~110 euroa (2013).
+		\item Jos lahja annetaan kahdessa erässä, lahjaveron suuruus kummallakin kerralla on 450 euroa, eli yhteensä 900 euroa (2013). 
+	\end{enumerate}
+\end{solution}
+
+\begin{question} Henkilö saa tädiltään perinnön, josta hän maksaa veroja 7729~\euro. Kuinka suuresta perinnöstä on kyse?
+\end{question}
+\begin{solution}
+\emph{Ratkaisussa on käytetty vuoden 2013 verotauluja}
+
+  Olkoon perinnön suuruus \(x\). Saaja kuuluu toiseen veroluokkaan ja perinnön on oltava välillä 40000-60000 euroa. Niinpä (vuoden 2013 verotuksessa)
+\[
+	4100 + 0,26\cdot(x - 40000) = 7729
+\]
+josta perinnön suuruudeksi saadaan
+\[
+	x = \frac{7729 - 4100}{0,26} + 40000 = 53~957{,}69 
+\]
+euroa.
+\end{solution}
+
+
+\newpage
+\section*{Ratkaisuehdotuksia}
+\printsolutions
+
+\end{document}

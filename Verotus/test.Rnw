@@ -1,0 +1,6 @@
+<<echo = FALSE>>=
+p <- function(num){
+	return(
+		round(num, 2, scientific=FALSE, decimal="{,}")
+	)
+}

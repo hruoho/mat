@@ -1,0 +1,272 @@
+\documentclass[a4paper,10pt]{article}
+
+\input{../_texPartials/simple-preamble}
+% package for captions without numbers
+\usepackage{caption}
+
+% package for exercises
+\usepackage{exsheets}
+\DeclareTranslation{finnish}{exsheets-exercise-name}{Tehtävä}
+\DeclareTranslation{finnish}{exsheets-question-name}{Kysymys}
+\DeclareTranslation{finnish}{exsheets-solution-name}{Ratkaisuehdotus, t.}
+
+%\SetupExSheets{solution/print=true}
+
+\begin{document}
+
+<<child='../conf.Rnw'>>=
+@
+\pagestyle{empty}
+
+\section*{Luentotehtäviä}
+
+\subsection*{Korkolaskenta}
+
+Huomioita
+\begin{itemize}
+    \item Lähdeveroa tai varsinkaan sen pyöristyssääntöä ei tarvitse ottaa tehtävissä huomioon, ellei toisin mainita.
+    \item Jos yksinkertaisen korkolaskun tehtävissä on selvitettävä päivien lukumäärä, niin käytä yleistä laskutapaa todelliset/360, ellei toisin mainita.
+\end{itemize}
+
+\subsubsection*{Yksinkertainen korkolasku}
+
+\begin{question} Mikä tilin korkokannan tulisi olla, jotta sinne talletettu 1000 euroa kasvaisi neljässä kuukaudessa korkoa 3,33 euroa?
+\end{question}\begin{solution}
+    \[
+    r = kit = 1000\cdot i\cdot \frac{4}{12} = 3,33\Leftrightarrow i = \frac{3,33}{1000\cdot\frac{4}{12}}\approx 0,01
+    \]
+    Siis korkokannan tulee olla 1~\%.
+\end{solution}
+
+\begin{question} Rafaelin tilin korkokanta oli kiinteä 1,3~\%. Hänen tallettamansa summa kasvoi yhdeksässä kuukaudessa korkoa 1,95 \euro.
+Kuinka suuren summan hän oli alunperin tallettanut tililleen?
+\end{question}\begin{solution}
+    \[
+    r = kit \Leftrightarrow k = \frac{r}{it} = \frac{1,95}{0,013\cdot\frac{9}{12}} = 200
+    \]
+    Alkuperäinen pääoma on 200 euroa.
+\end{solution}
+
+\begin{question} Henkilö ottaa pakon edessä 500~\euro\ lainaa korkokannan ollessa 15~\% p.a. Kuinka pian velan suuruus on 550 euroa?
+\end{question}\begin{solution}
+    \[
+        r = kit \Leftrightarrow t = \frac{r}{ki} = \frac{50}{500\cdot0,15} = \frac{2}{3}
+    \]
+    Korkoajan on oltava 2/3-vuotta, eli 8 kuukautta.
+\end{solution}
+
+\begin{question} Ronja talletti 314 euroa tammikuun alussa tililleen. Hän nosti rahat kesäkuun lopussa, jolloin nettokorkoa oli kertynyt
+ 1,70 euroa. Mikä oli tilin nettokorkokanta? Entä korkokanta?
+\end{question}\begin{solution}
+    Korkoa maksetaan kuudelta kuukaudelta. Nyt
+    \[
+        i = \frac{r}{kt} = \frac{1,70}{314\cdot\frac{6}{12}}\approx 0,01083
+    \]
+    joten nettokorkokanta  on likimain 1,1~\%. Korkokanta on \(\frac{0,01083}{0,7}\approx 1,5~\%\).
+\end{solution}
+
+\begin{question} Anja nosti talletuksensa vuoden kuluttua talletushetkestä. Hän sai pankista verojen vähentämisen jälkeen 1073,20 euroa.
+ Kuinka suuren summan hän oli tililleen tallettanut, kun tilin korkokanta oli 1,1~\% ja lähdevero 30~\%?
+\end{question}
+\begin{solution}
+    \[
+        K = k + r = k + kit = k(1+it)
+    \]
+    Nyt \(t = 1\), joten
+    \[
+        1073,20 = k(1+0,7\cdot0,011)\Leftrightarrow k = \frac{1073,20}{1+0,7\cdot0,011} \approx 1064,9995
+    \]
+    Alkuperäinen pääoma on siis 1065,00 euroa.
+\end{solution}
+
+\begin{question} Saat yllättäen 75~000 euroa ja talletat koko summan 3.7.2014 pankkitilille, jonka korkokanta on 2{,}8~\%. Nostat rahat tililtä 19.11.2014. Kuinka paljon saat nettokorkoa?
+\end{question}
+\begin{solution}
+    Korkopäiviä kertyy \(31-3+31+30+31+19 = 139\). Nettokorko on
+    \[
+        r = kit = 75000\cdot0,7\cdot 0,028\cdot\frac{139}{360}\approx 567,58
+    \]
+    euroa.
+\end{solution}
+
+\begin{question} Kaverisi säästää rahaa pitkää lomareissua varten tallettamalla joka kuukauden alussa yhtä suuren summan rahaa tililleen.
+Kaverisi aloittaa säästämisen tammikuun alussa ja haluaa nostaa rahat vuoden kuluttua.
+Kuinka paljon rahaa hänen tulisi tallettaa tililleen kuukausittain, jotta vuoden kuluttua nostettavissa olisi 1 200 euroa? Tilin vuosikorko on 2{,}5~\%. Muista lähdevero 30~\%.
+\end{question}\begin{solution}
+    Olkoon \(k\) kuukausittain talletettava pääoma. Tammikuun talletus kasvaa korkoa 12 kk, helmikuun talletus 11 kk jne.
+    \begin{align*}
+        r &= k\cdot0,7\cdot0,025\cdot\left(\frac{12}{12} + \frac{11}{12} + \ldots + \frac{2}{12} + \frac{1}{12}\right)\\
+         =& k\cdot0,7\cdot0,025\cdot\left(12\cdot\frac{\frac{12}{12} + \frac{1}{12}}{2}\right)\\
+         =& k\cdot0,7\cdot0,025\cdot\frac{78}{12}\\
+         =& 0,11375\cdot k
+    \end{align*}
+    Nyt \(1200 = 12k + r = 12k + 0,11375k = 12{,}11375k\) eli \(k = 1200/12{,}11375\approx 99,061\).
+    Tilille on siis talletettava vähintään 99,07 euroa.
+\end{solution}
+
+\subsubsection*{Koronkorko}
+
+\begin{question} Sijoitat 500 euroa sijoitusvakuutukseen, joka lupaa vähintään 3{,}0 \% vuotuisen koron sijoitukselle.
+Neljän vuoden kuluttua sijoituksen arvo oli kasvanut 60 euroa. Toteutuiko sijoitusvakuutuksen lupaama vuosikorko?
+\end{question}\begin{solution}
+    Lupauksen mukaan tililtä olisi nostettavissa \(500\cdot1,03^4\approx562,75\) euroa. Lupaus ei siis toteutunut.
+\end{solution}
+
+\begin{question} Viivi tallettaa saamansa 1800 euron palkan tilille, jonka korkokanta 2,1 \%. Kuinka suuren summan Viivi voi nostaa tililtä
+neljän vuoden kuluttua? Muista lähdevero.
+\end{question}\begin{solution}
+    Nettokorkokanta on \(0,7\cdot0,021 = 0,0147\),
+    joten neljän vuoden kuluttua summa on
+    \[
+        1800\cdot1,0147^4\approx1908,1967\dots
+    \]
+    euroa. Tililtä on siis nostettavissa 1908,19 euroa.
+\end{solution}
+
+\begin{question} Mikä tulisi Viivin tilin korkokannan olla edellisen tehtävän tilanteessa, jotta tililtä olisi nostettavissa 2100 euroa?
+\end{question}\begin{solution}
+    \[
+        2100 = 1800\cdot q^4\Leftrightarrow q^4 = \frac{2100}{1800}
+    \]
+    Tästä saadaan \(q = 1,0393\dots\), joten nettokorkokannan tulisi olla 3,9~\% ja korkokannan 5,6~\%.
+\end{solution}
+
+\begin{question} Kaukainen sukulainen pyytää sinua avaamaan tilin, jotta hän voi jokaisen vuoden lopussa lahjoittaa sinulle tietyn
+summan rahaa tallettamalla sen tälle tilille. Tilillä ei ole näiden vuosittaisten talletusten ja koronmaksun lisäksi muita tilitapahtumia.
+Ensimmäisen talletuksen sukulaisesi tekee vuoden 2014 lopussa. Viiden vuoden kuluttua vuoden 2020 alussa tilillä on rahaa 4~342{,}15 euroa.
+Kuinka suuri on vuotuinen talletus, jos tilin korko on 1{,}9 \% p.a? Huomioi lähdevero.
+\end{question}\begin{solution}
+Olkoon \(x\) vuosittain talletettava (lahjoitettava) summa. Vuonna 2014 saatu summa kasvaa korkoa 5 kertaa,
+vuonna 2015 saatu summa 4 kertaa jne., vuonna 2019 saatu summa ei ehdi kasvaa korkoa kertaakaan
+(sillä talletus tehdään vuoden lopussa). Korkoa kasvaneiden talletusten summa on
+\begin{align*}
+    &x\cdot q^5 + x\cdot q^4+ x\cdot q^3 + x\cdot q^2+ x\cdot q + x \\
+    =& x + x\cdot q+ x\cdot q^2 + x\cdot q^3+ x\cdot q^4 + x\cdot q^5\\
+    =& x\cdot\frac{1-q^6}{1-q}
+\end{align*}
+joten
+\[
+   x\cdot\frac{1-q^6}{1-q} = 4324,15
+\]
+Tästä saadaan
+\[
+    x = \frac{4342,15\cdot(1-q)}{1-q^6}
+\]
+Sijoitetaan \(q= 1 + 0,7\cdot0,019=1,0133\) ja saadaan
+\[
+x = \frac{4342,15\cdot(1-1,0133)}{1-1,0133^6} \approx 699,99979
+\]
+Vuosittainen talletus on siis 700,00 euroa.
+\end{solution}
+
+\begin{question} Uuden vuoden lupauksena aloitat säästämisen ja talletat tammikuun lopusta alkaen joka toisen kuukauden lopussa 300 euroa tilille,
+jonka korkokanta on 2{,}1 \% p.a. Kuinka paljon rahaa tililläsi on neljännen talletusvuoden lopussa koronmaksun jälkeen? Huomioi lähdevero.
+\end{question}\begin{solution}
+Tarkastellaan ensin yhden vuoden talletuksia. Tammikuun talletus kasvaa korkoa 11 kuukautta, maaliskuun talletus 9 kuukautta,
+toukokuun talletus 7 kuukautta jne., marraskuun talletus kasvaa korkoa yhden kuukauden. Vuoden talletuksille korkoa maksetaan yhteensä
+\begin{align*}
+    &300\cdot0,7\cdot0,021\cdot\left(\frac{11}{12} + \frac{9}{12} + \frac{7}{12} + \frac{5}{12} + \frac{3}{12} + \frac{1}{12}\right)\\
+    =&300\cdot0,7\cdot0,021\cdot\frac{1}{12}\cdot(11+9+7+5+3+1)\\
+    =& 13,23
+\end{align*}
+euroa. Tilannetta voidaan ajatella siis siten, että kunkin vuoden \emph{lopussa} tilille talletetaan \(6\cdot300+13,23 = 1813,23\) euroa.
+Kaiken kaikkiaan tilillä on neljännen talletusvuoden lopussa rahaa
+\[
+    K = 1813,13\cdot q^3 + 1813,13\cdot q^2 + 1813,13\cdot q + 1813,13 = 1813,13\cdot\frac{1-q^4}{1-q}
+\]
+euroa. Sijoitetaan \(q = 1 + 0,7\cdot0,021 = 1,0147\) ja saadaan
+\[
+    K = 1813,13\cdot\frac{1-1,0147^4}{1-1,0147} \approx 7414,011022
+\]
+Tililtä on siis nostettavissa 7414,01 euroa.
+\end{solution}
+
+\subsubsection*{Diskonttaus}
+
+\begin{question} Josefiina tallettaa tililleen vuoden alussa summan, jonka toivoo kasvavan ainakin 5000 euroksi kymmenessä vuodessa. Tilin nettokorkokanta on 1,5~\%.
+\begin{enumerate}[(a)]
+    \item Selvitä diskonttaustekijä.
+    \item Kuinka suuri summa Josefiinan tulee tililleen tallettaa?
+\end{enumerate}
+\end{question}\begin{solution}
+    \begin{enumerate}[(a)]
+        \item Koska \(q = 1 + 0,015 = 1,015\), diskonttaustekijä on \(q^{-10} = \frac{1}{q^{10}}\approx \Sexpr{dt <- 1/1.015**10; dt}\).
+        \item \(k = K\cdot q^{-10} = K\cdot \Sexpr{dt} = 5000\cdot \Sexpr{dt}\approx \Sexpr{ap <- 5000*dt;ap}\) euroa.
+        Josefiinan tulee tallettaa tililleen vähintään \Sexpr{p(ap)} euroa.
+    \end{enumerate}
+\end{solution}
+
+\begin{question} Kauppias tarjoaa auton maksamiseen seuraavaa rahoitusmallia: käsiraha 8~000~\euro \ on maksettava heti ja tämän
+jälkeen kahtena seuraavana vuonna maksetaan 5 000~\euro. Kolmen vuoden kuluttua maksetaan vielä 2 000~\euro.
+Jos asiakas kuitenkin haluaa maksaa auton käteisellä heti ostohetkellä, mikä auton hinnan pitäisi olla, että asiakas
+maksaisi siitä yhtä paljon kuin kauppiaan ehdottamassa rahoitusmallissa? Oletetaan, että kauppiaan käyttämä korkokanta on 7{,}5~\%.
+\end{question}\begin{solution}
+    Diskontataan maksuerät nykyhetkeen. Kerroin on \(q= 1+0,075 = 1,075\), joten nykyarvoksi saadaan
+    \[
+        8000 + \frac{5000}{1,075} + \frac{5000}{1,075^2} + \frac{2000}{1,075^3} = 18587,74699
+    \]
+    euroa. Auton hinta ostohetkellä tulisi olla siis 18587,75 euroa.
+\end{solution}
+
+
+\begin{question} Kuinka paljon lukion stipendirahastoon on lahjoitettava rahaa eurona, kun tarkoituksena on jakaa lahjoitus korkoineen
+stipendeinä seuraavasti: tasan vuoden kuluttua lahjoituksesta 200 euroa, kahden vuoden kuluttua 300 euroa,
+kolmen vuoden 400 euroa, neljän 500 euroa ja viiden vuoden kuluttua 600 euroa. Pääomaan lisätään vuosittain 4,5 prosentin korko,
+ensimmäisen kerran vuoden kuluttua lahjoituksesta. [S2001, 14]
+\end{question}\begin{solution}
+    Diskontataan maksuerät nykyhetkeen. Kerroin on \(q= 1+0,045 = 1,045\), joten nykyarvoksi saadaan
+    \[
+        \frac{200}{1,045} + \frac{300}{1,045^2} + \frac{400}{1,045^3} + \frac{500}{1,045^4} + \frac{600}{1,045^5} \approx 1717,38
+    \]
+    euroa.
+\end{solution}
+
+\begin{question} Ostat kalliin vekottimen, josta maksat kaupantekohetkellä 400 euron käsirahan ja kuukauden kuluttua 800 euroa korkokannan ollessa 6{,}6 \% p.a.
+Kaverisi osti samanlaisen vekottimen, maksoi ostohetkellä 300 euroa ja neljän kuukauden kuluttua loput.
+Kuinka paljon kaverisi maksoi toisessa maksuerässä, jos vekottimenne olivat yhtä kalliit?
+\end{question}\begin{solution}
+    Oman hinnan nykyarvo on
+    \[
+        400 + \frac{800}{1+0,066\cdot\frac{1}{12}} = 400 + \frac{800}{1,0055} = 1195,624
+    \]
+    euroa. Kaverin hinnan nykyarvo
+    \[
+        300 + \frac{x}{1+0,066\cdot\frac{4}{12}} = 300 + \frac{x}{1,022}
+    \]
+    Jos hinnat ovat samat, niin
+    \[
+        300 + \frac{x}{1,022} =  1195,624
+    \]
+    eli \( x = 1,022\cdot(1195,624-300)\approx 915,32\) euroa.
+\end{solution}
+
+\begin{question} Tuttavasi on myymässä asuntoaan ja saa kaksi ostotarjousta. Ensimmäisessä tarjouksessa luvataan maksaa heti 145 000 euroa.
+Toisessa tarjouksessa luvataan maksaa heti 64 000 euroa, vuoden kuluttua 54 000 euroa ja kahden vuoden kuluttua 30 000 euroa.
+Kumpi tarjous on tuttavasi kannalta parempi, jos korkokanta on 4 \%? Entä, jos korkokanta on 1~\%?
+\end{question}\begin{solution}
+    Diskontataan toisen tarjouksen summat nykyhetkeen. Jos korkokanta on 4~\%, niin nykyarvo on
+    \[
+        64000 + \frac{54000}{1,004} + \frac{30000}{1,004^2} \approx 143659,76
+    \] euroa.
+    Jos korkokanta on 1~\%, niin nykyarvo on vastaavasti
+    \[
+        64000 + \frac{54000}{1,001} + \frac{30000}{1,001^2} \approx 146874,23
+    \] euroa.
+    Näin ollen 4~\% korkokannalla kertamaksu on tuttavalle parempi, 1~\% korkokannalla osamaksu.
+\end{solution}
+
+\begin{question} Yritys on hankkimassa uuden tuotantohärvelin. Kauppias tarjoaa kaksi maksuvaihtoehtoa:
+koko kauppahinta 15 000 euroa kaupanteon yhteydessä tai 7 000 euroa kaupanteon yhteydessä,
+5 000 euroa vuoden kuluttua ja 3 500 euroa kahden vuoden kuluttua. Jos yritys maksaa investoinnin lainalla,
+jonka vuotuinen korkokanta on 4{,}5 \%, kumpi maksuvaihtoehto sen kannattaa valita?
+\end{question}\begin{solution}
+    Diskontataan toisen tarjouksen summat nykyhetkeen. Korkokanta on 4,5~\%, joten erien yhteenlaskettu nykyarvo on
+    \[
+        7000 + \frac{5000}{1,0045} + \frac{3500}{1,0045^2} \approx 14989,74
+    \]
+    euroa. Osamaksu tulee siis yritykselle halvemmaksi.
+\end{solution}
+
+\subsection*{Ratkaisuehdotuksia}
+\printsolutions
+\end{document}
