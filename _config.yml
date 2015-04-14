@@ -3,23 +3,19 @@
 ## Source: https://github.com/hexojs/hexo/
 
 # Site
-title: Matematiikan materiaaleja
+title: Hexo
 subtitle:
 description:
-author: hruoho
+author: John Doe
 language:
 timezone:
 
-disqus_shortname: matikat
-
 # URL
 ## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
-url: http://hruoho.github.io/mat
-root: /mat/
+url: http://yoursite.com
+root: /
 permalink: :year/:month/:day/:title/
 permalink_defaults:
-
-
 
 # Directory
 source_dir: source
@@ -31,7 +27,6 @@ code_dir: downloads/code
 i18n_dir: :lang
 skip_render:
 
-
 # Writing
 new_post_name: :title.md # File name of new posts
 default_layout: post
@@ -39,7 +34,7 @@ titlecase: false # Transform title into titlecase
 external_link: true # Open external links in new tab
 filename_case: 0
 render_drafts: false
-post_asset_folder: true
+post_asset_folder: false
 relative_link: false
 future: true
 highlight:
@@ -56,7 +51,7 @@ tag_map:
 ## Hexo uses Moment.js to parse and display date
 ## You can customize the date format as defined in
 ## http://momentjs.com/docs/#/displaying/format/
-date_format: DD-MM-YYYY
+date_format: YYYY-MM-DD
 time_format: HH:mm:ss
 
 # Pagination
@@ -72,6 +67,4 @@ theme: landscape
 # Deployment
 ## Docs: http://hexo.io/docs/deployment.html
 deploy:
-  type: git
-  repo: https://github.com/hruoho/mat
-  branch: gh-pages
+  type:
