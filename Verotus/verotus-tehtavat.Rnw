@@ -108,7 +108,7 @@ lippu <- 10.5
   \[
     y = \frac{\Sexpr{v}-\Sexpr{i1*(l-v)}}{\Sexpr{i2-i1}} = \Sexpr{y <-(v-(i1*(l-v)))/(i2-i1); y}
   \]
-  Tästä saadaan \(x = \Sexpr{l} -\Sexpr{y} = \Sexpr{x <- l-v-y; x}\). Niinpä karkkipussin veroton hinta oli  \Sexpr{p(x)} euroa, lehden \Sexpr{p(y)} euroa.
+  Tästä saadaan \(x = \Sexpr{erotus} -\Sexpr{y} = \Sexpr{x <- l-v-y; x}\). Niinpä karkkipussin veroton hinta oli  \Sexpr{p(x)} euroa, lehden \Sexpr{p(y)} euroa.
 \end{solution}
 
 <<echo = FALSE >>=
