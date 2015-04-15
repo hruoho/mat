@@ -1,6 +1,0 @@
-\beamer@endinputifotherversion {3.24pt}
-\select@language {finnish}
-\beamer@sectionintoc {1}{Prosenttilaskentaa}{3}{0}{1}
-\beamer@sectionintoc {2}{Arvonlis\IeC {\"a}vero}{23}{0}{2}
-\beamer@sectionintoc {3}{Tuloverotus}{50}{0}{3}
-\beamer@sectionintoc {4}{Muita veroja}{116}{0}{4}

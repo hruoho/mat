@@ -1,7 +1,0 @@
-Input File::/home/hruoho/Documents/Ekonomivalmennus/Korot/korkolaskenta-tehtavat.tex::0::0::Input File
-Input File::/usr/share/texlive/texmf-dist/tex/latex/base/article.cls::0::0::Input File
-Input Package::/usr/share/texlive/texmf-dist/tex/latex/base/article.cls::0::0::article 2007/10/19 v1.4h Standard LaTeX document class
-Input File::/usr/share/texlive/texmf-dist/tex/latex/base/size10.clo::0::0::Input File
-LaTeX Error::/home/hruoho/Documents/Ekonomivalmennus/Korot/korkolaskenta-tehtavat.tex::2::0::File `../../_texPartials/ekonomityylitLuentotehtavat.sty' not found. |...exPartials/ekonomityylitLuentotehtavat.sty} ^^M |  Type X to quit or <RETURN> to proceed, or enter new name. (Default extension: sty)  Enter file name:  ! Emergency stop. <read *>  
-LaTeX Error::0::0::0::Emergency stop. (cannot \read from terminal in nonstop modes)
-LaTeX Error::/home/hruoho/Documents/Ekonomivalmennus/Korot/korkolaskenta-tehtavat.tex::0::0:: ==> Fatal error occurred, no output PDF file produced! 
