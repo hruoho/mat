@@ -79,17 +79,57 @@ Kuinka suuren summan hän oli alunperin tallettanut tililleen?
     Alkuperäinen pääoma on siis 1065,00 euroa.
 \end{solution}
 
-\begin{question} Saat yllättäen 75~000 euroa ja talletat koko summan 3.7.2014 pankkitilille, jonka korkokanta on 2{,}8~\%. Nostat rahat tililtä 19.11.2014. Kuinka paljon saat nettokorkoa?
+\begin{question}
+        Mikä pääoma tuottaa neljässä kuukaudessa nettokorkoa 150 euroa, jos korkokanta on 3{,}6~\%~p.s.? Muista, että lähdevero on 30 \%.
 \end{question}
 \begin{solution}
-    Korkopäiviä kertyy \(31-3+31+30+31+19 = 139\). Nettokorko on
+    Olkoon \(k\) tuntematon pääoma. Nettokorkokanta on \(0,70\cdot\Sexpr{i <- 0.036; i} = \Sexpr{ni <- 0.7*i; ni}\).
+    Korkokausi on puoli vuotta ja korkoaika neljä kuukautta, eli kaksi kolmasosaa korkokaudesta.
+    Kaavan mukaan on oltava
+    \[
+        150 = k\cdot \Sexpr{ni}\cdot \frac{4}{6} = k\cdot \Sexpr{it <- ni*4/6; it},
+    \]
+        joten
+    \[
+        k = \frac{150}{\Sexpr{it}} = \Sexpr{k <- 150/it; k}
+    \]
+    euroa. Näin ollen \Sexpr{p(k)} euroa ei aivan riitä, joten tilille täytyy tallettaa ainakin \Sexpr{p(k+0.005)} euroa. (Tosiasiassa lähdeveron pyöristyssäännön seurauksena vähempikin riittäisi.)
+\end{solution}
+
+\begin{question} 
+Saat yllättäen 75~000 euroa ja talletat koko summan 3.7.2014 pankkitilille, jonka korkokanta on 2{,}8~\%. Nostat rahat tililtä 19.11.2014. kuinka paljon saat nettokorkoa?
+\end{question}
+\begin{solution}
+    korkopäiviä kertyy \(31-3+31+30+31+19 = 139\). nettokorko on
     \[
         r = kit = 75000\cdot0,7\cdot 0,028\cdot\frac{139}{360}\approx 567,58
     \]
     euroa.
 \end{solution}
 
-\begin{question} Kaverisi säästää rahaa pitkää lomareissua varten tallettamalla joka kuukauden alussa yhtä suuren summan rahaa tililleen.
+\begin{question}
+   Talletat huhtikuun 5. päivä alussa \Sexpr{k <- 1410; k} euroa tilille, jonka korkokanta on \Sexpr{i <- 0.026; 100*i}~\%~p.a. Milloin tililtä on nostettavissa 1415 euroa? Huomioi 30~\% lähdevero. Käytä korkoajan laskemiseen tapaa ``todelliset/360''.
+\end{question}
+\begin{solution}
+    Tililtä on nostettavissa 1415 euroa viimeistään silloin, kun pääoma on kasvanut ``bruttokorkoa'' \(5/0,7 = \Sexpr{r <- 5/0.7; r}\) euroa. Jos 
+    \[
+        \Sexpr{r} = \Sexpr{k}\cdot\Sexpr{i}\cdot\frac{t}{360}
+    \]
+    niin
+    \[
+        t = \frac{\Sexpr{r}\cdot360}{\Sexpr{k}\cdot\Sexpr{i}} = \Sexpr{t <- r*360/(k*i); t}
+    \]
+     Aikaa tarvitaan siis vähintään 71 päivää, kun lähdeveron pyöristyssääntöä ei huomioida.
+    % 70 päivältä korkoa kertyisi
+    % \[
+    %     r = \Sexpr{k}\cdot\Sexpr{i}\cdot\frac{70}{360} = \Sexpr{r <- k*i*70/360; r}
+    % \]
+    % euroa, josta veroa menisi laskennallisesti \(0,3\cdot\Sexpr{r} = \Sexpr{vero <- 0.3*r; vero}\) ja pyöristyksen jälkeen \(\Sexpr{todvero <- floor(10*vero)/10; todvero}\) euroa. Korkoa maksetaan 70 päivältä \(\Sexpr{r} - \Sexpr{todvero} = \Sexpr{r-todvero}\) euroa, joten 70 päivää riittää. 
+    Koska talletuspäivää ei lasketa korkopäiviin, mutta korkopäivä lasketaan, rahat olisivat nostettavissa kesäkuun \Sexpr{71-31-25}. päivä.
+\end{solution}
+
+\begin{question} 
+    Kaverisi säästää rahaa pitkää lomareissua varten tallettamalla joka kuukauden alussa yhtä suuren summan rahaa tililleen.
 Kaverisi aloittaa säästämisen tammikuun alussa ja haluaa nostaa rahat vuoden kuluttua.
 Kuinka paljon rahaa hänen tulisi tallettaa tililleen kuukausittain, jotta vuoden kuluttua nostettavissa olisi 1 200 euroa? Tilin vuosikorko on 2{,}5~\%. Muista lähdevero 30~\%.
 \end{question}\begin{solution}
@@ -106,15 +146,18 @@ Kuinka paljon rahaa hänen tulisi tallettaa tililleen kuukausittain, jotta vuode
 
 \subsubsection*{Koronkorko}
 
-\begin{question} Sijoitat 500 euroa sijoitusvakuutukseen, joka lupaa vähintään 3{,}0 \% vuotuisen koron sijoitukselle.
+\begin{question} 
+    Sijoitat 500 euroa sijoitusvakuutukseen, joka lupaa vähintään 3{,}0 \% vuotuisen koron sijoitukselle.
 Neljän vuoden kuluttua sijoituksen arvo oli kasvanut 60 euroa. Toteutuiko sijoitusvakuutuksen lupaama vuosikorko?
 \end{question}\begin{solution}
     Lupauksen mukaan tililtä olisi nostettavissa \(500\cdot1,03^4\approx562,75\) euroa. Lupaus ei siis toteutunut.
 \end{solution}
 
-\begin{question} Viivi tallettaa saamansa 1800 euron palkan tilille, jonka korkokanta 2,1 \%. Kuinka suuren summan Viivi voi nostaa tililtä
+\begin{question} 
+    Viivi tallettaa saamansa 1800 euron palkan tilille, jonka korkokanta 2,1 \%. Kuinka suuren summan Viivi voi nostaa tililtä
 neljän vuoden kuluttua? Muista lähdevero.
-\end{question}\begin{solution}
+\end{question}
+\begin{solution}
     Nettokorkokanta on \(0,7\cdot0,021 = 0,0147\),
     joten neljän vuoden kuluttua summa on
     \[
@@ -123,7 +166,8 @@ neljän vuoden kuluttua? Muista lähdevero.
     euroa. Tililtä on siis nostettavissa 1908,19 euroa.
 \end{solution}
 
-\begin{question} Mikä tulisi Viivin tilin korkokannan olla edellisen tehtävän tilanteessa, jotta tililtä olisi nostettavissa 2100 euroa?
+\begin{question} 
+    Mikä tulisi Viivin tilin korkokannan olla edellisen tehtävän tilanteessa, jotta tililtä olisi nostettavissa 2100 euroa?
 \end{question}\begin{solution}
     \[
         2100 = 1800\cdot q^4\Leftrightarrow q^4 = \frac{2100}{1800}
@@ -131,11 +175,13 @@ neljän vuoden kuluttua? Muista lähdevero.
     Tästä saadaan \(q = 1,0393\dots\), joten nettokorkokannan tulisi olla 3,9~\% ja korkokannan 5,6~\%.
 \end{solution}
 
-\begin{question} Kaukainen sukulainen pyytää sinua avaamaan tilin, jotta hän voi jokaisen vuoden lopussa lahjoittaa sinulle tietyn
+\begin{question} 
+    Kaukainen sukulainen pyytää sinua avaamaan tilin, jotta hän voi jokaisen vuoden lopussa lahjoittaa sinulle tietyn
 summan rahaa tallettamalla sen tälle tilille. Tilillä ei ole näiden vuosittaisten talletusten ja koronmaksun lisäksi muita tilitapahtumia.
 Ensimmäisen talletuksen sukulaisesi tekee vuoden 2014 lopussa. Viiden vuoden kuluttua vuoden 2020 alussa tilillä on rahaa 4~342{,}15 euroa.
 Kuinka suuri on vuotuinen talletus, jos tilin korko on 1{,}9 \% p.a? Huomioi lähdevero.
-\end{question}\begin{solution}
+\end{question}
+\begin{solution}
 Olkoon \(x\) vuosittain talletettava (lahjoitettava) summa. Vuonna 2014 saatu summa kasvaa korkoa 5 kertaa,
 vuonna 2015 saatu summa 4 kertaa jne., vuonna 2019 saatu summa ei ehdi kasvaa korkoa kertaakaan
 (sillä talletus tehdään vuoden lopussa). Korkoa kasvaneiden talletusten summa on
@@ -159,7 +205,8 @@ x = \frac{4342,15\cdot(1-1,0133)}{1-1,0133^6} \approx 699,99979
 Vuosittainen talletus on siis 700,00 euroa.
 \end{solution}
 
-\begin{question} Uuden vuoden lupauksena aloitat säästämisen ja talletat tammikuun lopusta alkaen joka toisen kuukauden lopussa 300 euroa tilille,
+\begin{question} 
+    Uuden vuoden lupauksena aloitat säästämisen ja talletat tammikuun lopusta alkaen joka toisen kuukauden lopussa 300 euroa tilille,
 jonka korkokanta on 2{,}1 \% p.a. Kuinka paljon rahaa tililläsi on neljännen talletusvuoden lopussa koronmaksun jälkeen? Huomioi lähdevero.
 \end{question}\begin{solution}
 Tarkastellaan ensin yhden vuoden talletuksia. Tammikuun talletus kasvaa korkoa 11 kuukautta, maaliskuun talletus 9 kuukautta,
@@ -267,6 +314,8 @@ jonka vuotuinen korkokanta on 4{,}5 \%, kumpi maksuvaihtoehto sen kannattaa vali
     euroa. Osamaksu tulee siis yritykselle halvemmaksi.
 \end{solution}
 
+\newpage
 \subsection*{Ratkaisuehdotuksia}
 \printsolutions
+
 \end{document}

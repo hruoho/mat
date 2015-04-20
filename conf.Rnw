@@ -4,6 +4,6 @@ knit_hooks$set(inline = function(x) {
 })
 p <- function(num){ 
   return(
-    format(round(num, 2), scientific = FALSE, decimal="{,}")
+    format(round(num*100)/100, scientific = FALSE, decimal="{,}")
 )}
 @

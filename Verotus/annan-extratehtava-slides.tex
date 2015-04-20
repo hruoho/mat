@@ -1,0 +1,120 @@
+\documentclass[]{beamer}\usepackage[]{graphicx}\usepackage[]{color}
+%% maxwidth is the original width if it is less than linewidth
+%% otherwise use linewidth (to make sure the graphics do not exceed the margin)
+\makeatletter
+\def\maxwidth{ %
+  \ifdim\Gin@nat@width>\linewidth
+    \linewidth
+  \else
+    \Gin@nat@width
+  \fi
+}
+\makeatother
+
+\definecolor{fgcolor}{rgb}{0.345, 0.345, 0.345}
+\newcommand{\hlnum}[1]{\textcolor[rgb]{0.686,0.059,0.569}{#1}}%
+\newcommand{\hlstr}[1]{\textcolor[rgb]{0.192,0.494,0.8}{#1}}%
+\newcommand{\hlcom}[1]{\textcolor[rgb]{0.678,0.584,0.686}{\textit{#1}}}%
+\newcommand{\hlopt}[1]{\textcolor[rgb]{0,0,0}{#1}}%
+\newcommand{\hlstd}[1]{\textcolor[rgb]{0.345,0.345,0.345}{#1}}%
+\newcommand{\hlkwa}[1]{\textcolor[rgb]{0.161,0.373,0.58}{\textbf{#1}}}%
+\newcommand{\hlkwb}[1]{\textcolor[rgb]{0.69,0.353,0.396}{#1}}%
+\newcommand{\hlkwc}[1]{\textcolor[rgb]{0.333,0.667,0.333}{#1}}%
+\newcommand{\hlkwd}[1]{\textcolor[rgb]{0.737,0.353,0.396}{\textbf{#1}}}%
+
+\usepackage{framed}
+\makeatletter
+\newenvironment{kframe}{%
+ \def\at@end@of@kframe{}%
+ \ifinner\ifhmode%
+  \def\at@end@of@kframe{\end{minipage}}%
+  \begin{minipage}{\columnwidth}%
+ \fi\fi%
+ \def\FrameCommand##1{\hskip\@totalleftmargin \hskip-\fboxsep
+ \colorbox{shadecolor}{##1}\hskip-\fboxsep
+     % There is no \\@totalrightmargin, so:
+     \hskip-\linewidth \hskip-\@totalleftmargin \hskip\columnwidth}%
+ \MakeFramed {\advance\hsize-\width
+   \@totalleftmargin\z@ \linewidth\hsize
+   \@setminipage}}%
+ {\par\unskip\endMakeFramed%
+ \at@end@of@kframe}
+\makeatother
+
+\definecolor{shadecolor}{rgb}{.97, .97, .97}
+\definecolor{messagecolor}{rgb}{0, 0, 0}
+\definecolor{warningcolor}{rgb}{1, 0, 1}
+\definecolor{errorcolor}{rgb}{1, 0, 0}
+\newenvironment{knitrout}{}{} % an empty environment to be redefined in TeX
+
+\usepackage{alltt}
+%\usepackage{beamerarticle}
+\input{../_texPartials/simple-beamer-preamble}
+
+
+%\usepackage[orientation=portrait,size=a4]{beamerposter}
+\theoremstyle{remark}
+\newtheorem*{esim}{Esimerkki}
+\newtheorem*{ratkaisu}{Ratkaisuehdotus}
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\begin{document}
+
+
+	\begin{frame}
+		\frametitle{Esimerkki}
+			Työntekijän kokonaisveroprosentti on 24. Seuraavana vuonna verotus kevenee yhdellä prosenttiyksiköllä, mutta samalla kuluttajahinnat nousevat 2,4~\%. Jos bruttopalkka pysyy ennallaan, miten muuttui työntekijän reaalinen nettopalkka? Kuinka monta prosenttia 
+			palkankorotuksen on oltava, jotta reaalinen nettoansio 
+			\begin{enumerate}[(a)]
+				\item pysyisi ennallaan
+				\item nousisi 3,0~\%?
+			\end{enumerate}
+		\end{frame}
+
+		\begin{frame}
+			\frametitle{Ratkaisuehdotus}
+			Olkoon \(a\) alkuperäinen bruttopalkka, jolloin alkuperäinen nettopalkka on \(0,76a\). \pause Jos nimellinen bruttopalkka pysyy ennallaan, seuraavana vuonna käteen jää \(0,77a\). \pause Koska kuluttajahinnat ovat tulleet \(1,024\)-kertaisiksi, uusi reaalinen nettopalkka on \(0,77a/1,024 = 0{,}7519531a\). \pause Tämän osuus alkuperäisestä reaalisesta nettopalkasta on
+			\[
+				\frac{0{,}7519531a}{0,76a} = \frac{0{,}7519531}{0,76} = 0{,}989412,
+			\]
+			\pause eli nettopalkka on pienentynyt noin 1{,}06 prosenttia.
+		\end{frame}
+
+		\begin{frame}
+			Tulkoon sitten uusi palkka \(k\)-kertaiseksi, eli olkoon uusi palkka \(ka\). \pause Tällöin uusi nettopalkka on \(0,77ka\) ja vastaava reaalinen nettopalkka \(0,77ka/1,024\).
+		\end{frame}
+
+		\begin{frame}
+			\frametitle{(a)}
+			\pause
+			Jos  reaalinen nettopalkka on sama kuin ennen muutoksia, niin
+			\[
+				\frac{0,77\cdot ka}{1,024} = 0,76a
+			\]
+			\pause eli
+			\[
+				k = \frac{1,024 \cdot 0,76a}{0,77a} = \frac{1,024\cdot0,76}{0,77} = 1{,}010701
+			\]
+			\pause Siis palkankorotuksen pitäisi olla 
+			\[
+				1{,}010701 - 1 = 0{,}0107013 \approx 1{,}07~\%.
+			\]
+		\end{frame}
+
+		\begin{frame}
+			\frametitle{(b)}
+			\pause
+			Jos reaalinen nettopalkka on 3,0~\% suurempi kuin alussa, niin
+			\[
+				\frac{0,77\cdot ka}{1,024} = 1,03\cdot0,76a
+			\]
+			\pause eli
+			\[
+				k = \frac{1,024 \cdot 1,03\cdot 0,76a}{0,77a} = \frac{1,024\cdot1,03\cdot 0,76}{0,77} = 1{,}041022
+			\]
+			\pause Siis palkankorotuksen pitäisi olla 
+			\[
+				1{,}041022 - 1 = 0{,}04102234 \approx 4{,}1~\%.
+			\]
+		\end{frame}
+
+\end{document}

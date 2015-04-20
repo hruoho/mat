@@ -1,3 +1,55 @@
+\documentclass{beamer}\usepackage[]{graphicx}\usepackage[]{color}
+%% maxwidth is the original width if it is less than linewidth
+%% otherwise use linewidth (to make sure the graphics do not exceed the margin)
+\makeatletter
+\def\maxwidth{ %
+  \ifdim\Gin@nat@width>\linewidth
+    \linewidth
+  \else
+    \Gin@nat@width
+  \fi
+}
+\makeatother
+
+\definecolor{fgcolor}{rgb}{0.345, 0.345, 0.345}
+\newcommand{\hlnum}[1]{\textcolor[rgb]{0.686,0.059,0.569}{#1}}%
+\newcommand{\hlstr}[1]{\textcolor[rgb]{0.192,0.494,0.8}{#1}}%
+\newcommand{\hlcom}[1]{\textcolor[rgb]{0.678,0.584,0.686}{\textit{#1}}}%
+\newcommand{\hlopt}[1]{\textcolor[rgb]{0,0,0}{#1}}%
+\newcommand{\hlstd}[1]{\textcolor[rgb]{0.345,0.345,0.345}{#1}}%
+\newcommand{\hlkwa}[1]{\textcolor[rgb]{0.161,0.373,0.58}{\textbf{#1}}}%
+\newcommand{\hlkwb}[1]{\textcolor[rgb]{0.69,0.353,0.396}{#1}}%
+\newcommand{\hlkwc}[1]{\textcolor[rgb]{0.333,0.667,0.333}{#1}}%
+\newcommand{\hlkwd}[1]{\textcolor[rgb]{0.737,0.353,0.396}{\textbf{#1}}}%
+
+\usepackage{framed}
+\makeatletter
+\newenvironment{kframe}{%
+ \def\at@end@of@kframe{}%
+ \ifinner\ifhmode%
+  \def\at@end@of@kframe{\end{minipage}}%
+  \begin{minipage}{\columnwidth}%
+ \fi\fi%
+ \def\FrameCommand##1{\hskip\@totalleftmargin \hskip-\fboxsep
+ \colorbox{shadecolor}{##1}\hskip-\fboxsep
+     % There is no \\@totalrightmargin, so:
+     \hskip-\linewidth \hskip-\@totalleftmargin \hskip\columnwidth}%
+ \MakeFramed {\advance\hsize-\width
+   \@totalleftmargin\z@ \linewidth\hsize
+   \@setminipage}}%
+ {\par\unskip\endMakeFramed%
+ \at@end@of@kframe}
+\makeatother
+
+\definecolor{shadecolor}{rgb}{.97, .97, .97}
+\definecolor{messagecolor}{rgb}{0, 0, 0}
+\definecolor{warningcolor}{rgb}{1, 0, 1}
+\definecolor{errorcolor}{rgb}{1, 0, 0}
+\newenvironment{knitrout}{}{} % an empty environment to be redefined in TeX
+
+\usepackage{alltt}
+
+
 \input{../_texPartials/simple-beamer-preamble}
 \usecolortheme{whale}
 \setbeamercolor{block title}{use=frametitle, bg=frametitle.bg, fg=frametitle.fg}
@@ -29,6 +81,7 @@
 	\end{block}
 }
 \title{Talousmatematiikkaa: korkolaskenta}
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
 \begin{document}
 
 
@@ -133,12 +186,14 @@
     \frametitle{Yksinkertainen korkolaskenta: lähdeveron pyöristyssääntö}
     
     \pause
-    Lähdeveroon liittyy erikoinen \emph{pyöristyssääntö}:
+    Lähdeveroon liittyy erikoinen \emph{pyöristyssääntö}:\pause 
     lähdevero lasketaan jokaisesta maksetusta korkoerästä täysin kymmenin sentein siten,
     että yli menevät sentit jätetään huomioimatta.
+    \pause
     \begin{block}{}
-      Edellisessä esimerkissä lähdevero \(0,30\cdot29{,}15 = 8{,}745\)~\euro\ pyöristettäisiin ja todellisuudessa perittävä vero olisi 8{,}7 euroa; tällöin nettokoroksi jäisi 20{,}45 euroa (kun se edellä oli 20{,}4 euroa).
-      \end{block}
+        Edellisessä esimerkissä lähdevero \(0,30\cdot29{,}15 = 8{,}745\)~\euro\ pyöristettäisiin ja todellisuudessa perittävä vero olisi 8{,}7 euroa; tällöin nettokoroksi jäisi 20{,}45 euroa (kun se edellä oli 20{,}4 euroa).
+    \end{block}
+    \pause
     Pyöristyssääntö jätetään usein huomioimatta tehtävien ratkaisuissa varsinkin koronkorkolaskuissa.
 \end{frame}
 
@@ -155,28 +210,28 @@
 \end{frame}
 
 \begin{frame}
-    \begin{ratkaisu}
-         Lasketaan korkopäivien lukumäärät:\pause
-        \begin{itemize}
-            \item Huhtikuussa on 30 päivää, joten huhtikuulta korkopäiviä kertyy 30-2 = 28 kpl.\pause
-            \item Toukokuulta päiviä kertyy 31\pause
-            \item Kesäkuulta päiviä kertyy 16
-        \end{itemize}
-        Yhteensä korkopäiviä kertyy 75. Nettokorkokanta on \(0,70\cdot0,09 = 0,063\), joten maksettavan koron suuruus on\pause
-        \[
-            r = kit = 800\cdot 0,063\cdot \frac{75}{365} = 10,36
-        \]
-        euroa. \pause Jos kyseessä on karkausvuosi, koron suuruus on
-        \[
-            r = kit = 800\cdot 0,063\cdot \frac{75}{366} = 10,33
-        \]
-        euroa. \pause Tämä ei ole ainoa tapa laskea korkoajan pituutta.
-    \end{ratkaisu}
+    \frametitle{Ratkaisuehdotus}
+    Lasketaan korkopäivien lukumäärät:\pause
+    \begin{itemize}
+        \item Huhtikuussa on 30 päivää, joten huhtikuulta korkopäiviä kertyy 30-2 = 28 kpl.\pause
+        \item Toukokuulta päiviä kertyy 31\pause
+        \item Kesäkuulta päiviä kertyy 16
+    \end{itemize}
+    Yhteensä korkopäiviä kertyy 75. Nettokorkokanta on \(0,70\cdot0,09 = 0,063\), joten maksettavan koron suuruus on\pause
+    \[
+        r = kit = 800\cdot 0,063\cdot \frac{75}{365} = 10,36
+    \]
+    euroa. \pause Jos kyseessä on karkausvuosi, koron suuruus on
+    \[
+        r = kit = 800\cdot 0,063\cdot \frac{75}{366} = 10,33
+    \]
+    euroa. \pause Tämä ei ole ainoa tapa laskea korkoajan pituutta.
 \end{frame}
 
 \begin{frame}
     \frametitle{Korkoajan laskeminen (3 tapaa)}
-    \begin{itemize}
+    \pause
+    \begin{itemize}[<+->]
         \item \emph{Todelliset/365}: todellinen päivien lkm, vuodessa 365 (366) päivää
         \item \emph{Todelliset/360}: todellinen päivien lkm, vuodessa 360 päivää
         \item \emph{30/360}: kuukaudessa 30 päivää, vuodessa 360 päivää
@@ -188,37 +243,6 @@
         \caption{Kuinka monta päivää kussakin kuussa on?}
     \end{figure}
 \end{frame}
-
-
-% \begin{frame}
-%     \frametitle{Yksinkertainen korkolasku}
-%     \begin{esim}
-%         Tilille, jonka korkokanta on 0,75 \% p.a., talletetaan tammikuun 13. päivä 700 euroa. \pause
-%         Laske kertyneen koron suuruus samana vuonna 7.9. 
-%     \end{esim}
-% \end{frame}
-% 
-% \begin{frame}
-%     \begin{ratkaisu}
-%       Lasketaan todellinen korkopäivien lukumäärä (välittämättä karkausvuosista).
-%       \begin{itemize}
-%           \item Tammikuussa päiviä kertyy 31-13 = 18 kpl.
-%           \item Helmikuussa päiviä on 28, maaliskuussa 31, huhtikuussa 30, toukokuussa 31, kesäkuussa 30
-%           \item Heinäkuussa ja elokuussa päiviä on 31
-%           \item Syyskuulta päiviä kertyy 7
-%       \end{itemize}
-%       \pause Yhteensä korkopäiviä kertyy siis 237 kpl. \pause Koron suuruus on lähdevero huomioiden
-%       \[
-%           r = kit = 700\cdot 0,70\cdot0,0075\cdot\frac{237}{360} \approx p(237/360)
-%       \]
-%       tai
-%       \[
-%           r = kit = 700\cdot 0,70\cdot0,0075\cdot\frac{237}{365} \approx p(237/365)
-%       \]
-%       euroa.
-%     \end{ratkaisu}
-% \end{frame}
-
 \begin{frame}
     \frametitle{Aritmeettinen jono ja summa}
     \begin{block}{Aritmeettinen jono}
@@ -248,9 +272,9 @@
     \frametitle{Ratkaisuehdotus}
     Lasketaan kuinka monta kuukautta kukin talletus kasvaa korkoa:
 	%\begin{ratkaisu}
-  \begin{scriptsize}
+    \begin{scriptsize}
 % latex table generated in R 3.0.2 by xtable 1.7-4 package
-% Mon Apr 20 10:48:57 2015
+% Mon Apr 20 11:09:02 2015
 \begin{table}[ht]
 \centering
 \begin{tabular}{rrrrrrrrrr}
@@ -262,83 +286,55 @@ Maalis & Huhti & Touko & Kesä & Heinä & Elo & Syys & Loka & Marras & Joulu \\
 \end{tabular}
 \end{table}
 
-\end{scriptsize}
-	%\end{ratkaisu}
-  Taulukon perusteella koron suuruus on \pause 
+    \end{scriptsize}
+    \pause Taulukon perusteella talletuksista saatavien korkojen summa on
     \[
-    100\cdot0,015\cdot\frac{9}{12}+100\cdot0,015\cdot\frac{8}{12}+\ldots+100\cdot0,015\cdot\frac{1}{12}
+        100\cdot0,015\cdot\frac{9}{12}+100\cdot0,015\cdot\frac{8}{12}+\ldots+100\cdot0,015\cdot\frac{1}{12}
     \]
-    euroa, eli
+    euroa\pause, joten
     \[
-      r =  100\cdot0,015\cdot\frac{9+8 +\dots+1}{12}.
+        r =  100\cdot0,015\cdot\frac{9+8 +\dots+1}{12}.
     \]
-    Saadaan
+    \pause Saadaan
     \[
-      r = 100\cdot0,015\cdot\frac{45}{12} = 5{,}625,
+        r = 100\cdot0,015\cdot\frac{45}{12} = 5{,}625,
     \]
     eli korkoa maksetaan (lähdeveron jälkeen) \(0,7\cdot5{,}625 \approx 3{,}94\) euroa.
 \end{frame}
 
-% \begin{frame}
-% \frametitle{Yksinkertainen korko} 
-% %= 100\cdot0,015\cdot\frac{t <- sum(1:9); t}{12} = 100*0.015*t/12
-% 	\begin{ratkaisu}		
-% 		\pause Tämä saadaan muotoon
-%     \[
-%     100\cdot0,015\cdot\frac{1}{12}\cdot(9+8+\cdots+1)
-%     \]
-%     eli koron suuruus on \pause
-%     \[
-%     \frac{1,5}{12}\cdot(9+8+\cdots+1)
-%     \]
-%     euroa. 
-%   Esimerkiksi aritmeettisen summan kaavaa käyttämällä koroksi saadaan
-%     \[
-%     r = \frac{1,5}{12}\cdot\left( 9\cdot\frac{9+1}{2}\right) = 5,625
-%     \]
-%     euroa. \pause Lähdeveron jälkeen nettokoroksi jää \(0,70\cdot 5,625=3,94\) euroa, kun pyöristyssääntö jätetään huomiotta.
-% 	\end{ratkaisu}
-% \end{frame}
-
 \begin{frame}
-\frametitle{Koronkorkolaskentaa (esimerkki)}
-		Säästötilille, jonka korkokanta on 1,5~\% p.a. talletetaan 1~500 euroa. Vuoden kuluttua talletus kasvaa korkoa \(0,7\cdot 1,5 = 1{,}05\) prosenttia, eli tilillä on 
+    \frametitle{Koronkorkolaskentaa (esimerkki)}
+    \pause
+    Säästötilille, jonka korkokanta on 1,5~\% p.a. talletetaan 1~500 euroa. \pause Vuoden kuluttua talletus kasvaa korkoa \(0,7\cdot 1,5 = 1{,}05\) prosenttia\pause, eli tilillä on 
     \[
-    1{,}0105\cdot1~500 = 1~515{,}75
-    \]euroa. Seuraavan vuoden aikana tämä summa kasvaa korkoa 1{,}05 prosenttia, joten tilillä on 
+        1{,}0105\cdot1~500 = 1~515{,}75
+    \]
+    euroa. \pause Seuraavan vuoden aikana tämä summa kasvaa korkoa 1{,}05 prosenttia, joten tilillä on toisen vuoden lopussa
     \[
-    1{,}0105\cdot1~515{,}75 \approx 1~531{,}67
-    \]euroa jne. Esimerkiksi 10 vuoden kuluttua tilillä olisi siis
+        1{,}0105\cdot1~515{,}75 \approx 1~531{,}67
+    \]
+    euroa jne. \pause Esimerkiksi 10 vuoden kuluttua tilillä olisi siis
     \[
-    1~500\cdot\underbrace{1{,}0105\cdots1{,}0105}_{10\text{ kpl}} = 1~500\cdot1{,}0105^{10} \approx 1~665{,}15
-    \] euroa.
-
+        1~500\cdot\underbrace{1{,}0105\cdots1{,}0105}_{10\text{ kpl}} = 1~500\cdot1{,}0105^{10} \approx 1~665{,}15
+    \]
+    euroa.
 \end{frame}
 
 \begin{frame}
-\frametitle{Koronkorko}  \pause
-  Kun talletusaika, ts. korkoaika ylittää tilille määrätyn korkokauden, edelliseltä kaudelta maksetut korot alkavat kasvaa korkoa. 
-  \pause
-  Talletus kasvaa siis \emph{korkoa korolle}.
-	\begin{block}{Kasvanut pääoma koronkoron tapauksessa}
-		\[
-			K = kq^n
-		\]
-		Kasvanut pääoma \(K\) riippuu alkuperäisestä pääomasta \(k\), korkotekijästä \(q\) ja korkokausien lukumäärästä \(n\).
-	\end{block}
-	Yllä korkotekijä (tai korkokerroin) \(q\) on korkokannasta \(i\) saatava prosenttikerroin, eli \(q = 1+i\) tai \(q = 1 + 0,7i\).
+    \frametitle{Koronkorko}
+    \pause
+    Kun talletusaika, ts. korkoaika ylittää tilille määrätyn korkokauden, edelliseltä kaudelta maksetut korot alkavat kasvaa korkoa. 
+    \pause
+    Talletus kasvaa siis \emph{korkoa korolle}.
+    \pause
+    \begin{block}{Kasvanut pääoma koronkoron tapauksessa}
+        \[
+            K = kq^n
+        \]
+        Kasvanut pääoma \(K\) riippuu alkuperäisestä pääomasta \(k\), korkotekijästä \(q\) ja korkokausien lukumäärästä \(n\).
+    \end{block}
+    Yllä korkotekijä (tai korkokerroin) \(q\) on korkokannasta \(i\) saatava prosenttikerroin, eli \(q = 1+i\) tai \(q = 1 + 0,7i\).
 \end{frame}
-
-% \begin{frame}
-%  	\begin{ratkaisu}
-%  		\begin{enumerate}[(a)]
-%  			\item Jos lähdevero jätetään huomiotta, korkotekijä on \(1+ 0,015 = 1,015\) ja kasvanut pääoma
-%  			\(K=1500\cdot1,015^5\approx 1615,93\) euroa.
-%  			\item Jos lähdevero huomioidaan, korkotekijä on \(1+0,7\cdot0,015=	1,0105\). Silloin kasvanut pääoma on
-%  			\(K=1500\cdot1,0105^5\approx	1580,42\) euroa.
-%  		\end{enumerate}
-%  	\end{ratkaisu}
-% \end{frame}
 
 \begin{frame}
     \frametitle{Geometrinen jono ja summa}
@@ -398,14 +394,18 @@ toimintaansa ikuisesti, niin päästöjä syntyy yhteensä tämä vuosi mukaan l
 % \end{frame}
 
 \begin{frame}
-	\frametitle{Esimerkki}  
-  Säästötilille, jonka korkokanta on 2{,}7~\% p.a. talletetaan 900 euroa vuosittain aina vuoden alussa. \pause 
-    Tilin nettokorkokanta on \(0,7\cdot0{,}027 = 0{,}0189\), joten kunkin vuoden talletus tulee 1{,}0189-kertaiseksi vuoden välein. \pblock 
-Viiden vuoden kuluttua ensimmäinen talletus on tullut \(1{,}0189^5\)-kertaiseksi, toisen vuoden talletus \(1{,}0189^4\)-kertaiseksi, kolmannen vuoden \(1{,}0189^3\)-kertaiseksi jne. Kaiken kaikkiaan tilillä on silloin rahaa (ennen viidennen vuoden talletusta)
-\begin{multline*}
-  1{,}0189^5\cdot900 + 1{,}0189^4\cdot900 + 1{,}0189^3\cdot900 \\  + 1{,}0189^2\cdot900 + 1{,}0189^1\cdot900 \approx 4~761{,}67
-  \end{multline*}
-  euroa. \pause Korkoa on siis saatu 261{,}67 euroa.
+    \frametitle{Esimerkki}  
+    Säästötilille, jonka korkokanta on 2{,}7~\% p.a. talletetaan 900 euroa vuosittain aina vuoden alussa. 
+    \pause 
+    Tilin nettokorkokanta on \(0,7\cdot0{,}027 = 0{,}0189\), joten kunkin vuoden talletus tulee 1{,}0189-kertaiseksi vuoden välein. 
+    \pblock 
+    Viiden vuoden kuluttua ensimmäinen talletus on tullut \(1{,}0189^5\)-kertaiseksi\pause, toisen vuoden talletus \(1{,}0189^4\)-kertaiseksi\pause, kolmannen vuoden \(1{,}0189^3\)-kertaiseksi jne. \pause Kaiken kaikkiaan tilillä on silloin rahaa (ennen viidennen vuoden talletusta)
+    \begin{multline*}
+        1{,}0189^5\cdot900 + 1{,}0189^4\cdot900 + 1{,}0189^3\cdot900 \\  + 1{,}0189^2\cdot900 + 1{,}0189^1\cdot900 \approx 4~761{,}67
+    \end{multline*}
+    euroa. 
+    \pause 
+    Korkoa on siis saatu 261{,}67 euroa.
 \end{frame}
 
 
@@ -460,7 +460,8 @@ Viiden vuoden kuluttua ensimmäinen talletus on tullut \(1{,}0189^5\)-kertaiseks
   \frametitle{Ratkaisuehdotus}
         Kukin näin laskettu vuosittainen summa kasvaa seuraavan kerran korkoa vasta seuraavana vuonna.
         \pause
-        Näin ollen tilillä on loppujen lopuksi, eli kolmen vuoden kuluttua ensimmäisestä talletuksesta, rahaa \pause
+        Näin ollen tilillä on loppujen lopuksi
+        \pause
         \[
             1209,10\cdot 1,014^2+1209,10\cdot1,014+1209,10\approx 3678,32
         \]
@@ -501,6 +502,7 @@ Viiden vuoden kuluttua ensimmäinen talletus on tullut \(1{,}0189^5\)-kertaiseks
                     1,04^4k = 1000\quad\Leftrightarrow\quad k = \frac{1000}{1,04^4}\approx 854,80
                 \]
                 euroa.
+            \pause
             \item Nettokorkokanta on \(0,70\cdot0,04=0,028\), joten korkokerroin on \(1,028\), kun lähdevero otetaan huomioon. \pause
                 Jotta tilillä olisi neljän vuoden kuluttua 1000 euroa, täytyy olla
                 \[

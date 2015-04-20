@@ -7,7 +7,7 @@
 \DeclareTranslation{finnish}{exsheets-solution-name}{Ratkaisuehdotus}
 
 \begin{document}
-<<child="../conf.Rnw">>=
+<<child='../conf.Rnw'>>=
 @
 \section*{Sijoittaminen - luentotehtäviä}
 

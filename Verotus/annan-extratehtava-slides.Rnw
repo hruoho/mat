@@ -1,0 +1,6 @@
+\documentclass[]{beamer}
+%\usepackage{beamerarticle}
+\input{../_texPartials/simple-beamer-preamble}
+
+<<child='annan-extratehtava.Rnw'>>=
+@

@@ -1,4 +1,3 @@
-\documentclass[handout]{beamer}
 \input{../_texPartials/simple-beamer-preamble}
 \usecolortheme{whale}
 \setbeamercolor{block title}{use=frametitle, bg=frametitle.bg, fg=frametitle.fg}
@@ -130,69 +129,19 @@
 %         \item lähdevero: 30 \%
 %     \end{itemize}
 \end{frame}
-  
-% \begin{frame}
-%     \pause
-%     \begin{ratkaisu}
-%         Kun lähdevero otetaan huomioon, korkokanta on \(0,70\cdot 0,022 = \Sexpr{i <- 0.7*0.022; i}\). \pause Veron suuruus on silloin
-%         \[
-%             r = kit = 2500\cdot \Sexpr{i} \cdot \frac{8}{12}\approx 25,67
-%          \]
-%          euroa.
-%     \end{ratkaisu}
-% \end{frame}
-
-
-
-% \begin{frame}
-%     \begin{ratkaisu}
-%         Nyt korkokanta on \pause $i = 0{,}75 \ \%  = 0{,}0075$ ja nettokorkokanta \pause $0{,}70i = 0{,}70 \cdot 0{,}0075 = 0,00525$.
-%         Talletusaika, ts. korkoaika, on 3/12 vuotta. Siten koron suuruus on
-%         \[
-%             r = kit = 9000\cdot 0,0075\cdot \frac{3}{12}\approx 16,88
-%         \]
-%         euroa ja nettokoron
-%         \[
-%             9000\cdot 0,00525\cdot\frac{3}{12}\approx 11,81
-%         \]
-%         euroa.
-%     \end{ratkaisu}
-% \end{frame}
-
-% \begin{frame}
-%     \begin{esim}
-%         Mikä pääoma tuottaa neljässä kuukaudessa nettokorkoa 150 euroa, jos korkokanta on 3{,}6 \% p.a.? Muista, että lähdevero on 30 \%.
-%     \end{esim}\pause
-%     \begin{ratkaisu}
-%         Olkoon \(k\) tuntematon pääoma. \pause Nettokorkokanta on \(0,70\cdot0,036 = 0,0252\).
-%         \pause Korkokausi on yksi vuosi ja korkoaika 4/12 vuotta.
-%         \pause Kaavan mukaan on oltava
-%         \[
-%             150 = k\cdot 0,0252\cdot \frac{4}{12} = k\cdot 0,0084,
-%         \]
-%         \pause
-%         joten
-%         \[
-%             k = \frac{150}{0,0084}\approx 17857,14
-%         \]
-%         euroa.
-%     \end{ratkaisu}
-% \end{frame}
 
 \begin{frame}
     \frametitle{Yksinkertainen korkolaskenta: lähdeveron pyöristyssääntö}
+    
     \pause
-%     \begin{esim}
-%        Talletat huhtikuun alussa 100 000 euroa tilille, jonka korkokanta on 2{,}6~\%~p.a.
-%        Kuinka paljon voit nostaa tililtäsi 100 päivän kuluttua? Huomioi 30 \% lähdevero ja sen pyöristyssääntö.
-%     \end{esim}
-    \pause
-    Lähdeveroon liittyy erikoinen \emph{pyöristyssääntö}:
+    Lähdeveroon liittyy erikoinen \emph{pyöristyssääntö}:\pause 
     lähdevero lasketaan jokaisesta maksetusta korkoerästä täysin kymmenin sentein siten,
     että yli menevät sentit jätetään huomioimatta.
+    \pause
     \begin{block}{}
-      Edellisessä esimerkissä lähdevero \(0,30\cdot\Sexpr{r} = \Sexpr{nr <- 0.3*r; nr}\)~\euro\ pyöristettäisiin ja todellisuudessa perittävä vero olisi \Sexpr{rnr <- floor(10*nr)/10; rnr} euroa; tällöin nettokoroksi jäisi \Sexpr{r-rnr} euroa (kun se edellä oli \Sexpr{p(0.7*r)} euroa).
-      \end{block}
+        Edellisessä esimerkissä lähdevero \(0,30\cdot\Sexpr{r} = \Sexpr{nr <- 0.3*r; nr}\)~\euro\ pyöristettäisiin ja todellisuudessa perittävä vero olisi \Sexpr{rnr <- floor(10*nr)/10; rnr} euroa; tällöin nettokoroksi jäisi \Sexpr{r-rnr} euroa (kun se edellä oli \Sexpr{p(0.7*r)} euroa).
+    \end{block}
+    \pause
     Pyöristyssääntö jätetään usein huomioimatta tehtävien ratkaisuissa varsinkin koronkorkolaskuissa.
 \end{frame}
 
@@ -209,68 +158,39 @@
 \end{frame}
 
 \begin{frame}
-    \begin{ratkaisu}
-         Lasketaan korkopäivien lukumäärät:\pause
-        \begin{itemize}
-            \item Huhtikuussa on 30 päivää, joten huhtikuulta korkopäiviä kertyy 30-2 = 28 kpl.\pause
-            \item Toukokuulta päiviä kertyy 31\pause
-            \item Kesäkuulta päiviä kertyy 16
-        \end{itemize}
-        Yhteensä korkopäiviä kertyy 75. Nettokorkokanta on \(0,70\cdot0,09 = 0,063\), joten maksettavan koron suuruus on\pause
-        \[
-            r = kit = 800\cdot 0,063\cdot \frac{75}{365} = 10,36
-        \]
-        euroa. \pause Jos kyseessä on karkausvuosi, koron suuruus on
-        \[
-            r = kit = 800\cdot 0,063\cdot \frac{75}{366} = 10,33
-        \]
-        euroa. \pause Tämä ei ole ainoa tapa laskea korkoajan pituutta.
-    \end{ratkaisu}
+    \frametitle{Ratkaisuehdotus}
+    Lasketaan korkopäivien lukumäärät:\pause
+    \begin{itemize}
+        \item Huhtikuussa on 30 päivää, joten huhtikuulta korkopäiviä kertyy 30-2 = 28 kpl.\pause
+        \item Toukokuulta päiviä kertyy 31\pause
+        \item Kesäkuulta päiviä kertyy 16
+    \end{itemize}
+    Yhteensä korkopäiviä kertyy 75. Nettokorkokanta on \(0,70\cdot0,09 = 0,063\), joten maksettavan koron suuruus on\pause
+    \[
+        r = kit = 800\cdot 0,063\cdot \frac{75}{365} = 10,36
+    \]
+    euroa. \pause Jos kyseessä on karkausvuosi, koron suuruus on
+    \[
+        r = kit = 800\cdot 0,063\cdot \frac{75}{366} = 10,33
+    \]
+    euroa. \pause Tämä ei ole ainoa tapa laskea korkoajan pituutta.
 \end{frame}
 
 \begin{frame}
     \frametitle{Korkoajan laskeminen (3 tapaa)}
-    \begin{itemize}
+    \pause
+    \begin{itemize}[<+->]
         \item \emph{Todelliset/365}: todellinen päivien lkm, vuodessa 365 (366) päivää
         \item \emph{Todelliset/360}: todellinen päivien lkm, vuodessa 360 päivää
         \item \emph{30/360}: kuukaudessa 30 päivää, vuodessa 360 päivää
     \end{itemize}
     \pause
     \begin{figure}
+        \centering
         \includegraphics[scale=0.7]{months}
+        \caption{Kuinka monta päivää kussakin kuussa on?}
     \end{figure}
 \end{frame}
-
-
-% \begin{frame}
-%     \frametitle{Yksinkertainen korkolasku}
-%     \begin{esim}
-%         Tilille, jonka korkokanta on 0,75 \% p.a., talletetaan tammikuun 13. päivä 700 euroa. \pause
-%         Laske kertyneen koron suuruus samana vuonna 7.9. 
-%     \end{esim}
-% \end{frame}
-% 
-% \begin{frame}
-%     \begin{ratkaisu}
-%       Lasketaan todellinen korkopäivien lukumäärä (välittämättä karkausvuosista).
-%       \begin{itemize}
-%           \item Tammikuussa päiviä kertyy 31-13 = 18 kpl.
-%           \item Helmikuussa päiviä on 28, maaliskuussa 31, huhtikuussa 30, toukokuussa 31, kesäkuussa 30
-%           \item Heinäkuussa ja elokuussa päiviä on 31
-%           \item Syyskuulta päiviä kertyy 7
-%       \end{itemize}
-%       \pause Yhteensä korkopäiviä kertyy siis 237 kpl. \pause Koron suuruus on lähdevero huomioiden
-%       \[
-%           r = kit = 700\cdot 0,70\cdot0,0075\cdot\frac{237}{360} \approx \Sexpr{p(237/360)}
-%       \]
-%       tai
-%       \[
-%           r = kit = 700\cdot 0,70\cdot0,0075\cdot\frac{237}{365} \approx \Sexpr{p(237/365)}
-%       \]
-%       euroa.
-%     \end{ratkaisu}
-% \end{frame}
-
 \begin{frame}
     \frametitle{Aritmeettinen jono ja summa}
     \begin{block}{Aritmeettinen jono}
@@ -298,93 +218,64 @@
 
 \begin{frame}
     \frametitle{Ratkaisuehdotus}
-    Lasketaan ajat, jotka kukin talletus kasvaa korkoa:
+    Lasketaan kuinka monta kuukautta kukin talletus kasvaa korkoa:
 	%\begin{ratkaisu}
-  \begin{scriptsize}
-<<echo=F,results='asis'>>=
-library('xtable')
-kuut <- c("Maalis", "Huhti", "Touko", "Kesä", "Heinä", "Elo", "Syys", "Loka", "Marras", "Joulu")
-df <- data.frame(kuut, 9:0, row.names=1)
-print(xtable(t(df)), include.rownames=F)
-
-@
-\end{scriptsize}
-	%\end{ratkaisu}
-  Edellisen perusteella koron suuruus on\pause 
+    \begin{scriptsize}
+        <<echo=F,results='asis'>>=
+        library('xtable')
+        kuut <- c("Maalis", "Huhti", "Touko", "Kesä", "Heinä", "Elo", "Syys", "Loka", "Marras", "Joulu")
+        df <- data.frame(kuut, 9:0, row.names=1)
+        print(xtable(t(df)), include.rownames=F)
+        @
+    \end{scriptsize}
+    \pause Taulukon perusteella talletuksista saatavien korkojen summa on
     \[
-    100\cdot0,015\cdot\frac{9}{12}+100\cdot0,015\cdot\frac{7}{12}+\ldots+100\cdot0,015\cdot\frac{1}{12}
+        100\cdot0,015\cdot\frac{9}{12}+100\cdot0,015\cdot\frac{8}{12}+\ldots+100\cdot0,015\cdot\frac{1}{12}
     \]
-    euroa, eli
+    euroa\pause, joten
     \[
-      r =  100\cdot0,015\cdot\frac{9+8 +\dots+1}{12}.
+        r =  100\cdot0,015\cdot\frac{9+8 +\dots+1}{12}.
     \]
-    Saadaan
+    \pause Saadaan
     \[
-      r = 100\cdot0,015\cdot\frac{\Sexpr{t <- sum(1:9); t}}{12} = \Sexpr{r <-100*0.015*t/12; r},
+        r = 100\cdot0,015\cdot\frac{\Sexpr{t <- sum(1:9); t}}{12} = \Sexpr{r <-100*0.015*t/12; r},
     \]
     eli korkoa maksetaan (lähdeveron jälkeen) \(0,7\cdot\Sexpr{r} \approx \Sexpr{p(0.7*r+0.0005)}\) euroa.
 \end{frame}
 
-% \begin{frame}
-% \frametitle{Yksinkertainen korko} 
-% %= 100\cdot0,015\cdot\frac{\Sexpr{t <- sum(1:9); t}}{12} = \Sexpr{100*0.015*t/12}
-% 	\begin{ratkaisu}		
-% 		\pause Tämä saadaan muotoon
-%     \[
-%     100\cdot0,015\cdot\frac{1}{12}\cdot(9+8+\cdots+1)
-%     \]
-%     eli koron suuruus on \pause
-%     \[
-%     \frac{1,5}{12}\cdot(9+8+\cdots+1)
-%     \]
-%     euroa. 
-%   Esimerkiksi aritmeettisen summan kaavaa käyttämällä koroksi saadaan
-%     \[
-%     r = \frac{1,5}{12}\cdot\left( 9\cdot\frac{9+1}{2}\right) = 5,625
-%     \]
-%     euroa. \pause Lähdeveron jälkeen nettokoroksi jää \(0,70\cdot 5,625=3,94\) euroa, kun pyöristyssääntö jätetään huomiotta.
-% 	\end{ratkaisu}
-% \end{frame}
-
 \begin{frame}
-\frametitle{Koronkorkolaskentaa (esimerkki)}
-		Säästötilille, jonka korkokanta on 1,5~\% p.a. talletetaan \Sexpr{k <- 1500; k} euroa. Vuoden kuluttua talletus kasvaa korkoa \(0,7\cdot 1,5 = \Sexpr{i <- 0.7*0.015; i*100}\) prosenttia, eli tilillä on 
+    \frametitle{Koronkorkolaskentaa (esimerkki)}
+    \pause
+    Säästötilille, jonka korkokanta on 1,5~\% p.a. talletetaan \Sexpr{k <- 1500; k} euroa. \pause Vuoden kuluttua talletus kasvaa korkoa \(0,7\cdot 1,5 = \Sexpr{i <- 0.7*0.015; i*100}\) prosenttia\pause, eli tilillä on 
     \[
-    \Sexpr{q <- 1+i; q}\cdot\Sexpr{k} = \Sexpr{k1 <- q*k; k1}
-    \]euroa. Seuraavan vuoden aikana tämä summa kasvaa korkoa \Sexpr{i*100} prosenttia, joten tilillä on 
+        \Sexpr{q <- 1+i; q}\cdot\Sexpr{k} = \Sexpr{k1 <- q*k; k1}
+    \]
+    euroa. \pause Seuraavan vuoden aikana tämä summa kasvaa korkoa \Sexpr{i*100} prosenttia, joten tilillä on toisen vuoden lopussa
     \[
-    \Sexpr{q}\cdot\Sexpr{k1} \approx \Sexpr{p(q*k1)}
-    \]euroa jne. Esimerkiksi 10 vuoden kuluttua tilillä olisi siis
+        \Sexpr{q}\cdot\Sexpr{k1} \approx \Sexpr{p(q*k1)}
+    \]
+    euroa jne. \pause Esimerkiksi 10 vuoden kuluttua tilillä olisi siis
     \[
-    \Sexpr{k}\cdot\underbrace{\Sexpr{q}\cdots\Sexpr{q}}_{10\text{ kpl}} = \Sexpr{k}\cdot\Sexpr{q}^{10} \approx \Sexpr{p(k*q**10)}
-    \] euroa.
-
+        \Sexpr{k}\cdot\underbrace{\Sexpr{q}\cdots\Sexpr{q}}_{10\text{ kpl}} = \Sexpr{k}\cdot\Sexpr{q}^{10} \approx \Sexpr{p(k*q**10)}
+    \]
+    euroa.
 \end{frame}
 
 \begin{frame}
-\frametitle{Koronkorko}  \pause
-  Kun talletusaika, ts. korkoaika ylittää tilille määrätyn korkokauden, edelliseltä kaudelta maksetut korot alkavat kasvaa korkoa. 
-  \pause
-  Talletus kasvaa siis \emph{korkoa korolle}.
-	\begin{block}{Kasvanut pääoma koronkoron tapauksessa}
-		\[
-			K = kq^n
-		\]
-		Kasvanut pääoma \(K\) riippuu alkuperäisestä pääomasta \(k\), korkotekijästä \(q\) ja korkokausien lukumäärästä \(n\).
-	\end{block}
-	Yllä korkotekijä (tai korkokerroin) \(q\) on korkokannasta \(i\) saatava prosenttikerroin, eli \(q = 1+i\) tai \(q = 1 + 0,7i\).
+    \frametitle{Koronkorko}
+    \pause
+    Kun talletusaika, ts. korkoaika ylittää tilille määrätyn korkokauden, edelliseltä kaudelta maksetut korot alkavat kasvaa korkoa. 
+    \pause
+    Talletus kasvaa siis \emph{korkoa korolle}.
+    \pause
+    \begin{block}{Kasvanut pääoma koronkoron tapauksessa}
+        \[
+            K = kq^n
+        \]
+        Kasvanut pääoma \(K\) riippuu alkuperäisestä pääomasta \(k\), korkotekijästä \(q\) ja korkokausien lukumäärästä \(n\).
+    \end{block}
+    Yllä korkotekijä (tai korkokerroin) \(q\) on korkokannasta \(i\) saatava prosenttikerroin, eli \(q = 1+i\) tai \(q = 1 + 0,7i\).
 \end{frame}
-
-% \begin{frame}
-%  	\begin{ratkaisu}
-%  		\begin{enumerate}[(a)]
-%  			\item Jos lähdevero jätetään huomiotta, korkotekijä on \(1+ 0,015 = 1,015\) ja kasvanut pääoma
-%  			\(K=1500\cdot1,015^5\approx 1615,93\) euroa.
-%  			\item Jos lähdevero huomioidaan, korkotekijä on \(1+0,7\cdot0,015=	1,0105\). Silloin kasvanut pääoma on
-%  			\(K=1500\cdot1,0105^5\approx	1580,42\) euroa.
-%  		\end{enumerate}
-%  	\end{ratkaisu}
-% \end{frame}
 
 \begin{frame}
     \frametitle{Geometrinen jono ja summa}
@@ -419,48 +310,63 @@ toimintaansa ikuisesti, niin päästöjä syntyy yhteensä tämä vuosi mukaan l
   \end{block}
 \end{frame}
 
-\begin{frame}
-\frametitle{Koronkorko: toistuvat talletukset}
-	\begin{esim}
-		Säästötilille, jonka korkokanta on 2,7 \% p.a. talletetaan 900 euroa vuosittain aina vuoden alussa.
-		Kuinka paljon tililtä on nostettavissa rahaa viiden vuoden kuluttua ensimmäisestä talletuksesta?
-		Kuinka paljon korkoa on kertynyt yhteensä?
-	\end{esim}
-\end{frame}
+% \begin{frame}
+% \frametitle{Koronkorko: toistuvat talletukset}
+% 	\begin{esim}
+% 		Säästötilille, jonka korkokanta on 2,7 \% p.a. talletetaan 900 euroa vuosittain aina vuoden alussa.
+% 		Kuinka paljon tililtä on nostettavissa rahaa viiden vuoden kuluttua ensimmäisestä talletuksesta?
+% 		Kuinka paljon korkoa on kertynyt yhteensä?
+% 	\end{esim}
+% \end{frame}
+% 
+% \begin{frame}
+%   \begin{ratkaisu}
+% 		\pause 
+%     Korkokanta on 0,027, joten nettokorkokanta on \(0,7\cdot0,027 = 0,0189\). \pause
+% 		Siis korkotekijä on \(1+0,0189 =	1,0189\). \pause
+% 		\begin{itemize}
+% 		    \item Ensimmäinen talletus kasvaa korkoa 5 vuotta, eli tulee \(1,0189^5\)-kertaiseksi\pause
+% 		    \item Toinen talletus kasvaa korkoa 4 kertaa, eli tulee \(1,0189^4\)-kertaiseksi\pause
+% 		    \item Kolmas talletus kasvaa korkoa 3 kertaa, eli tulee \(1,0189^3\)-kertaiseksi\pause
+% 		    \item Neljäs talletus kasvaa korkoa 2 kertaa, eli tulee \(1,0189^2\)-kertaiseksi\pause
+% 		    \item Viides talletus kasvaa korkoa yhden kerran, eli tulee \(1,0189\)-kertaiseksi
+% 		\end{itemize}
+% 	\end{ratkaisu}
+% \end{frame}
 
 \begin{frame}
-	\begin{ratkaisu}
-		\pause 
-    Korkokanta on 0,027, joten nettokorkokanta on \(0,7\cdot0,027 = 0,0189\). \pause
-		Siis korkotekijä on \(1+0,0189 =	1,0189\). \pause
-		\begin{itemize}
-		    \item Ensimmäinen talletus kasvaa korkoa 5 vuotta, eli tulee \(1,0189^5\)-kertaiseksi\pause
-		    \item Toinen talletus kasvaa korkoa 4 kertaa, eli tulee \(1,0189^4\)-kertaiseksi\pause
-		    \item Kolmas talletus kasvaa korkoa 3 kertaa, eli tulee \(1,0189^3\)-kertaiseksi\pause
-		    \item Neljäs talletus kasvaa korkoa 2 kertaa, eli tulee \(1,0189^2\)-kertaiseksi\pause
-		    \item Viides talletus kasvaa korkoa yhden kerran, eli tulee \(1,0189\)-kertaiseksi
-		\end{itemize}
-	\end{ratkaisu}
+    \frametitle{Esimerkki}  
+    Säästötilille, jonka korkokanta on \Sexpr{i <- 0.027; 100*i}~\% p.a. talletetaan \Sexpr{k <- 900; k} euroa vuosittain aina vuoden alussa. 
+    \pause 
+    Tilin nettokorkokanta on \(0,7\cdot\Sexpr{i} = \Sexpr{ni <- 0.7*i; ni}\), joten kunkin vuoden talletus tulee \Sexpr{q <- 1+ni; q}-kertaiseksi vuoden välein. 
+    \pblock 
+    Viiden vuoden kuluttua ensimmäinen talletus on tullut \(\Sexpr{q}^5\)-kertaiseksi\pause, toisen vuoden talletus \(\Sexpr{q}^4\)-kertaiseksi\pause, kolmannen vuoden \(\Sexpr{q}^3\)-kertaiseksi jne. \pause Kaiken kaikkiaan tilillä on silloin rahaa (ennen viidennen vuoden talletusta)
+    \begin{multline*}
+        \Sexpr{q}^5\cdot\Sexpr{k} + \Sexpr{q}^4\cdot\Sexpr{k} + \Sexpr{q}^3\cdot\Sexpr{k} \\  + \Sexpr{q}^2\cdot\Sexpr{k} + \Sexpr{q}^1\cdot\Sexpr{k} \approx \Sexpr{K <- sum(q**(1:5))*k; p(K)}
+    \end{multline*}
+    euroa. 
+    \pause 
+    Korkoa on siis saatu \Sexpr{p(K-5*k)} euroa.
 \end{frame}
 
 
-\begin{frame}
-    \begin{ratkaisu}
-        Kaiken kaikkiaan tilillä on viiden vuoden kuluttua rahaa
-        \begin{multline*}
-            900\cdot1,0189^5 + 900\cdot1,0189^4 + 900\cdot1,0189^3\\
-             +900\cdot1,0189^2 + 900\cdot1,0189
-        \end{multline*}
-        euroa, eli\pause
-        \begin{align*}
-            &900(1,0189^5 + 1,0189^4 + 1,0189^3 + 1,0189^2 + 1,0189)\\
-            =&900(1,0189 + 1,0189^2 + 1,0189^3 + 1,0189^4 + 1,0189^5)\\
-            =&900\cdot1,0189\cdot\frac{1-1,0189^5}{1-1,0189}\\
-            \approx & 4761,67
-        \end{align*}
-        euroa. \pause Korkoa on saatu \(4761,68-5\cdot900 = 261,68\) euroa.
-    \end{ratkaisu}
-\end{frame}
+% \begin{frame}
+%     \begin{ratkaisu}
+%         Kaiken kaikkiaan tilillä on viiden vuoden kuluttua rahaa
+%         \begin{multline*}
+%             900\cdot1,0189^5 + 900\cdot1,0189^4 + 900\cdot1,0189^3\\
+%              +900\cdot1,0189^2 + 900\cdot1,0189
+%         \end{multline*}
+%         euroa, eli\pause
+%         \begin{align*}
+%             &900(1,0189^5 + 1,0189^4 + 1,0189^3 + 1,0189^2 + 1,0189)\\
+%             =&900(1,0189 + 1,0189^2 + 1,0189^3 + 1,0189^4 + 1,0189^5)\\
+%             =&900\cdot1,0189\cdot\frac{1-1,0189^5}{1-1,0189}\\
+%             \approx & 4761,67
+%         \end{align*}
+%         euroa. \pause Korkoa on saatu \(4761,68-5\cdot900 = 261,68\) euroa.
+%     \end{ratkaisu}
+% \end{frame}
 
 \begin{frame}
     \frametitle{Koronkorkolaskenta: toistuvat talletukset}
@@ -473,10 +379,8 @@ toimintaansa ikuisesti, niin päästöjä syntyy yhteensä tämä vuosi mukaan l
 \end{frame}
 
 \begin{frame}
-    \frametitle{Koronkorkolaskenta: toistuvat talletukset}
+    \frametitle{Ratkaisuehdotus}
     \pause
-    \begin{ratkaisu}
-      \pause
         Tarkastellaan ensin yhden vuoden tilannetta. 
         \pause
         Tammikuussa talletetun summan korkoaika on 12/12 vuotta, helmikuussa
@@ -491,14 +395,14 @@ toimintaansa ikuisesti, niin päästöjä syntyy yhteensä tämä vuosi mukaan l
         \end{align*}
         euroa. 
         \pause Tilille vuosittain talletettava summa (1200 euroa) kasvaa siis korkoa 9,10 euroa samana vuonna.
-    \end{ratkaisu}
 \end{frame}
 
 \begin{frame}
-    \begin{ratkaisu}
+  \frametitle{Ratkaisuehdotus}
         Kukin näin laskettu vuosittainen summa kasvaa seuraavan kerran korkoa vasta seuraavana vuonna.
         \pause
-        Näin ollen tilillä on loppujen lopuksi, eli kolmen vuoden kuluttua ensimmäisestä talletuksesta, rahaa \pause
+        Näin ollen tilillä on loppujen lopuksi
+        \pause
         \[
             1209,10\cdot 1,014^2+1209,10\cdot1,014+1209,10\approx 3678,32
         \]
@@ -507,7 +411,6 @@ toimintaansa ikuisesti, niin päästöjä syntyy yhteensä tämä vuosi mukaan l
         Kaiken kaikkiaan tilille on talletettu \(3\cdot12\cdot100 = 3600\) euroa.
         \pause
         Korkoa on siis kertynyt yhteensä 78,32 euroa.
-    \end{ratkaisu}
 \end{frame}
 
 \begin{frame}
@@ -540,6 +443,7 @@ toimintaansa ikuisesti, niin päästöjä syntyy yhteensä tämä vuosi mukaan l
                     1,04^4k = 1000\quad\Leftrightarrow\quad k = \frac{1000}{1,04^4}\approx 854,80
                 \]
                 euroa.
+            \pause
             \item Nettokorkokanta on \(0,70\cdot0,04=0,028\), joten korkokerroin on \(1,028\), kun lähdevero otetaan huomioon. \pause
                 Jotta tilillä olisi neljän vuoden kuluttua 1000 euroa, täytyy olla
                 \[
@@ -597,7 +501,7 @@ toimintaansa ikuisesti, niin päästöjä syntyy yhteensä tämä vuosi mukaan l
 \end{frame}
 
 \begin{frame}
-    \begin{ratkaisu}
+  \frametitle{Ratkaisuehdotus}
         Säästöt olisivat nykyhetkessä
         \[
             \frac{1500}{1,03} + \frac{1500}{1,03^2} + \frac{1500}{1,03^3} + \frac{1000}{1,03^4} + \frac{1000}{1,03^5}\approx 5994,01
@@ -608,7 +512,6 @@ toimintaansa ikuisesti, niin päästöjä syntyy yhteensä tämä vuosi mukaan l
        \]
        euroa. Tuotot olisivat nykyhetkessä yhteensä 6252,80 euroa. Koska lainaa tarvitsee ottaa vain 6000 euroa,
        investointi on tämän menetelmän valossa kannattava.
-    \end{ratkaisu}
 \end{frame}
 
 \begin{frame}

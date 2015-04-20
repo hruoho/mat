@@ -1,0 +1,66 @@
+%\usepackage[orientation=portrait,size=a4]{beamerposter}
+\theoremstyle{remark}
+\newtheorem*{esim}{Esimerkki}
+\newtheorem*{ratkaisu}{Ratkaisuehdotus}
+
+\begin{document}
+<<echo=F, child='../conf.Rnw'>>=
+@	
+	\begin{frame}
+		\frametitle{Esimerkki}
+			Työntekijän kokonaisveroprosentti on 24. Seuraavana vuonna verotus kevenee yhdellä prosenttiyksiköllä, mutta samalla kuluttajahinnat nousevat 2,4~\%. Jos bruttopalkka pysyy ennallaan, miten muuttui työntekijän reaalinen nettopalkka? Kuinka monta prosenttia 
+			palkankorotuksen on oltava, jotta reaalinen nettoansio 
+			\begin{enumerate}[(a)]
+				\item pysyisi ennallaan
+				\item nousisi 3,0~\%?
+			\end{enumerate}
+		\end{frame}
+
+		\begin{frame}
+			\frametitle{Ratkaisuehdotus}
+			Olkoon \(a\) alkuperäinen bruttopalkka, jolloin alkuperäinen nettopalkka on \(0,76a\). \pause Jos nimellinen bruttopalkka pysyy ennallaan, seuraavana vuonna käteen jää \(0,77a\). \pause Koska kuluttajahinnat ovat tulleet \(1,024\)-kertaisiksi, uusi reaalinen nettopalkka on \(0,77a/1,024 = \Sexpr{k <- 0.77/1.024; k}a\). \pause Tämän osuus alkuperäisestä reaalisesta nettopalkasta on
+			\[
+				\frac{\Sexpr{k}a}{0,76a} = \frac{\Sexpr{k}}{0,76} = \Sexpr{pr <- k/0.76; pr},
+			\]
+			\pause eli nettopalkka on pienentynyt noin \Sexpr{p((1-pr)*100)} prosenttia.
+		\end{frame}
+
+		\begin{frame}
+			Tulkoon sitten uusi palkka \(k\)-kertaiseksi, eli olkoon uusi palkka \(ka\). \pause Tällöin uusi nettopalkka on \(0,77ka\) ja vastaava reaalinen nettopalkka \(0,77ka/1,024\).
+		\end{frame}
+
+		\begin{frame}
+			\frametitle{(a)}
+			\pause
+			Jos  reaalinen nettopalkka on sama kuin ennen muutoksia, niin
+			\[
+				\frac{0,77\cdot ka}{1,024} = 0,76a
+			\]
+			\pause eli
+			\[
+				k = \frac{1,024 \cdot 0,76a}{0,77a} = \frac{1,024\cdot0,76}{0,77} = \Sexpr{k <- 1.024*0.76/0.77; k}
+			\]
+			\pause Siis palkankorotuksen pitäisi olla 
+			\[
+				\Sexpr{k} - 1 = \Sexpr{k-1} \approx \Sexpr{p(100*(k-1))}~\%.
+			\]
+		\end{frame}
+
+		\begin{frame}
+			\frametitle{(b)}
+			\pause
+			Jos reaalinen nettopalkka on 3,0~\% suurempi kuin alussa, niin
+			\[
+				\frac{0,77\cdot ka}{1,024} = 1,03\cdot0,76a
+			\]
+			\pause eli
+			\[
+				k = \frac{1,024 \cdot 1,03\cdot 0,76a}{0,77a} = \frac{1,024\cdot1,03\cdot 0,76}{0,77} = \Sexpr{k <- 1.024*1.03*0.76/0.77; k}
+			\]
+			\pause Siis palkankorotuksen pitäisi olla 
+			\[
+				\Sexpr{k} - 1 = \Sexpr{k-1} \approx \Sexpr{p(100*(k-1))}~\%.
+			\]
+		\end{frame}
+
+\end{document}

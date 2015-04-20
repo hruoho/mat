@@ -1,0 +1,85 @@
+\documentclass[handout]{beamer}
+\input{../_texPartials/simple-beamer-preamble}
+\usecolortheme{whale}
+\setbeamercolor{block title}{use=frametitle, bg=frametitle.bg, fg=frametitle.fg}
+\setbeamercolor{block body}{use=frametitle, bg=frametitle.bg!40!white, fg=black}
+\theoremstyle{remark}
+\newtheorem{huom}{Huom!}
+\newtheorem{esim}{Esimerkki}
+\newtheorem{ratkaisu}{Ratkaisuehdotus}
+\newcommand{\pblock}{\\ \vspace{0.5cm}\pause}
+
+\newcommand{\socrativeOhje}{
+  \begin{itemize}
+    \item Surffaa osoitteeseen \url{m.socrative.com} (tai \url{socrative.com})
+    \item Siirry huoneeseen nimeltä \url{hruoho}
+  \end{itemize}
+}
+
+\newcommand{\taukoKysymys}{
+\socrativeOhje
+	\begin{block}{Kysymys}
+	Mielestäni tähän väliin täydellinen tauko on
+	\begin{enumerate}[(A)]
+		\item 10 min
+		\item 20 min
+		\item 30 min
+		\item Vähemmän 
+		\item Enemmän
+	\end{enumerate}	
+	\end{block}
+}
+\title{Talousmatematiikkaa: sijoittaminen}
+
+\begin{document}
+
+\begin{frame}
+	\maketitle
+\end{frame}
+
+\begin{frame}
+	\frametitle{Sijoittaminen}
+\end{frame}
+
+\begin{frame}
+	\frametitle{Pankkitalletukset}
+\end{frame}
+
+\begin{frame}
+	\frametitle{Esimerkki}
+\end{frame}
+
+\begin{frame}
+	\frametitle{Sijoitusvakuutukset}
+\end{frame}
+
+\begin{frame}
+	\frametitle{Esimerkki}
+\end{frame}
+
+\begin{frame}
+	\frametitle{Obligaatiot}
+\end{frame}
+
+\begin{frame}
+	\frametitle{Esimerkki}
+\end{frame}
+
+\begin{frame}
+	\frametitle{Osakkeet}
+\end{frame}
+
+\begin{frame}
+	\frametitle{Esimerkki}
+\end{frame}
+
+\begin{frame}
+	\frametitle{Rahastot}
+\end{frame}
+
+\begin{frame}
+	\frametitle{Esimerkki}
+\end{frame}
+
+
+\end{document}
