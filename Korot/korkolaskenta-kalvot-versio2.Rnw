@@ -104,35 +104,23 @@
   
 \begin{frame}
     \frametitle{Esimerkki}
-      Tilille, jonka korkokanta on \Sexpr{i <- 0.022; i*100}~\%~p.a. talletetaan \Sexpr{k <- 2650; k} euroa. Puolessa vuodessa \Sexpr{t <- 0.5} talletus on kasvanut korkoa
+      Tilille, jonka korkokanta on \Sexpr{i <- 0.022; i*100}~\%~p.a. talletetaan \Sexpr{k <- 2650; k} euroa. \pause Puolessa vuodessa \Sexpr{t <- 0.5} talletus on kasvanut korkoa
       \[
         r = kit = \Sexpr{k}\cdot\Sexpr{i}\cdot\Sexpr{t} = \Sexpr{r <- k*i*t; r}
-      \] euroa. Ennen maksamista korosta peritään 30~\% lähdeveroa, joten maksettavaksi koroksi, eli \emph{nettokoroksi} jää 
+      \] 
+      euroa. \pause Ennen maksamista korosta peritään 30~\% lähdeveroa, joten maksettavaksi koroksi, eli \emph{nettokoroksi} jää 
       \[
         0,70\cdot\Sexpr{r} \approx \Sexpr{p(0.7*r)}
-      \] euroa. Samaan tulokseen päästään, jos korkokannan \(i\) tilalla käytetään \emph{nettokorkokantaa} \(0,7\cdot\Sexpr{i} = \Sexpr{ni <- 0.7*i; ni}\): tällöin
+      \] 
+      euroa. \pause Samaan tulokseen päästään, jos korkokannan \(i\) tilalla käytetään \emph{nettokorkokantaa} \(0,7\cdot\Sexpr{i} = \Sexpr{ni <- 0.7*i; ni}\): \pause tällöin
       \[
         r = \Sexpr{k}\cdot\Sexpr{ni}\cdot\Sexpr{t} \approx \Sexpr{p(k*ni*t)}
       \]
       euroa.
-      
-%     \begin{esim}
-%         Tilin korkokanta on 2,2 \% p.a. ja tilille talletetaan 2 500 euroa.
-%         Kuinka paljon talletukselle maksetaan kahdeksan kuukauden ajalta korkoa? Huomioi korosta perittävä 30 \% lähdevero.
-%     \end{esim}
-%     \pause
-%     Tässä esimerkissä
-%     \begin{itemize}
-%         \item korkoaika: 8 kk eli 8/12 vuotta
-%         \item korkokausi: 1 vuosi
-%         \item korkokanta: 2,2 \%
-%         \item lähdevero: 30 \%
-%     \end{itemize}
-\end{frame}
+ \end{frame}
 
 \begin{frame}
-    \frametitle{Yksinkertainen korkolaskenta: lähdeveron pyöristyssääntö}
-    
+    \frametitle{Yksinkertainen korkolaskenta: lähdeveron pyöristyssääntö}    
     \pause
     Lähdeveroon liittyy erikoinen \emph{pyöristyssääntö}:\pause 
     lähdevero lasketaan jokaisesta maksetusta korkoerästä täysin kymmenin sentein siten,
@@ -506,9 +494,9 @@ toimintaansa ikuisesti, niin päästöjä syntyy yhteensä tämä vuosi mukaan l
         \[
             \frac{1500}{1,03} + \frac{1500}{1,03^2} + \frac{1500}{1,03^3} + \frac{1000}{1,03^4} + \frac{1000}{1,03^5}\approx 5994,01
        \]
-       euroa ja jälleenmyyntiarvo
+       euroa ja jälleenmyyntiarvo (300~\euro)
        \[
-            0,05\cdot\frac{6000}{1,03^5}\approx 258,78
+            \frac{300}{1,03^5}\approx 258,78
        \]
        euroa. Tuotot olisivat nykyhetkessä yhteensä 6252,80 euroa. Koska lainaa tarvitsee ottaa vain 6000 euroa,
        investointi on tämän menetelmän valossa kannattava.

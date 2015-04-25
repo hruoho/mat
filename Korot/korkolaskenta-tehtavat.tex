@@ -231,50 +231,51 @@ Ensimmäisen talletuksen sukulaisesi tekee vuoden 2014 lopussa. Viiden vuoden ku
 Kuinka suuri on vuotuinen talletus, jos tilin korko on 1{,}9 \% p.a? Huomioi lähdevero.
 \end{question}
 \begin{solution}
-Olkoon \(x\) vuosittain talletettava (lahjoitettava) summa. Vuonna 2014 saatu summa kasvaa korkoa 5 kertaa,
-vuonna 2015 saatu summa 4 kertaa jne., vuonna 2019 saatu summa ei ehdi kasvaa korkoa kertaakaan
-(sillä talletus tehdään vuoden lopussa). Korkoa kasvaneiden talletusten summa on
-\begin{align*}
-    &x\cdot q^5 + x\cdot q^4+ x\cdot q^3 + x\cdot q^2+ x\cdot q + x \\
-    =& x + x\cdot q+ x\cdot q^2 + x\cdot q^3+ x\cdot q^4 + x\cdot q^5\\
-    =& x\cdot\frac{1-q^6}{1-q}
-\end{align*}
-joten
-\[
-   x\cdot\frac{1-q^6}{1-q} = 4324,15
-\]
-Tästä saadaan
-\[
-    x = \frac{4342,15\cdot(1-q)}{1-q^6}
-\]
-Sijoitetaan \(q= 1 + 0,7\cdot0,019=1,0133\) ja saadaan
-\[
-x = \frac{4342,15\cdot(1-1,0133)}{1-1,0133^6} \approx 699,99979
-\]
-Vuosittainen talletus on siis 700,00 euroa.
+    Olkoon \(x\) vuosittain talletettava (lahjoitettava) summa. Vuonna 2014 saatu summa kasvaa korkoa 5 kertaa,
+    vuonna 2015 saatu summa 4 kertaa jne., vuonna 2019 saatu summa ei ehdi kasvaa korkoa kertaakaan
+    (sillä talletus tehdään vuoden lopussa). Korkoa kasvaneiden talletusten summa on
+    \begin{align*}
+        &x\cdot q^5 + x\cdot q^4+ x\cdot q^3 + x\cdot q^2+ x\cdot q + x \\
+        =& x + x\cdot q+ x\cdot q^2 + x\cdot q^3+ x\cdot q^4 + x\cdot q^5\\
+        =& x\cdot\frac{1-q^6}{1-q}
+    \end{align*}
+    joten
+    \[
+       x\cdot\frac{1-q^6}{1-q} = 4324,15
+    \]
+    Tästä saadaan
+    \[
+        x = \frac{4342,15\cdot(1-q)}{1-q^6}
+    \]
+    Sijoitetaan \(q= 1 + 0,7\cdot0,019=1,0133\) ja saadaan
+    \[
+    x = \frac{4342,15\cdot(1-1,0133)}{1-1,0133^6} \approx 699,99979
+    \]
+    Vuosittainen talletus on siis 700,00 euroa.
 \end{solution}
 
 \begin{question} 
     Uuden vuoden lupauksena aloitat säästämisen ja talletat tammikuun lopusta alkaen joka toisen kuukauden lopussa 300 euroa tilille,
 jonka korkokanta on 2{,}1 \% p.a. Kuinka paljon rahaa tililläsi on neljännen talletusvuoden lopussa koronmaksun jälkeen? Huomioi lähdevero.
-\end{question}\begin{solution}
-Tarkastellaan ensin yhden vuoden talletuksia. Tammikuun talletus kasvaa korkoa 11 kuukautta, maaliskuun talletus 9 kuukautta,
-toukokuun talletus 7 kuukautta jne., marraskuun talletus kasvaa korkoa yhden kuukauden. Vuoden talletuksille korkoa maksetaan yhteensä
-\begin{align*}
-    &300\cdot0,7\cdot0,021\cdot\left(\frac{11}{12} + \frac{9}{12} + \frac{7}{12} + \frac{5}{12} + \frac{3}{12} + \frac{1}{12}\right)\\
-    =&300\cdot0,7\cdot0,021\cdot\frac{1}{12}\cdot(11+9+7+5+3+1)\\
-    =& 13,23
-\end{align*}
-euroa. Tilannetta voidaan ajatella siis siten, että kunkin vuoden \emph{lopussa} tilille talletetaan \(6\cdot300+13,23 = 1813,23\) euroa.
-Kaiken kaikkiaan tilillä on neljännen talletusvuoden lopussa rahaa
-\[
-    K = 1813,13\cdot q^3 + 1813,13\cdot q^2 + 1813,13\cdot q + 1813,13 = 1813,13\cdot\frac{1-q^4}{1-q}
-\]
-euroa. Sijoitetaan \(q = 1 + 0,7\cdot0,021 = 1,0147\) ja saadaan
-\[
-    K = 1813,13\cdot\frac{1-1,0147^4}{1-1,0147} \approx 7414,011022
-\]
-Tililtä on siis nostettavissa 7414,01 euroa.
+\end{question}
+\begin{solution}
+    Tarkastellaan ensin yhden vuoden talletuksia. Tammikuun talletus kasvaa korkoa 11 kuukautta, maaliskuun talletus 9 kuukautta,
+    toukokuun talletus 7 kuukautta jne., marraskuun talletus kasvaa korkoa yhden kuukauden. Vuoden talletuksille korkoa maksetaan yhteensä
+    \begin{align*}
+        &300\cdot0,7\cdot0,021\cdot\left(\frac{11}{12} + \frac{9}{12} + \frac{7}{12} + \frac{5}{12} + \frac{3}{12} + \frac{1}{12}\right)\\
+        =&300\cdot0,7\cdot0,021\cdot\frac{1}{12}\cdot(11+9+7+5+3+1)\\
+        =& 13,23
+    \end{align*}
+    euroa. Tilannetta voidaan ajatella siis siten, että kunkin vuoden \emph{lopussa} tilille talletetaan \(6\cdot300+13,23 = 1~813{,}23\) euroa.
+     Kaiken kaikkiaan tilillä on neljännen talletusvuoden lopussa rahaa
+     \[
+         K = 1~813{,}23\cdot q^3 + 1~813{,}23\cdot q^2 + 1~813{,}23\cdot q + 1~813{,}23 = 1~813{,}23\cdot\frac{1-q^4}{1-q}
+     \]
+    euroa. Sijoitetaan \(q = 1 + 0,7\cdot0,021 = 1,0147\) ja saadaan
+    \[
+        K = 1~813{,}23\cdot\frac{1-1,0147^4}{1-1,0147} =  7~414{,}42
+    \]
+    Tililtä on siis nostettavissa 7~414{,}42 euroa.
 \end{solution}
 
 \subsubsection*{Diskonttaus}
@@ -284,7 +285,8 @@ Tililtä on siis nostettavissa 7414,01 euroa.
     \item Selvitä diskonttaustekijä.
     \item Kuinka suuri summa Josefiinan tulee tililleen tallettaa?
 \end{enumerate}
-\end{question}\begin{solution}
+\end{question}
+\begin{solution}
     \begin{enumerate}[(a)]
         \item Koska \(q = 1 + 0,015 = 1,015\), diskonttaustekijä on \(q^{-10} = \frac{1}{q^{10}}\approx 0{,}8616672\).
         \item \(k = K\cdot q^{-10} = K\cdot 0{,}8616672 = 5000\cdot 0{,}8616672\approx 4~308{,}336\) euroa.
@@ -292,11 +294,13 @@ Tililtä on siis nostettavissa 7414,01 euroa.
     \end{enumerate}
 \end{solution}
 
-\begin{question} Kauppias tarjoaa auton maksamiseen seuraavaa rahoitusmallia: käsiraha 8~000~\euro \ on maksettava heti ja tämän
+\begin{question} 
+Kauppias tarjoaa auton maksamiseen seuraavaa rahoitusmallia: käsiraha 8~000~\euro \ on maksettava heti ja tämän
 jälkeen kahtena seuraavana vuonna maksetaan 5 000~\euro. Kolmen vuoden kuluttua maksetaan vielä 2 000~\euro.
 Jos asiakas kuitenkin haluaa maksaa auton käteisellä heti ostohetkellä, mikä auton hinnan pitäisi olla, että asiakas
 maksaisi siitä yhtä paljon kuin kauppiaan ehdottamassa rahoitusmallissa? Oletetaan, että kauppiaan käyttämä korkokanta on 7{,}5~\%.
-\end{question}\begin{solution}
+\end{question}
+\begin{solution}
     Diskontataan maksuerät nykyhetkeen. Kerroin on \(q= 1+0,075 = 1,075\), joten nykyarvoksi saadaan
     \[
         8000 + \frac{5000}{1,075} + \frac{5000}{1,075^2} + \frac{2000}{1,075^3} = 18587,74699
@@ -342,11 +346,11 @@ Kumpi tarjous on tuttavasi kannalta parempi, jos korkokanta on 4 \%? Entä, jos 
 \end{question}\begin{solution}
     Diskontataan toisen tarjouksen summat nykyhetkeen. Jos korkokanta on 4~\%, niin nykyarvo on
     \[
-        64000 + \frac{54000}{1,004} + \frac{30000}{1,004^2} \approx 143659,76
+        64000 + \frac{54000}{1,04} + \frac{30000}{1,04^2} \approx 14365,98
     \] euroa.
     Jos korkokanta on 1~\%, niin nykyarvo on vastaavasti
     \[
-        64000 + \frac{54000}{1,001} + \frac{30000}{1,001^2} \approx 146874,23
+        64000 + \frac{54000}{1,01} + \frac{30000}{1,01^2} \approx 14687,42
     \] euroa.
     Näin ollen 4~\% korkokannalla kertamaksu on tuttavalle parempi, 1~\% korkokannalla osamaksu.
 \end{solution}

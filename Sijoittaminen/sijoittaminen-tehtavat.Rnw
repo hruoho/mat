@@ -180,51 +180,179 @@ eli kolmen obligaation yhteinen nimellisarvo oli \(\Sexpr{c}\) euroa. Näin olle
   \item Selviä kurssimateriaalista, miten pörssiin listattujen yhtiöiden osakkeiden tuottoa verotetaan.
 \end{enumerate}
  
-\begin{question} Kaverisi osti 600 kappaletta erään pörssiin listatun yrityksen osakkeita 9{,}45 euron kappalehintaan. Keväällä yritys jakoi jokaiselta osakkeelta osinkoa 1{,}15 \euro. Vuoden lopulla kaverisi myi osakkeet 10{,}90 euron kappalehintaan. Sekä oston että myynnin yhteydessä perittiin välityspalkkiota 1{,}0 \% kauppahinnasta. Mikä oli kaverisi sijoituksen nettotuotto?
-\end{question}\begin{solution}\end{solution}
-
-\begin{question} Sijoittaja osti 90 kappaletta erään yhtiön osakkeita kurssilla 35{,}86 \euro. Yhdeksän kuukauden kuluttua hän myi osakkeet kurssilla 37{,}23 \euro. Välityspalkkio oli sekä ostettaessa että myytäessä $0{,}25\ \%  + 7{,}50 \euro$. Mikä oli sijoituksen nettotuottoa vastaava vuosittainen korkokanta?
+\begin{question} 
+    Kaverisi osti \Sexpr{n <- 600; n} kappaletta erään pörssiin listatun yrityksen osakkeita \Sexpr{osto <- 9.45; osto} euron kappalehintaan. Keväällä yritys jakoi jokaiselta osakkeelta osinkoa \Sexpr{osinko <- 1.15; osinko}~\euro. Vuoden lopulla kaverisi myi osakkeet \Sexpr{myy <- 10.9; myy} euron kappalehintaan. Sekä oston että myynnin yhteydessä perittiin välityspalkkiota \Sexpr{vp <- 0.01; 100*vp}~\% kauppahinnasta. Mikä oli kaverisi sijoituksen nettotuotto?
 \end{question}
+\begin{solution}
+    Osakkeet maksoivat \Sexpr{ostohinta <- n*osto; ostohinta} euroa ja välityspalkkiota maksettiin \Sexpr{ovp <- vp*ostohinta; ovp} euroa. Osinkotuloja saatiin \Sexpr{osinkotulot <- n*osinko; osinkotulot} euroa. Osakkeiden myynnistä saatiin \Sexpr{myyntitulot <- n*myy; myyntitulot} euroa ja välityspalkkiota maksettiin \Sexpr{mvp <- vp*myyntitulot; mvp} euroa. 
+    Osinkotuloista 15~\% on verotonta ja 85~\% veronalaista pääomatuloa ja myyntivoitto on kokonaisuudessaan veronalaista pääomatuloa. Pääomatulosta voidaan vähentää tulonhankkimiskulut \(\Sexpr{ostohinta} + \Sexpr{ovp} +\Sexpr{mvp} = \Sexpr{vahenn <- ostohinta + mvp + ovp; vahenn}\) euroa. Verotettava pääomatulo on näin ollen
+    \[
+        0,85\cdot\Sexpr{osinkotulot} + \Sexpr{myyntitulot} - \Sexpr{vahenn} = \Sexpr{verotettavapt <- 0.85*osinkotulot + myyntitulot - vahenn; verotettavapt}
+    \]
+    euroa. Nettotuloiksi jää \(0,7\cdot\Sexpr{verotettavapt} = \Sexpr{nettotulot <- 0.7*verotettavapt; nettotulot}\) euroa, joten kaiken kaikkiaan nettotuotto oli
+    \[
+        0,15\cdot\Sexpr{osinkotulot} + \Sexpr{nettotulot} = \Sexpr{0.15*osinkotulot + nettotulot}
+    \]
+    euroa. 
+\end{solution}
+
+\begin{question}
+    Sijoittaja osti \Sexpr{n<-90; n} kappaletta erään yhtiön osakkeita kurssilla \Sexpr{okurssi <- 35.86; okurssi}~\euro. Yhdeksän kuukauden kuluttua hän myi osakkeet kurssilla \Sexpr{mkurssi <- 37.23; mkurssi}~\euro. Välityspalkkio oli sekä ostettaessa että myytäessä $0{,}25\ \%  + 7{,}50 \euro$. Mikä oli sijoituksen nettotuottoa vastaava vuosittainen korkokanta?
+\end{question}
+\begin{solution}
+    Pääomatuloista \(\Sexpr{n}\cdot\Sexpr{mkurssi} = \Sexpr{mhinta <- n*mkurssi; mhinta}\)~\euro\ voidaan vähentää tulonhankkimiskustannuksina ostohinta \(\Sexpr{n}\cdot\Sexpr{okurssi} = \Sexpr{ohinta <- n*okurssi; ohinta}\) euroa ja välityspalkkiot \(0,0025\cdot\Sexpr{ohinta} + 7,5 + 0,0025\cdot\Sexpr{mhinta} + 7,5 = \Sexpr{vp <- 0.0025*(ohinta + mhinta) + 15; vp}\) euroa. Verotettavaksi tuloksi jää siis 
+    \[
+        \Sexpr{mhinta} - \Sexpr{ohinta} - \Sexpr{vp} = \Sexpr{verote <- mhinta - ohinta - vp; verote},
+    \]
+    joten nettotuotto on \(0,7\cdot\Sexpr{verote} = \Sexpr{netto <- 0.7*verote; netto}\) euroa. Sijoitus kasvoi siis yhdeksässä kuukaudessa
+    \[
+        \frac{\Sexpr{netto}}{\Sexpr{ohinta}} = \Sexpr{pr <- netto/ohinta; pr} \approx \Sexpr{p(pr * 100)}~\%,
+    \]
+    joten vuosikorko olisi \Sexpr{p(pr*12/9 * 100)}~\%.
+\end{solution}
 
 \subsection*{Sijoitusrahastot}
 
-\begin{question} Selviä kurssimateriaalista, miten sijoitusrahastojen tuottoa verotetaan.
+\begin{question} Selvitä kurssimateriaalista, miten sijoitusrahastojen tuottoa verotetaan.
 
 \end{question}
 
-\begin{question} Kaverisi osti korkorahaston osuuksia 1 200 eurolla. Hän myi osuudet vuoden kuluttua, jolloin osuuksien arvo oli 1 350 euroa. Kauppojen yhteydessä perityt välityspalkkiot olivat sekä oston että myynnin tapauksessa 0{,}95 \% kauppahinnasta. Mikä oli sijoituksen nettotuottoa vastaava vuosittainen korkokanta?
-
-\end{question}\begin{solution}\end{solution}
-
-\begin{question} Sijoitit rahastoon 95 \euro \  ja sait 8{,}5 rahasto-osuutta. Kahden kuukauden kuluttua rahasto-osuuden arvo oli noussut 3{,}2 \%. Kuinka monta rahasto-osuutta sait, jos sijoitit saman summan kuin edellisellä kerralla?
-
+\begin{question} 
+    Kaverisi osti korkorahaston osuuksia 1 200 eurolla. Hän myi osuudet vuoden kuluttua, jolloin osuuksien arvo oli 1 350 euroa. Kauppojen yhteydessä perityt välityspalkkiot olivat sekä oston että myynnin tapauksessa 0{,}95 \% kauppahinnasta. Mikä oli sijoituksen nettotuottoa vastaava vuosittainen korkokanta?
 \end{question}
+\begin{solution}
+    Nettotuotto on 
+    \[
+        0,7\cdot(1350 - 1200 - 0,0095\cdot(1350+1200)) = \Sexpr{netto <- 0.7*(1350-1200-0.0095*(1200 + 1350)); netto}
+    \]
+    Sijoitus kasvoi siis vuodessa korkoa
+    \[
+        \frac{\Sexpr{netto}}{1200} = \Sexpr{pr <- netto/1200; pr} \approx \Sexpr{p(pr*100)}~\%
+    \]
+\end{solution}
+
+\begin{question} 
+    Sijoitit rahastoon 95 \euro\ ja sait 8{,}5 rahasto-osuutta. Kahden kuukauden kuluttua rahasto-osuuden arvo oli noussut 3{,}2 \%. Kuinka monta rahasto-osuutta sait, jos sijoitit saman summan kuin edellisellä kerralla?
+\end{question}
+\begin{solution}
+    Rahasto-osuuden arvo oli \(95/8,5 = \Sexpr{arvo <- 95/8.5; arvo}\). Nousun jälkeen arvo oli \Sexpr{arvo2 <- 1.032*arvo; arvo2}, joten osuuksi saatiin
+    \[
+        \frac{95}{\Sexpr{arvo2}} = \Sexpr{95/arvo2} \approx \Sexpr{p(95/arvo2)}
+    \]
+    kpl.
+\end{solution}
 
 \subsection*{Sekalaisia tehtäviä}
 
-\begin{question} Sijoitat loppuvuoden aikana erääseen rahastoon joka kuukausi saman summan syyskuusta alkaen. Rahasto-osuuden arvo euroina on alla olevassa taulukossa. Oletko voitolla vai tappiolla sijoituksissasi joulukuun sijoituksen jälkeen? Kuinka monta prosenttia voitto tai tappio on kokonaissijoituksestasi?
-\end{question}\begin{solution}\end{solution}
-
-\begin{question} Kaverisi tallettaa 16.4.2014 määräaikaistilille 2 400 euroa. Tilin eräpäiväksi asetetaan 20.3.2015. Tilin kiinteä korko on 2{,}95 \% p.a. ja se lasketaan korkotavan todelliset/360 mukaan. Korko liitetään pääomaan vuoden vaihteessa ja talletuksen eräpäivänä. Kuinka paljon kaverisi voi nostaa tililtään eräpäivänä?
-
-\end{question}\begin{solution}\end{solution}
-
-\begin{question} Ostat 50 kappaletta erään yrityksen osakkeita hintaan 21{,}75 \euro/kpl. Välityspalkkio on 0{,}5~\% kauppahinnasta, kuitenkin vähintään 8 \euro. Kuinka paljon maksat yhdestä osakkeesta, jos välityspalkkio otetaan huomioon?
-
+\begin{question} 
+    Sijoitat loppuvuoden aikana erääseen rahastoon joka kuukausi saman summan syyskuusta alkaen. Rahasto-osuuden arvo euroina on alla olevassa taulukossa. Oletko voitolla vai tappiolla sijoituksissasi joulukuun sijoituksen jälkeen? Kuinka monta prosenttia voitto tai tappio on kokonaissijoituksestasi?
+<<echo=F, results='asis'>>=
+    library('xtable')
+    k <- c('syyskuu','lokakuu','marraskuu','joulukuu')
+    a <- c(2.70, 2.95, 2.80, 2.65)
+    df <- data.frame(k,a, row.names=1)
+    print( xtable(t(df)), format.args=list(big.mark = "'", decimal.mark = ","), include.rownames=F) 
+@
 \end{question}
+\begin{solution}
+    Taulukoidaan:
+<<echo=F, results='asis'>>=
+    df <- data.frame(k, a, paste('x','/',a))
+    colnames(df) <- c('Kuukausi','Arvo','Uusia osuuksia')
+    print(xtable(df), format.args=list(decimal.mark=','))
+@   
+\noindent
+Joulukuun lopussa rahasto-osuuksia on 
+    \[  
+        \frac{x}{2,7} + \frac{x}{2,95} + \frac{x}{2,80} + \frac{x}{2,65} = \Sexpr{kpl <- sum(1/a); kpl}x
+    \]
+    kappaletta, joten niiden arvo on 
+    \[
+        2,65\cdot\Sexpr{kpl}x = \Sexpr{arvo <- 2.65*kpl; arvo}x
+    \] euroa. Osuuksien hankintaan on puolestaan kulunut \(4x\) euroa, joten tappiolla ollaan. Joulukuun rahasto-osuuksien arvo on 
+    \[
+        \frac{\Sexpr{arvo}x}{4x} = \Sexpr{arvo/4} \approx \Sexpr{osuus <- arvo/4*100; p(osuus)}~\%
+    \]
+    ostohinnasta, joten tappiolla ollaan noin \Sexpr{p(100-osuus)}~\%. 
 
-\begin{solution}\end{solution}\begin{question} Joukkovelkakirjalainan korkokanta on 5{,}5 \% p.a. ja laina-aika kolme vuotta. Ostat tämän lainan obligaatioita 144 päivää liikkeellelaskun jälkeen, kun emissiokurssi on 98{,}5 \%. Ostamiesi obligaatioiden nimellisarvo on yhteensä 2 500 euroa. Jos olisit tallettanut obligaatioista maksamasi summan pankkitilille, mikä olisi sen vuotuisen korkokannan pitänyt olla, jotta sijoitusten nettotuotot olisivat yhtä suuria? Korkotapana 30/360.
+\end{solution}
 
-\end{question}\begin{solution}\end{solution}
-
-\begin{question} Talletat sijoitusvakuutukseen kolmena peräkkäisenä vuonna jokaisen vuoden alussa 2 000 euroa. Sijoitusvakuutuksen vuotuinen tuotto on ensimmäisenä vuonna 3 \%, toisena vuonna 2 \% ja kolmantena vuonna 2{,}5 \%. Maksat sijoittamiesi rahasummien lisäksi vakuutuksesta hoitomaksua 15 \euro \ vuodessa. 
-\begin{enumerate}
-  \item Mikä on sijoituksesi nettotuotto sijoitusajan päättyessä kolmannen vuoden lopussa? 
-  \item Jos olisit tallettanut sijoittamasi summat samalla tavalla vuosittain pankkitilille, jonka korkokanta on 2{,}5 \% p.a., olisiko nettotuotto ollut suurempi vai pienempi kuin sijoitusvakuutuksessa?
-\end{enumerate}
+\begin{question} 
+    Kaverisi tallettaa 16.4.2014 määräaikaistilille 2 400 euroa. Tilin eräpäiväksi asetetaan 20.3.2015. Tilin kiinteä korko on 2{,}95 \% p.a. ja se lasketaan korkotavan todelliset/360 mukaan. Korko liitetään pääomaan vuoden vaihteessa ja talletuksen eräpäivänä. Kuinka paljon kaverisi voi nostaa tililtään eräpäivänä?
 \end{question}
+\begin{solution}
+    Vuodelta 2014 korkopäiviä kertyy \Sexpr{ekat <- 30-14 + 31 + 30 + 31 + 31 + 30 + 31 + 30 + 31; ekat} kpl ja vuodelta 2015 \Sexpr{tokat <- 31+28+20; tokat} kpl. Vuoden 2014 korko on
+    \[
+        r = 2400\cdot 0,0295\cdot \frac{\Sexpr{ekat}}{360} = \Sexpr{r1 <- 2400*0.0295*ekat/360;r1}
+    \]
+    euroa, joten vuoden 2015 alussa tilillä on lähdevero huomioiden 
+    \[
+        k = 2400 + 0,7\Sexpr{r1} = \Sexpr{k1 <- 2400 + 0.7*r1; k1}
+    \]
+    euroa. Näin ollen vuodelta 2015 saadaan
+    \[
+        r = \Sexpr{k1}\cdot0,0295\cdot\frac{\Sexpr{tokat}}{360} = \Sexpr{r2 <- k1*0.0295*tokat/360; r2}
+    \]
+    euroa korkoa, josta lähdeveron jälkeen jää \Sexpr{0.7*r2}\ \euro. Niinpä tililtä on 20.3.2015 nostettavissa \Sexpr{p(k1+0.7*r2)} euroa.
+\end{solution}
 
-\begin{solution}\end{solution}
+\begin{question} 
+    Ostat 50 kappaletta erään yrityksen osakkeita hintaan 21{,}75 \euro/kpl. Välityspalkkio on 0{,}5~\% kauppahinnasta, kuitenkin vähintään 8 \euro. Kuinka paljon maksat yhdestä osakkeesta, jos välityspalkkio otetaan huomioon?
+\end{question}
+\begin{solution}
+    Osakkeiden ostohinta on \(50\cdot21,75 = \Sexpr{hinta <- 50*21.75; hinta}\) euroa, joten 0,5~\% välityspalkkioksi saadaan \(\Sexpr{0.005*hinta}\) euroa. Välityspalkkiota joudutaan siis maksamaan 8 euroa. Lopullinen hinta on \(\Sexpr{hinta+8}\)~\euro, eli osaketta kohden \(\Sexpr{(hinta+8)/50}\) euroa.
+\end{solution}
+
+\begin{question} 
+    Joukkovelkakirjalainan korkokanta on 5{,}5 \% p.a. ja laina-aika neljä vuotta. Ostat tämän lainan obligaatioita 144 päivää liikkeellelaskun jälkeen, kun emissiokurssi on 98{,}5 \%. Ostamiesi obligaatioiden nimellisarvo on yhteensä 2 500 euroa. Jos olisit tallettanut obligaatioista maksamasi summan pankkitilille, mikä olisi sen vuotuisen korkokannan pitänyt olla, jotta sijoitusten nettotuotot olisivat yhtä suuria? Korkotapana 30/360.
+\end{question}
+\begin{solution}
+    Obligaatiosta maksettiin emissiokurssin mukainen hinta ja korko 144 päivältä, eli yhteensä 
+    \[
+        0,985\cdot2500 + 2500\cdot0,055\cdot\frac{144}{360} = \Sexpr{emhinta <- 0.985*2500; r <- 2500*0.055*144/360; ohinta <- emhinta + r; ohinta}
+    \]
+    euroa. Laina ajan päätyttyä saadaan nimellishinnan lisäksi kolmelta vuodelta kertyneet korot, eli yhteensä
+    \[
+       2500 + 3\cdot 2500 \cdot 0,055 = \Sexpr{kkorko <- 3*2500*0.055; mhinta <- 2500 + kkorko; mhinta}
+    \]
+    euroa. Voittoa (ennen veroja) saatiin siis \(\Sexpr{voitto <- mhinta - ohinta; voitto}\) euroa. Jotta tililtä, jonka korkokanta on \(i\) saataisiin sama korkotuotto, täytyisi olla
+    \[
+        \Sexpr{ohinta}\cdot (1+i)^4 - \Sexpr{ohinta} = \Sexpr{voitto}
+    \]
+    eli
+    \[
+        i = \Sexpr{i <- ((voitto + ohinta)/ohinta)^(1/4)- 1; i}.
+    \]
+    Tilin korkokannan olisi siis oltava \(\Sexpr{p(100*i)}\)~\%.
+\end{solution}
+
+\begin{question} 
+    Talletat sijoitusvakuutukseen kolmena peräkkäisenä vuonna jokaisen vuoden alussa 2~000 euroa. Sijoitusvakuutuksen vuotuinen tuotto on ensimmäisenä vuonna 3~\%, toisena vuonna 2~\% ja kolmantena vuonna 2{,}5~\%. Maksat sijoittamiesi rahasummien lisäksi vakuutuksesta hoitomaksua 15~\euro\ vuodessa. 
+    \begin{enumerate}[(a)]
+        \item Mikä on sijoituksesi nettotuotto sijoitusajan päättyessä kolmannen vuoden lopussa? 
+        \item Jos olisit tallettanut sijoittamasi summat samalla tavalla vuosittain pankkitilille, jonka korkokanta on 2{,}5 \% p.a., olisiko nettotuotto ollut suurempi vai pienempi kuin sijoitusvakuutuksessa?
+    \end{enumerate}
+\end{question}
+\begin{solution}
+<<echo=FALSE>>=
+pr <- c(0.03, 0.02, 0.025)
+qpr <- 1 + pr
+summa <- 2000*prod(qpr) + 2000*prod(qpr[2:3]) + 2000*qpr[3]
+sij <- c(2000,2000,2000)
+@
+    \begin{enumerate}[(a)]
+        \item Sijoituksen arvo korkoineen sijoitusajan lopussa on \Sexpr{summa}, joten korkoa on saatu \Sexpr{r <- summa - sum(sij); r} euroa. Pääomatuloveroa maksetaan siis \(\Sexpr{r} - 3\cdot15 = \Sexpr{verotettava <- r - 3*15; verotettava}\) eurosta, joten korosta jää käteen 
+        \[
+           0,7\cdot\Sexpr{verotettava} = \Sexpr{nr <- 0.7*verotettava; nr} \approx \Sexpr{p(nr)}
+        \]
+        euroa. Tämä on sijoituksen nettotuotto.
+        \item Pankkitilillä olisi sijoituksen päätyttyä
+        \[
+            2000\cdot(1+0,7\cdot0,025)^3 + 2000\cdot(1+0,7\cdot0,025)^2+ 2000\cdot(1+0,7\cdot0,025) = \Sexpr{q <- 1+0.7*0.025; pt <- sum(2000*c(q**3, q**2, q)); pt}
+        \]
+        euroa, joten korkoa olisi saatu \Sexpr{p(pt - 6000)} euroa. Pankkitililtä saatu nettotuotto olisi siis tässä tapauksessa ollut suurempi.
+    \end{enumerate}
+\end{solution}
 
 
 
