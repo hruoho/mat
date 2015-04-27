@@ -2,8 +2,8 @@
 
 \input{../_texPartials/simple-preamble}
 
-%\SetupExSheets{question/print=false}
-\SetupExSheets{solution/print=true}
+\SetupExSheets{question/print=true}
+\SetupExSheets{solution/print=false}
 \DeclareTranslation{finnish}{exsheets-solution-name}{Ratkaisuehdotus}
 
 \begin{document}
@@ -63,7 +63,7 @@ euroa.
 Selvitä kurssimateriaalista, miten sijoitusvakuutusta verotetaan. 
 \end{question}
 \begin{solution}
-Sijoitusvakuutuksesta saaduista tuotoista maksetaan pääomatulovero sijoitusajan päätyttyä. Jos edunsaaja on joku muu kuin sijoittaja itse, maksetaan lisäksi lahjavero sijoitetusta summasta.
+%Sijoitusvakuutuksesta saaduista tuotoista maksetaan pääomatulovero sijoitusajan päätyttyä. Jos edunsaaja on joku muu kuin sijoittaja itse, maksetaan lisäksi lahjavero sijoitetusta summasta.
 \end{solution}
 
 \begin{question} Sijoitat sijoitusvakuutukseen vuoden alussa 1~500~\euro\ ja kahden seuraavan vuoden alussa 1~000~\euro\ vuosittain. Vakuutuksesta pitää maksaa sijoitettavan summan lisäksi hoitokuluja 15 euroa vuodessa. Sijoitusvakuutuksen vuosituotoksi arvioidaan 6~\%. Mikä on sijoituksesi nettotuotto kolmen vuoden kuluttua? 
@@ -354,6 +354,8 @@ sij <- c(2000,2000,2000)
     \end{enumerate}
 \end{solution}
 
+\section*{Ratkaisuehdotuksia}
 
+\printsolutions
 
 \end{document}
