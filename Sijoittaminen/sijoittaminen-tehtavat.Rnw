@@ -42,7 +42,7 @@ q <- j + (1+i)**4
 K <- 10387.45
 k <- K/q
 @
-  Olkoon \(k\) alkuperäinen talletus. Talletusajan lopuksi maksettava lisäkorko on \((0,7\cdot0,075)\cdot k \) euroa, joten tilillä on lopuksi rahaa
+  Olkoon \(k\) alkuperäinen talletus. Talletusajan lopuksi maksettava lisäkorko on tässä tapauksessa \((0,7\cdot0,075)\cdot k \) euroa, joten tilillä on lopuksi rahaa
   \[
     (0,7\cdot0,075)\cdot k + (1+0,7\cdot0,035)^4\cdot k = \Sexpr{0.7*0.075}k + \Sexpr{(1+0.7*0.035)**4} k = \Sexpr{q} k
   \]
@@ -54,16 +54,15 @@ jonka perusteella
 \[
   k = \frac{\Sexpr{p(K)}}{\Sexpr{q}} = \Sexpr{p(k)}
 \]
-euroa.
+euroa. Alkuperäinen talletus oli siis \Sexpr{p(k)} euroa.
 \end{solution}
 
 \subsection*{Vakuutukset}
 
 \begin{question} 
-Selvitä kurssimateriaalista, miten sijoitusvakuutusta verotetaan. 
+Selvitä kurssimateriaalista, mitä sijoitusvakuutuksella tarkoitetaan ja miten sellaista verotetaan. 
 \end{question}
 \begin{solution}
-%Sijoitusvakuutuksesta saaduista tuotoista maksetaan pääomatulovero sijoitusajan päätyttyä. Jos edunsaaja on joku muu kuin sijoittaja itse, maksetaan lisäksi lahjavero sijoitetusta summasta.
 \end{solution}
 
 \begin{question} Sijoitat sijoitusvakuutukseen vuoden alussa 1~500~\euro\ ja kahden seuraavan vuoden alussa 1~000~\euro\ vuosittain. Vakuutuksesta pitää maksaa sijoitettavan summan lisäksi hoitokuluja 15 euroa vuodessa. Sijoitusvakuutuksen vuosituotoksi arvioidaan 6~\%. Mikä on sijoituksesi nettotuotto kolmen vuoden kuluttua? 
@@ -83,13 +82,13 @@ Sijoituksen arvo kolmen vuoden kuluttua on
 euroa.
 Tuotto on siis kulut huomioiden ollut 
 \[
-  \Sexpr{arvo} - \Sexpr{sum(sij)} \Sexpr{sum(kulut)} = \Sexpr{tuotto <- arvo - sum(sij) - sum(kulut); tuotto}
+  \Sexpr{arvo} - \Sexpr{sum(sij)} - \Sexpr{sum(kulut)} = \Sexpr{tuotto <- arvo - sum(sij) - sum(kulut); tuotto}
   \]
   euroa. Nettotuotto saadaan kun tuotosta vähennetään pääomatulovero:
 \[
   0,7\cdot\Sexpr{tuotto} = \Sexpr{netto <- 0.7*tuotto; netto}.
 \]
-Nettotuotto on siis \Sexpr{p(netto)} euroa.
+Nettotuotto on siis \Sexpr{p(netto)} euroa. (Tässä hoitokulut maksettiin erikseen, ei sijoitussummista.)
 \end{solution}
 
 \begin{question} Isotätisi tallettaa sijoitusvakuutukseen ensimmäisenä vuonna 3~000 euroa ja toisena vuonna 2~000 euroa. Hän maksoi vakuutuksesta sijoitettavan summan lisäksi hoitokuluja 20 euroa vuodessa. Sijoitusvakuutuksen vuosituotto oli ensimmäisenä vuonna 7~\% ja toisena vuonna 4~\%. Edunsaajaksi isotätisi määräsi sinut. Kuinka paljon rahaa sait vakuutuksesta verojen maksamisen jälkeen?
@@ -108,7 +107,7 @@ euroa. Tuotto on
 \[
   \Sexpr{arvo} - \Sexpr{sum(sij)} - \Sexpr{sum(kulut)} = \Sexpr{tuotto <- arvo - sum(sij) - sum(kulut); tuotto}
 \]
-ja siten lähdeveron jälkeinen nettotuotto
+ja siten paaomatuloveron jälkeinen nettotuotto
 \[
   0,7\cdot \Sexpr{tuotto} = \Sexpr{netto <- 0.7*tuotto; netto}
 \]
