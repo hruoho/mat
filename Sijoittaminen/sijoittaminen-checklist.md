@@ -1,11 +1,12 @@
 #Sijoittaminen
 
-##Pankkitalletukset
 
-##Sijoitusvakuutukset
+###Pankkitalletukset
 
-##Obligaatiot
+###Sijoitusvakuutukset
 
-##Osakkeet
+###Obligaatiot
 
-##Rahastot
+###Osakkeet
+
+###Rahastot
