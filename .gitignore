@@ -66,3 +66,4 @@ Session.vim
 ekonomimateriaali.pdf
 .idea/*
 .Rproj.user
+*.sh

@@ -1,0 +1,46 @@
+\documentclass{beamer}
+
+\input{../_texPartials/simple-beamer-preamble}
+
+\begin{document}
+	\begin{frame}
+		Henkilö saa vuonna 2013 isältään 5000 euron lahjoituksena ja seuraavana vuonna 3000 euron lahjoituksen. Lahjaveroa maksetaan
+		\begin{enumerate}[(A)]
+			\item 
+			\item
+			\item
+			\item
+			\item
+		\end{enumerate}
+	\end{frame}
+	\begin{frame}
+		Henkilö saa alkuvuodesta 2013 isältään 5000 euron lahjoituksen ja myöhemmin samana vuonna 3000 euron lahjoituksen. Lahjaveroa maksetaan
+		\begin{enumerate}[(A)]
+			\item 
+			\item
+			\item
+			\item
+			\item
+		\end{enumerate}
+	\end{frame}
+	\begin{frame}
+		Jälkimarkkinahyvityksessä lähdevero mukaan?
+		\begin{enumerate}[(A)]
+			\item 
+			\item
+			\item
+			\item
+			\item
+		\end{enumerate}
+	\end{frame}
+	\begin{frame}
+		Miten osakkeiden nettotuotto lasketaan (mihin suhteutetaan)?
+		\begin{enumerate}[(A)]
+			\item 
+			\item
+			\item
+			\item
+			\item
+		\end{enumerate}
+	\end{frame}
+\end{document}
