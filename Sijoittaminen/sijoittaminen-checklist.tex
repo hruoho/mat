@@ -1,6 +1,6 @@
 \documentclass{article}
 
-\input{../_texPartials/simple-preamble}
+\input{../_texPartials/simple-preamble.tex}
 \makeatletter
 \renewcommand\thesection{\hspace*{-1.0em}}
 \renewcommand\thesubsection{\hspace*{0.0em}}
@@ -28,18 +28,24 @@
   \item
     Lähdevero
   \end{itemize}
+\item 
+  Osattava erottaa yksinkertainen korkolaskenta ja koronkorkolaskenta 
+\item 
+  Keskeiset kaavat: \(r=kit\) ja \(K = kq^n\)
 \item
-  Korkoaika ilmoitetaan korkokausina (r=kit)
+  Korkoaika ilmoitetaan korkokausina
 \item
   Korko maksetaan korkokauden päätteeksi
 \item
-  Koronmaksun yhteydessä peritään lähdevero (30\%)
-\item
-  (Todellisuudessa lähdevero pyöristetään alaspäin kymmenien senttien
-  tarkkuuteen)
-\item
-  Lähdevero huomioidaan korkokerrointa muodostettaessa
-  (nettokorkokerroin)
+  Lähdevero (30~\%)
+  \begin{itemize}
+    \item 
+      Peritään koronmaksun yhteydessä 
+    \item
+      Todellisuudessa pyöristetään alaspäin kymmeniin sentteihin 
+    \item
+      Huomioidaan usein jo korkokerrointa muodostettaessa (nettokorkokerroin)
+  \end{itemize}
 \end{itemize}
 
 \subsection{Obligaatiot}\label{obligaatiot}
@@ -52,8 +58,8 @@
   \begin{itemize}
     \itemsep1pt\parskip0pt\parsep0pt
     \item
-      joukkovelkakirjalaina: obligaatio on joukkovelkakirjalainan
-      osavelkakirja
+      joukkovelkakirjat: valtion, kunnan, yrityksen tms. yhteisön liikkeelle laskemia arvopapereita, joilla lainataan varoja yleisöltä 
+    \item obligaatio: joukkovelkakirjalainan osavelkakirja
     \item
       nimellisarvo: obligaation arvo liikkellelaskuhetkellä (sama, joka
       obligaatiosta maksetaan takaisin laina-ajan päätyttyä)
@@ -77,7 +83,7 @@
       ostajalle verovähennyskelpoinen tulonhankkimiskustannus
   \end{itemize}
 \item
-  Otetaanko lähdevero huomioon jälkimarkkinahyvitystä laskettaessa?
+  Jälkimarkkinahyvityksen yhteydessä ei huomioida lähdeveroa
 \end{itemize}
 
 \subsection{Sijoitusvakuutukset}\label{sijoitusvakuutukset}
@@ -94,7 +100,17 @@
 \end{itemize}
 
 \subsection{Osakkeet}\label{osakkeet}
+  \begin{itemize}
+    \item Luovutusvoitosta maksetaan pääomatulovero
+    \item Hankintahinta, välityspalkkiot yms. katsotaan tulonhankkimiskuluiksi
+    \item Osingoista 15~\% verovapaata tuloa, 85~\% pääomatuloveron alaista tuloa
+  \end{itemize}
 
-\subsection{Rahastot}\label{rahastot}
+\subsection{Rahastot}
+  \begin{itemize}
+    \item Rahasto-osuudet jaetaan tuotto- ja kasvuosuuksiin
+    \item Sijoituksen arvo määräytyy osuuksien lukumäärän ja hetkellisen arvon mukaan
+    \item Osuuksien lukumäärän ei tarvitse olla kokonaisluku
+  \end{itemize}
 
 \end{document}

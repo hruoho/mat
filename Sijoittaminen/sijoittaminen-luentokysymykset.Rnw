@@ -1,6 +1,6 @@
 \documentclass{beamer}
 
-\input{../_texPartials/simple-beamer-preamble}
+\input{../_texPartials/simple-beamer-preamble.tex}
 
 \begin{document}
 	\begin{frame}
@@ -35,6 +35,16 @@
 	\end{frame}
 	\begin{frame}
 		Miten osakkeiden nettotuotto lasketaan (mihin suhteutetaan)?
+		\begin{enumerate}[(A)]
+			\item 
+			\item
+			\item
+			\item
+			\item
+		\end{enumerate}
+	\end{frame}
+	\begin{frame}
+		
 		\begin{enumerate}[(A)]
 			\item 
 			\item
